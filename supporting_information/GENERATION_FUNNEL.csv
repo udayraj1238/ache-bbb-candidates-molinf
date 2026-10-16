@@ -1,0 +1,13 @@
+step,count
+Potent published AChE parents (pChEMBL at least 6.5),2225
+Matched-pair transformations used,222
+"Round 1: distinct analogues, one edit",38209
+"Round 2: additional distinct analogues, second edit on 16,000 round-1 products",345543
+All distinct analogues (one or two edits),383752
+Not already in the project's training data,383134
+"15--45 heavy atoms, CNS MPO at least 4, SA at most 5, no PAINS/Brenk alert, no unstable group",12484
+Both BBB models at least 0.6 and disagreement at most 0.15,4112
+AChE probability at least 0.5,3898
+"At most 8 per scaffold, best first (16,000-seed run)",2454
+Added from the earlier single-edit run (613 shared),246
+Stored designs (union; 386 parents),2700

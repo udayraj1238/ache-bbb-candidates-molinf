@@ -1,0 +1,19 @@
+AD_ACHE_BASELINES                            max |old - new| over 5 numeric columns = 0.0000  (tolerance 0.010) -> REPRODUCED
+AD_BBB_BASELINES                             max |old - new| over 3 numeric columns = 0.0000  (tolerance 0.010) -> REPRODUCED
+AD_EXPOSURE_LOGBB_VALIDATION                 max |old - new| over 6 numeric columns = 0.0000  (tolerance 0.010) -> REPRODUCED
+AD_PGP_GATE_VALIDATION                       max |old - new| over 11 numeric columns = 0.0000  (tolerance 0.010) -> REPRODUCED
+AD_RANDOM_VS_SCAFFOLD                        max |old - new| over 4 numeric columns = 0.0000  (tolerance 0.020) -> REPRODUCED
+AD_SPLIT_DETERMINISTIC_SAME_MODELS           max |old - new| over 4 numeric columns = 0.0000  (tolerance 0.020) -> REPRODUCED
+MMP ablation arm LIB (mean_dP > 0)                  old -0.100 new -0.100 -> REPRODUCED
+MMP ablation arm RANDOM (any sign)                  old -0.096 new -0.096 -> REPRODUCED
+MMP ablation arm TPSA rule (most negative dTPSA)    old -0.006 new -0.006 -> REPRODUCED
+Second-model agreement, BBB permeability   consensus better in old 6 / new 6 of 20 repeats -> REPRODUCED
+Second-model agreement, AChE activity      consensus better in old 16 / new 16 of 20 repeats -> REPRODUCED
+Redocking donepezil: old RMSD 0.833-0.924 over 25 runs | new 0.833-0.924 over 25 runs | all <= 2.0 A (new): True -> REPRODUCED
+Docking enrichment, earlier set (MW-matched, 138 vs 259)                 Vina AUC old 0.715 new 0.715 | properties-only old 0.750 new 0.750 -> REPRODUCED
+Docking enrichment, A: property-matched, dissimilar decoys (primary)     Vina AUC old 0.639 new 0.639 | properties-only old 0.518 new 0.514 -> REPRODUCED
+Docking enrichment, B: measured inactives, same series (stress)          Vina AUC old 0.618 new 0.619 | properties-only old 0.556 new 0.553 -> REPRODUCED
+
+Independent re-implementations:
+Martins BBB, held-out scaffolds n=582 (448 positive): fresh random forest AUC 0.932 | saved model AUC 0.929 | paper 0.929
+logBB scaffold-grouped 5-fold CV (3 shuffles, n=1025): ensemble rho 0.712 (RMSE 0.55) | TPSA-only rho 0.644 (RMSE 0.65) | paper 0.71 (0.55) and 0.65

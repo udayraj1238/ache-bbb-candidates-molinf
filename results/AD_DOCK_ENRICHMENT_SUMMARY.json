@@ -1,0 +1,20 @@
+{
+ "n_actives": 138,
+ "n_decoys": 259,
+ "auc": 0.7151250629511499,
+ "auc_lo": 0.6597483352918136,
+ "auc_hi": 0.7678648368865759,
+ "auc_le": 0.5598035924122882,
+ "auc_le_lo": 0.5005266912875609,
+ "auc_le_hi": 0.6184355939790721,
+ "median_vina_actives": -10.975,
+ "median_vina_decoys": -9.472,
+ "median_ha_actives": 29.0,
+ "median_ha_decoys": 28.0,
+ "mannwhitney_p": 8.230112864447018e-13,
+ "sens_at_galantamine": 0.9492753623188406,
+ "fpr_at_galantamine": 0.8185328185328186,
+ "passes_bar": true,
+ "bar": 0.7,
+ "ef10": 2.0137681159420286
+}

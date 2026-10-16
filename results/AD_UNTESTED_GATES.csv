@@ -1,0 +1,13 @@
+gate,test,value,lo,hi,bar,verdict
+CNS MPO,B3DB BBB+ vs BBB-: ROC-AUC of CNS MPO (n=7763),0.6668774938874519,0.6535029438860582,0.6791702854761856,"AUC>=0.60, lo>0.50",PASS
+CNS MPO,reference: -TPSA on the same rows,0.8121608795493904,0.8014383365221263,0.8226511948861147,,descriptive
+CNS MPO,"BBB+ rate at MPO>=4.0 (73 %, n=4509) vs below (50 %, n=3254); Fisher p=1e-99",0.23516451355978196,,,"higher above, p<0.05",PASS
+CNS MPO,logBB (n=1025): Spearman rho of CNS MPO,-0.09584142508923948,-0.15894657840534457,-0.03223464105180452,"rho>=0.30 (reported, not required)",below bar
+CNS MPO,GATE VERDICT,,,,needs (a) and (b),SUPPORTED
+Applicability,AChE: AUC in domain 0.909 vs outside 0.695 (n=1115/174); difference,0.21369713626584996,0.1333612050852924,0.29534899068911874,"diff>=0.05, lo>0",PASS
+Applicability,BBB: AUC in domain 0.883 vs outside 0.731 (n=478/687); difference,0.15198270950030301,0.10392513344180543,0.199201187364765,"diff>=0.05, lo>0",PASS
+Applicability,GATE VERDICT,,,,both datasets pass,SUPPORTED
+Pose coverage,actives vs decoys: AUC of coverage (138/259 molecules),0.7175591740809132,0.667944924738403,0.7729488416988416,"AUC>=0.60, lo>0.50",PASS
+Pose coverage,gate at coverage >= 0.43: passes 96 % of actives and 88 % of decoys,0.07621285882155449,,,descriptive,
+Pose coverage,median coverage actives 0.96 vs decoys 0.75,0.2142857142857143,,,descriptive,
+Pose coverage,GATE VERDICT (GNINA poses),,,,AUC bar,SUPPORTED

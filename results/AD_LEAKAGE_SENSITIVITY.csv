@@ -1,0 +1,15 @@
+experiment,subset,n,item,value,lo,hi
+exposure vs measured logBB,"all 1,025",1025,exposure score,0.2440992325935656,0.18449072872345826,0.3009915293321213
+exposure vs measured logBB,"all 1,025",1025,passive term,0.4462986814699568,0.39320811912090997,0.4927760153286713
+exposure vs measured logBB,"all 1,025",1025,1 - P-gp term,0.020906460792340525,-0.038123682550239804,0.07836680256733038
+exposure vs measured logBB,"all 1,025",1025,-TPSA,0.647256931111671,0.6083588482411723,0.681798815902005
+exposure vs measured logBB,excluding structures in P-gp or PAMPA data,862,exposure score,0.23748313429197335,0.17377687537654438,0.2975037465616026
+exposure vs measured logBB,excluding structures in P-gp or PAMPA data,862,passive term,0.40126727707433735,0.34421885912149935,0.4574552812033235
+exposure vs measured logBB,excluding structures in P-gp or PAMPA data,862,1 - P-gp term,0.024296503215069137,-0.04339715425585749,0.08817366321469332
+exposure vs measured logBB,excluding structures in P-gp or PAMPA data,862,-TPSA,0.6267028254043295,0.5837961940088255,0.6657725346565341
+P-gp term in the passive >= 0.80 stratum,"all 7,763",2800,AUC of (1 - P-gp) for BBB+,0.5232112506224511,0.4952508914939236,0.5504048118037294
+exposure score on B3DB classification,"all 7,763",7763,AUC of exposure score for BBB+,0.7096328111431698,,
+P-gp term in the passive >= 0.80 stratum,excluding structures in P-gp or PAMPA data,2513,AUC of (1 - P-gp) for BBB+,0.5211913673648164,0.4884707400918478,0.553231829524037
+exposure score on B3DB classification,excluding structures in P-gp or PAMPA data,6971,AUC of exposure score for BBB+,0.7148414678393229,,
+overlap counts,logBB set,1025,removed,163.0,,
+overlap counts,B3DB classification,7763,removed,792.0,,

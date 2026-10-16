@@ -1,0 +1,9 @@
+scenario,spearman_with_reference_median,spearman_p05,core_in_top25_median_share,core_in_top25_p05_share
+"random Dirichlet weights (20,000)",0.6233910293019375,0.257763146333963,0.375,0.0
+without AChE probability,0.6877498572244432,,0.0,
+without predicted logBB,0.6653670430083909,,0.5,
+without Vina score,0.7419496551421166,,0.75,
+without synthetic accessibility,0.8093726661687827,,0.5,
+without distance from prior art,0.754733558845495,,0.25,
+"validation-weighted (AChE 0.40, logBB 0.33, Vina 0.00, others 0)",0.633033870755173,,0.5,
+Pareto: non-dominated molecules = 60 of 103; tier-1 molecules on the front = 6 of 8,,,,

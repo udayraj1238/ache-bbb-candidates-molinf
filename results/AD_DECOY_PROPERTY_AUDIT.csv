@@ -1,0 +1,5 @@
+set,n_actives,n_decoys,vina_auc,properties,logistic_auc,rf_auc
+existing (MW-matched),138.0,259.0,0.7151250629511499,,,
+existing (MW-matched),,,,all nine properties,0.7500601533210228,0.7726176487046053
+existing (MW-matched),,,,MW and logP,0.6696435566000783,0.620913770913771
+existing (MW-matched),,,,"HBD, HBA, charge, basic N, rotatable bonds, TPSA",0.676563986346595,0.7433663477141739

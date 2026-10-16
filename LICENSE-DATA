@@ -1,0 +1,7 @@
+The structures, result tables, supporting information and manuscript text generated in this study
+(folders paper/, supporting_information/, results/) are licensed under the Creative Commons
+Attribution 4.0 International licence (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+Third-party data (ChEMBL, BindingDB, Therapeutics Data Commons, B3DB, PDB, ZINC, USPTO) and curated
+derivatives of them in data/ keep the licences of their sources. The molecules listed here are
+computational candidates only; no claim of activity, safety or freedom to operate is made.

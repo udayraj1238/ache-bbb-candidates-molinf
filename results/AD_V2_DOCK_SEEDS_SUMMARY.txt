@@ -1,0 +1,6 @@
+106 molecules x 3 runs (original + 2 new seeds)
+Vina score range over the runs: median 0.33, 95th percentile 0.94, maximum 1.36 kcal/mol
+minimum pose coverage over the runs: median 0.93, minimum 0.54
+pass both docking gates in all three runs: 105 of 106 (99 %)
+molecules failing in at least one run: 1 (worst Vina -8.19)
+pass criterion (>= 90 % pass in all runs): PASS

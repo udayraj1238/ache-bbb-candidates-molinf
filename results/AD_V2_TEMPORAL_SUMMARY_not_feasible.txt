@@ -1,0 +1,6 @@
+all new structures                             n=   1 (0 active)  too few for an AUC
+new, document year >= 1997                     n=   1 (0 active)  too few for an AUC
+new, least similar third (sim <= 0.19)         n=   1 (0 active)  too few for an AUC
+new, middle third                              n=   0 (0 active)  too few for an AUC
+new, most similar third                        n=   0 (0 active)  too few for an AUC
+pass criterion (primary AUC >= 0.70 on all new structures, interval not entirely below the nearest-neighbor baseline): NOT MET

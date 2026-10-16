@@ -1,0 +1,21 @@
+smiles,n_isomers,scores,coverages,spread,best_isomer,verdict
+COc1ccc(CNC2CCN(Cc3ccccc3F)C2)cc1,2,-10.24;-10.12,0.89;0.93,0.120000000000001,COc1ccc(CN[C@@H]2CCN(Cc3ccccc3F)C2)cc1,racemate OK - isomers equivalent
+Fc1ccc(CNC2CCN(Cc3ccccc3F)C2)cc1,2,-10.33;-10.41,0.86;0.93,0.08000000000000007,Fc1ccc(CN[C@H]2CCN(Cc3ccccc3F)C2)cc1,racemate OK - isomers equivalent
+CC(=O)OCc1ccc(CNC2CCN(Cc3ccccc3)C2)cc1,2,-10.06;-10.36,0.89;0.93,0.29999999999999893,CC(=O)OCc1ccc(CN[C@H]2CCN(Cc3ccccc3)C2)cc1,specify one isomer
+CCC(c1ccc(OC2Cc3cc(OC)c(OC)cc3C2=O)cc1)N1CCOCC1,4,-10.97;-11.12;-11.18;-10.76,0.96;1.00;0.93;0.96,0.41999999999999993,CC[C@H](c1ccc(O[C@@H]2Cc3cc(OC)c(OC)cc3C2=O)cc1)N1CCOCC1,specify one isomer
+COc1cc2c(cc1OC)C(=O)C(Oc1ccc(C(CF)N3CCOCC3)cc1)C2,4,-10.83;-11.26;-10.72;-11.34,1.00;1.00;0.96;1.00,0.6199999999999992,COc1cc2c(cc1OC)C(=O)[C@H](Oc1ccc([C@H](CF)N3CCOCC3)cc1)C2,specify one isomer
+COc1cc2c(cc1OC)C(=O)C(Oc1ccc(C(CF)N3CCN(C)CC3)cc1)C2,4,-10.55;-11.35;-10.56;-11.43,1.00;1.00;0.96;1.00,0.879999999999999,COc1cc2c(cc1OC)C(=O)[C@H](Oc1ccc([C@H](CF)N3CCN(C)CC3)cc1)C2,specify one isomer
+COc1cc2c(cc1OC)C(=O)C(Oc1cccc(C(CO)N3CCCC3)c1)C2,4,-11.03;-11.16;-10.97;-11.15,0.93;0.93;1.00;0.93,0.1899999999999995,COc1cc2c(cc1OC)C(=O)[C@@H](Oc1cccc([C@H](CO)N3CCCC3)c1)C2,racemate OK - isomers equivalent
+COc1cc2c(cc1OC)C(=O)C(Oc1ccc(C(C3CC3)N3CCOCC3)cc1)C2,4,-10.73;-10.46;-10.50;-11.30,0.96;0.68;0.93;1.00,0.8399999999999999,COc1cc2c(cc1OC)C(=O)[C@H](Oc1ccc([C@H](C3CC3)N3CCOCC3)cc1)C2,specify one isomer
+COc1cc2c(cc1OC)C(=O)C(Oc1cccc(C(C3CC3)N3CCN(C)CC3)c1)C2,4,-11.89;-11.80;-11.90;-10.92,1.00;1.00;1.00;0.89,0.9800000000000004,COc1cc2c(cc1OC)C(=O)[C@H](Oc1cccc([C@@H](C3CC3)N3CCN(C)CC3)c1)C2,specify one isomer
+CCC(c1ccc(OC2Cc3cc(OC)c(OC)cc3C2=O)cc1)N1CCN(C)CC1,4,-10.89;-11.34;-11.23;-10.78,0.96;1.00;0.93;0.86,0.5600000000000005,CC[C@@H](c1ccc(O[C@H]2Cc3cc(OC)c(OC)cc3C2=O)cc1)N1CCN(C)CC1,specify one isomer
+COc1cc2c(cc1OC)C(=O)C(Oc1cccc(C(C3CC3)N3CCOCC3)c1)C2,4,-11.19;-11.11;-10.92;-11.35,1.00;0.89;1.00;0.93,0.4299999999999997,COc1cc2c(cc1OC)C(=O)[C@H](Oc1cccc([C@H](C3CC3)N3CCOCC3)c1)C2,specify one isomer
+COc1cc2c(cc1C)CC(CC1CCN(c3ccccc3)CC1)C2N,4,-11.81;-11.17;-11.54;-11.72,1.00;0.93;1.00;1.00,0.6400000000000006,COc1cc2c(cc1C)C[C@@H](CC1CCN(c3ccccc3)CC1)[C@@H]2N,specify one isomer
+COc1cc2c(cc1OC)C(=O)C(Oc1ccc(C(C3CC3)N3CCN(C)CC3)cc1)C2,4,-10.61;-10.49;-10.75;-10.52,0.96;0.96;0.89;1.00,0.2599999999999998,COc1cc2c(cc1OC)C(=O)[C@H](Oc1ccc([C@@H](C3CC3)N3CCN(C)CC3)cc1)C2,specify one isomer
+COc1cc2c(cc1C)C(N)C(CC1CCN(c3ccccc3)CC1)C2,4,-11.42;-11.73;-10.74;-10.93,0.96;1.00;0.96;0.93,0.9900000000000002,COc1cc2c(cc1C)[C@@H](N)[C@H](CC1CCN(c3ccccc3)CC1)C2,specify one isomer
+COc1cc2c(cc1OC)C(=O)C(Oc1ccc(C(C)N3CCN(C4CC4)CC3)cc1)C2,4,-10.87;-10.55;-11.30;-11.50,0.89;0.79;0.93;0.93,0.9499999999999993,COc1cc2c(cc1OC)C(=O)[C@H](Oc1ccc([C@H](C)N3CCN(C4CC4)CC3)cc1)C2,specify one isomer
+COc1cc2c(cc1OC)C(=O)C(Oc1cccc(C(C)N3CCN(C4CC4)CC3)c1)C2,4,-11.25;-11.30;-11.31;-11.49,0.89;0.93;0.96;0.89,0.2400000000000002,COc1cc2c(cc1OC)C(=O)[C@H](Oc1cccc([C@H](C)N3CCN(C4CC4)CC3)c1)C2,racemate OK - isomers equivalent
+COc1cc2c(cc1OC)C(N)C(CC1CCN(c3ccccc3)CC1)C2,4,-11.21;-10.28;-10.93;-10.61,1.00;1.00;1.00;0.93,0.9300000000000015,COc1cc2c(cc1OC)[C@@H](N)[C@@H](CC1CCN(c3ccccc3)CC1)C2,specify one isomer
+COc1cc2c(cc1OC)C(CN)C(CC1CCN(c3ccccc3)CC1)C2,4,-11.09;-10.97;-10.42;-10.52,1.00;0.93;0.96;1.00,0.6699999999999999,COc1cc2c(cc1OC)[C@@H](CN)[C@@H](CC1CCN(c3ccccc3)CC1)C2,specify one isomer
+COc1cc2c(cc1OC1CC1)CC(Oc1cccc(C(C)N3CCN(C)CC3)c1)C2=O,4,-11.62;-11.84;-11.73;-11.62,1.00;0.96;1.00;0.96,0.22000000000000064,COc1cc2c(cc1OC1CC1)C[C@@H](Oc1cccc([C@H](C)N3CCN(C)CC3)c1)C2=O,racemate OK - isomers equivalent
+COc1cc2c(cc1OC1CC1)C(=O)C(Oc1cccc(C(C)N3CCN(C)CC3)c1)C2,4,-11.66;-11.20;-11.69;-11.37,0.89;0.86;0.89;0.86,0.4900000000000002,COc1cc2c(cc1OC1CC1)C(=O)[C@H](Oc1cccc([C@@H](C)N3CCN(C)CC3)c1)C2,specify one isomer

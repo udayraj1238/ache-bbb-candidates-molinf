@@ -1,0 +1,59 @@
+{
+  "AChE_Alzheimers": {
+    "n_distinct_structures": 6128,
+    "n_grey_zone_dropped": 1833,
+    "final_n": 4295,
+    "n_active": 3020,
+    "n_inactive": 1275,
+    "n_unique_scaffolds": 2085,
+    "split_counts": {
+      "train": 3006,
+      "audit": 645,
+      "cal": 644
+    },
+    "active_rate_by_split": {
+      "audit": 0.7054,
+      "cal": 0.6708,
+      "train": 0.7096
+    },
+    "scaffold_overlap_train_audit": 0
+  },
+  "DRD2_Schizophrenia": {
+    "n_distinct_structures": 9400,
+    "n_grey_zone_dropped": 1825,
+    "final_n": 7575,
+    "n_active": 7263,
+    "n_inactive": 312,
+    "n_unique_scaffolds": 3269,
+    "split_counts": {
+      "train": 5302,
+      "audit": 1137,
+      "cal": 1136
+    },
+    "active_rate_by_split": {
+      "audit": 0.9296,
+      "cal": 0.9401,
+      "train": 0.9691
+    },
+    "scaffold_overlap_train_audit": 0
+  },
+  "EGFR_Glioma": {
+    "n_distinct_structures": 11137,
+    "n_grey_zone_dropped": 1931,
+    "final_n": 9206,
+    "n_active": 8366,
+    "n_inactive": 840,
+    "n_unique_scaffolds": 3416,
+    "split_counts": {
+      "train": 6444,
+      "audit": 1382,
+      "cal": 1380
+    },
+    "active_rate_by_split": {
+      "audit": 0.8973,
+      "cal": 0.921,
+      "train": 0.9086
+    },
+    "scaffold_overlap_train_audit": 0
+  }
+}

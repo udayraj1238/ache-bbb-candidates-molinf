@@ -1,0 +1,9 @@
+GNN (5 seeds) on 1289 held-out-scaffold compounds (cal+audit), 887 active
+  GNN                      AUC 0.813 (0.785-0.839)
+  random forest (primary)  AUC 0.900 (0.883-0.916)
+  nearest neighbor         AUC 0.871 (0.850-0.891)
+  least similar third  n=431  GNN 0.714 | RF 0.760 | NN 0.670
+  middle third         n=428  GNN 0.750 | RF 0.816 | NN 0.693
+  most similar third   n=430  GNN 0.847 | RF 0.911 | NN 0.620
+delivered set (106): GNN p median 0.92, min 0.66; GNN p >= 0.5 for 106, >= 0.7 for 103; Spearman rho with the RF probability 0.11
+pass criterion (GNN AUC >= 0.80 on held-out scaffolds): PASS

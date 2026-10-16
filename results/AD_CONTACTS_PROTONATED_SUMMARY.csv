@@ -1,0 +1,10 @@
+ligand,cas_residues_in_contact,pas_residues_in_contact,pi_stacking,pi_stacking_W86,pi_stacking_W286,cation_pi,polar_contacts,polar_residues,hydrophobic_contacts,n_residues,vina_top_pose,n_charged_N
+"donepezil (protonated, re-docked)","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341","Trp86, Trp286, Tyr341",True,True,"Trp86, Tyr337, Phe338, Tyr341",1,Tyr124,70,9,-11.98,1
+core rank 10 (protonated),"Trp86, Glu202, Tyr337, Phe338","Tyr72, Tyr124, Trp286, Tyr341","Trp86, Trp286, Tyr341",True,True,"Trp86, Tyr337",2,"Tyr124, Phe295",53,12,-12.15,1
+core rank 12 (protonated),"Trp86, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341","Trp286, Tyr341",False,True,"Trp86, Tyr337, Phe338, His447",1,Phe295,45,8,-10.34,1
+core rank 18 (protonated),"Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341","Trp86, Trp286, Tyr341",True,True,"Trp86, Tyr337, Phe338",4,"Phe295, Arg296",71,11,-10.88,1
+core rank 21 (protonated),"Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341","Trp86, Trp286, Tyr341",True,True,"Trp86, Tyr337",4,"Phe295, Arg296",66,11,-10.76,1
+core rank 23 (protonated),"Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341","Trp286, Tyr341",False,True,"Tyr337, Phe338, His447",1,Tyr124,42,8,-10.37,1
+core rank 27 (protonated),"Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341","Trp286, Tyr341",False,True,"Trp86, Tyr337, His447",1,Tyr124,53,10,-10.69,1
+core rank 33 (protonated),"Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341","Trp286, Tyr341",False,True,"Trp86, Tyr337, Phe338, His447",1,Tyr124,48,9,-10.39,1
+core rank 101 (protonated),"Trp86, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341","Trp286, Tyr341",False,True,"Trp86, Tyr337, Phe338, His447",1,Phe295,52,8,-10.39,1

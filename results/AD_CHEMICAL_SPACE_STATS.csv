@@ -1,0 +1,8 @@
+stat,value
+candidate_nn_median,0.7666666666666667
+loo_active_nn_median,0.8333333333333334
+share_candidates_ge_loo_q25,0.6601941747572816
+n_candidates_exact_scaffold_in_chembl,52.0
+n_candidates_generic_framework_in_chembl,56.0
+distinct_candidate_scaffolds,58.0
+distinct_scaffolds_absent_from_chembl,36.0

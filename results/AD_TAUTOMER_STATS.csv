@@ -1,0 +1,4 @@
+dataset,n_in,n_canonical,groups_multi,records_in_multi,groups_conflict,records_conflict,n_out,train_in,train_out,cal_in,cal_out,audit_in,audit_out,max_logbb_spread_in_group
+BBB classification,7763,7252,370,881,26,64,7226,5434.0,4982.0,1164.0,1099.0,1165.0,1145.0,
+AChE activity,4295,4283,10,22,2,4,4281,3006.0,2992.0,644.0,644.0,645.0,645.0,
+logBB regression,1025,1010,14,29,0,0,1010,,,,,,,0.030000000000000027

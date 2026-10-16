@@ -1,0 +1,10 @@
+item,score,value,n_pairs
+pairs ordered correctly,exposure score (passive x (1 - P-gp)),0.613,338214
+pairs ordered correctly,passive-permeability term alone,0.709,338214
+pairs ordered correctly,1 - P-gp term alone,0.51,338214
+pairs ordered correctly,-TPSA,0.808,338214
+pairs ordered correctly,logBB ensemble (scaffold-grouped CV),0.844,338214
+"share with logBB >= 0, top third",exposure score,0.675,342
+"share with logBB >= 0, bottom third",exposure score,0.398,342
+"share with logBB >= 0, top third",-TPSA (lowest polar surface area = top),0.826,340
+"share with logBB >= 0, bottom third",-TPSA (lowest polar surface area = top),0.161,342

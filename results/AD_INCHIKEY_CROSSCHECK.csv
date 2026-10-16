@@ -1,0 +1,21 @@
+set_a,set_b,n_a,n_b,shared_full_inchikey,shared_connectivity
+B3DB logBB regression (all),P-gp (Broccatelli) all,1025,1212,71,118
+B3DB logBB regression (all),PAMPA (NCATS) all,1025,2034,11,15
+B3DB classification audit,P-gp (Broccatelli) all,1165,1212,51,71
+B3DB classification audit,PAMPA (NCATS) all,1165,2034,16,20
+B3DB classification audit,Martins BBB all,1165,1938,256,267
+B3DB classification audit,B3DB classification train,1165,5434,0,6
+B3DB classification cal,B3DB classification train,1164,5434,0,0
+AChE ChEMBL test (audit+cal),AChE ChEMBL train,1289,3006,0,0
+BindingDB binders (docking set),AChE ChEMBL train,140,3006,91,93
+BindingDB binders (docking set),AChE ChEMBL test (audit+cal),140,1289,36,39
+103 candidates,AChE ChEMBL train,103,3006,0,0
+103 candidates,AChE ChEMBL test (audit+cal),103,1289,0,0
+103 candidates,BindingDB binders (docking set),103,140,0,0
+103 candidates,B3DB classification train,103,5434,0,0
+103 candidates,B3DB logBB regression (all),103,1025,0,0
+103 candidates,P-gp (Broccatelli) all,103,1212,0,0
+103 candidates,PAMPA (NCATS) all,103,2034,0,0
+8 robust core,AChE ChEMBL train,8,3006,0,0
+8 robust core,AChE ChEMBL test (audit+cal),8,1289,0,0
+8 robust core,BindingDB binders (docking set),8,140,0,0

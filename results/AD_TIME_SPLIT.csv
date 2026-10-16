@@ -1,0 +1,19 @@
+cutoff,n_train,n_test,test_active_rate,model,subset,roc_auc,auc_lo,auc_hi,auprc,precision_top50
+2012,1677,2380,0.705,nearest-neighbour similarity,all test compounds,0.746,0.727,0.766,0.875,1.0
+2012,1677,793,0.528,nearest-neighbour similarity,least-similar third,0.59,0.549,0.634,0.591,0.6
+2012,1677,2380,0.705,physicochemical logistic,all test compounds,0.692,0.665,0.713,0.815,0.86
+2012,1677,793,0.528,physicochemical logistic,least-similar third,0.653,0.615,0.693,0.611,0.52
+2012,1677,2380,0.705,primary model (RF+ET+GB),all test compounds,0.737,0.715,0.758,0.884,1.0
+2012,1677,793,0.528,primary model (RF+ET+GB),least-similar third,0.508,0.47,0.546,0.542,0.6
+2015,2255,1802,0.7,nearest-neighbour similarity,all test compounds,0.737,0.713,0.76,0.871,1.0
+2015,2255,601,0.557,nearest-neighbour similarity,least-similar third,0.582,0.533,0.631,0.607,0.56
+2015,2255,1802,0.7,physicochemical logistic,all test compounds,0.67,0.643,0.695,0.8,0.68
+2015,2255,601,0.557,physicochemical logistic,least-similar third,0.577,0.53,0.617,0.586,0.56
+2015,2255,1802,0.7,primary model (RF+ET+GB),all test compounds,0.773,0.75,0.792,0.899,1.0
+2015,2255,601,0.557,primary model (RF+ET+GB),least-similar third,0.553,0.506,0.604,0.597,0.64
+2018,2846,1211,0.696,nearest-neighbour similarity,all test compounds,0.696,0.664,0.725,0.848,0.98
+2018,2846,404,0.584,nearest-neighbour similarity,least-similar third,0.581,0.533,0.636,0.619,0.56
+2018,2846,1211,0.696,physicochemical logistic,all test compounds,0.682,0.651,0.713,0.817,0.84
+2018,2846,404,0.584,physicochemical logistic,least-similar third,0.612,0.558,0.669,0.658,0.62
+2018,2846,1211,0.696,primary model (RF+ET+GB),all test compounds,0.775,0.749,0.799,0.897,1.0
+2018,2846,404,0.584,primary model (RF+ET+GB),least-similar third,0.597,0.545,0.65,0.661,0.68

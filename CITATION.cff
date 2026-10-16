@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the article (and this repository)."
+title: "Computational Design of 106 Novel, Brain-Penetrant Acetylcholinesterase Inhibitor Candidates with Computed Synthetic Routes"
+type: software
+authors:
+  - family-names: Raj
+    given-names: Uday
+  - family-names: Aggarwal
+    given-names: Mahim
+  - family-names: Sharma
+    given-names: Ishank
+  - family-names: Dasari
+    given-names: Chandra Mohan
+    affiliation: "Indian Institute of Information Technology Design and Manufacturing Kurnool"
+repository-code: "https://github.com/udayraj1238/ache-bbb-candidates-molinf"
+license: MIT
+date-released: 2026-10-16
+keywords: [acetylcholinesterase, blood-brain barrier, drug design, retrosynthesis, Alzheimer's disease]

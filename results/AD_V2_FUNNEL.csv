@@ -1,0 +1,10 @@
+step,before,after,removed
+1 both BBB oracles >= 0.75,2700,2027,673
+2 independent BBB (Martins) >= 0.513,2027,2027,0
+3 AChE primary >= 0.70 and both pair members >= 0.50,2027,1285,742
+4 AChE model in domain (similarity to potent actives >= 0.42),1285,1252,33
+5 predicted logBB >= -0.45 and logBB model in domain,1252,808,444
+"6 CNS MPO >= 4.0, SA <= 3.5, MW <= 450",808,566,242
+7 no unstable functional group,566,543,23
+8 no toxicity endpoint worse than own parent,543,375,168
+9 similarity to nearest potent active < 0.90,375,374,1

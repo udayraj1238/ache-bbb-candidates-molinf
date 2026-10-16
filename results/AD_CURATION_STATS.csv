@@ -1,0 +1,17 @@
+item,value,note
+B3DB regression records (raw),1058.0,
+  failed standardisation or < 5 heavy atoms,33.0,
+  structures with repeated logBB records,0.0,values are averaged (mean) in the curated set
+  curated logBB structures,1025.0,
+B3DB classification records (raw),7807.0,
+  failed standardisation or < 5 heavy atoms,41.0,
+  structures that changed under salt stripping/neutralisation,10.0,
+  raw structures carrying an isotope label,0.0,not removed by the pipeline
+  distinct standardised structures,7763.0,
+  distinct after RDKit tautomer canonicalisation,7249.0,difference = structures that would merge
+  structures with conflicting BBB labels,0.0,dropped by the pipeline
+  conflicting labels after tautomer merging,26.0,would be dropped if tautomers were merged
+AChE ChEMBL curated structures,4295.0,
+  structures with more than one measurement,691.0,pChEMBL values averaged
+  spread of repeated pChEMBL: median,0.078,
+  spread of repeated pChEMBL: maximum,3.168,

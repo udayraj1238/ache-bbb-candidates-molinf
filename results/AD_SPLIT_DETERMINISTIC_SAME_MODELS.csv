@@ -1,0 +1,3 @@
+task,protocol,auc,lo,hi,n_test
+BBB permeability,deterministic scaffold split (same two-family model),0.8019292739821562,0.7754620277517255,0.8268605860568019,1165
+AChE activity,deterministic scaffold split (same two-family model),0.901299589986931,0.8836184073993055,0.9178355684934963,1289

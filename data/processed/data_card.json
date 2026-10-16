@@ -1,0 +1,31 @@
+{
+  "raw_classification": 7807,
+  "raw_regression": 1058,
+  "failed_standardisation": 41,
+  "duplicate_structures": 3,
+  "conflicting_labels_dropped": 0,
+  "final_n": 7763,
+  "n_bbb_positive": 4918,
+  "n_bbb_negative": 2845,
+  "n_unique_scaffolds": 2127,
+  "split_counts": {
+    "train": 5434,
+    "audit": 1165,
+    "cal": 1164
+  },
+  "positive_rate_by_split": {
+    "audit": 0.57,
+    "cal": 0.6864,
+    "train": 0.6358
+  },
+  "scaffold_overlap_train_audit": 0,
+  "mean_cns_mpo_by_label": {
+    "0": 3.824,
+    "1": 4.465
+  },
+  "cns_box_rate_by_label": {
+    "0": 0.169,
+    "1": 0.498
+  },
+  "regression_final_n": 1025
+}

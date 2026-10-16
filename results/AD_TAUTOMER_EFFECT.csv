@@ -1,0 +1,11 @@
+data,metric,value,n_test
+original,BBB in-loop AUC (train->audit),0.801757929923286,1165
+original,BBB audit-model AUC (cal+audit->train),0.8508880144556922,5434
+original,AChE primary AUC (train->cal+audit),0.8995608204748523,1289
+original,logBB ensemble Spearman (scaffold-grouped CV),0.7108771042077909,1025
+original,"candidates (of 103) passing BBB in-loop>=0.75, BBB audit>=0.75, AChE>=0.70",103.0,103
+tautomer-resolved,BBB in-loop AUC (train->audit),0.7980993441069381,1145
+tautomer-resolved,BBB audit-model AUC (cal+audit->train),0.8093597506077654,4982
+tautomer-resolved,AChE primary AUC (train->cal+audit),0.8974350345229882,1289
+tautomer-resolved,logBB ensemble Spearman (scaffold-grouped CV),0.7182346723117634,1010
+tautomer-resolved,"candidates (of 103) passing BBB in-loop>=0.75, BBB audit>=0.75, AChE>=0.70",101.0,103

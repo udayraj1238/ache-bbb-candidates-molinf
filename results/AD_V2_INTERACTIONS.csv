@@ -1,0 +1,107 @@
+set_rank,smiles,vina_protonated,coverage_protonated,stack_trp86,stack_trp286,cation_pi,cation_pi_residues,cas_contacts,pas_contacts,polar_residues,n_charged_N,status
+4,CCN1CCC(CC2Cc3cc(OC4CC4)c(OC)cc3C2=O)CC1,-10.34,0.9285714285714286,False,True,True,"Trp86, Tyr337, Phe338, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341",Phe295,1,ok
+3,CCN1CCC(CC2Cc3cc(OC)c(OC4CC4)cc3C2=O)CC1,-10.39,0.8928571428571429,False,True,True,"Trp86, Tyr337, Phe338, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+2,CCN1CCC(F)(CC2Cc3cc(OC)c(OC4CC4)cc3C2=O)CC1,-10.69,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+1,CCN1CCC(F)(CC2Cc3cc(OC4CC4)c(OC)cc3C2=O)CC1,-10.37,1.0,False,True,True,"Tyr337, Phe338, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Tyr124,1,ok
+5,COc1cc2c(cc1C1CC1)CC(Oc1ccc(CN3CCCC3)cc1)C2=O,-11.85,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Glu202, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341",Phe295,1,ok
+7,C=Cc1cc2c(cc1OC)C(=O)C(CC1CCN(Cc3ccccn3)CC1)C2,-11.76,1.0,True,True,True,"Trp86, Tyr337, Phe338, Tyr341","Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341",,1,ok
+6,O=C(C1CC1)N(CCC1CCN(Cc2ccccc2)CC1)c1ccncc1,-10.14,0.8928571428571429,True,True,True,"Phe338, Tyr341","Trp86, Ser203, Tyr337, Phe338, His447","Trp286, Tyr341","Ser203, His447",1,ok
+8,COc1cc2c(cc1SC)CC(CC1CCN(Cc3ccccn3)CC1)C2=O,-11.54,1.0,True,True,True,"Trp86, Tyr337, Phe338, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+10,COc1cc2c(cc1C)CC(CC1CCN(Cc3cccc(C)n3)CC1)C2=O,-12.57,1.0,True,True,True,"Trp86, Tyr337, Phe338, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Tyr124,1,ok
+9,COc1cc2c(cc1SC)C(=O)C(CC1CCN(Cc3ccccn3)CC1)C2,-11.59,0.9285714285714286,True,True,True,"Trp86, Tyr337","Trp86, Tyr337, Phe338","Tyr72, Tyr124, Trp286, Tyr341","Tyr124, Ser125",1,ok
+11,O=C(CF)N(CCC1CCN(Cc2ccccc2)CC1)c1ccncc1,-10.32,0.9285714285714286,True,True,True,"Tyr124, Phe297, Phe338, Tyr341","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341","Tyr124, Ser125",1,ok
+12,O=C(c1ccncc1)N(CCC1CCN(Cc2ccccc2)CC1)C1CC1,-10.46,0.75,True,True,True,"Tyr337, Phe338, Tyr341","Trp86, Tyr133, Tyr337, Phe338","Asp74, Tyr124, Trp286, Tyr341","Tyr124, Tyr133",1,ok
+15,COc1cc2c(cc1C)CC(CC1CCN(Cc3ccccn3)CC1)C2=O,-12.11,1.0,True,True,True,"Trp86, Tyr337, Phe338","Trp86, Glu202, Tyr337, Phe338","Trp286, Tyr341",Phe295,1,ok
+16,COc1cc2c(cc1C)C(=O)C(CC1CCN(Cc3ccccn3)CC1)C2,-11.62,0.9285714285714286,True,True,True,"Trp86, Tyr337, Phe338","Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341","Ser125, Phe295",1,ok
+13,COc1cc2c(cc1OC1CC1)C(=O)C(CC1CCN(Cc3ccccn3)CC1)C2,-11.23,1.0,True,True,True,"Trp86, Tyr337, Phe338","Trp86, Tyr337, Phe338","Trp286, Tyr341",,1,ok
+14,COc1cc2c(cc1OC1CC1)CC(CC1CCN(Cc3ccccn3)CC1)C2=O,-11.75,1.0,True,True,True,"Trp86, Tyr337, Phe338","Trp86, Glu202, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341",Phe295,1,ok
+17,COc1cc2c(cc1C)CC(Oc1ccc(CN3CCCC3)cc1)C2=O,-11.63,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Glu202, Tyr337, Phe338, His447","Trp286, Tyr341",Phe295,1,ok
+20,COc1cc2c(cc1C)C(=O)C(Oc1ccc(CN3CCCC3)cc1)C2,-11.58,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341",Phe295,1,ok
+18,Cc1cc2c(cc1OC1CC1)C(=O)C(Oc1ccc(CN3CCCC3)cc1)C2,-11.77,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Trp286, Tyr341",Phe295,1,ok
+19,Cc1cc2c(cc1OC1CC1)CC(Oc1ccc(CN3CCCC3)cc1)C2=O,-11.64,0.8571428571428571,True,False,True,"Trp286, Tyr341","Trp86, Tyr337, Phe338","Asp74, Tyr124, Trp286, Tyr341",Ser125,1,ok
+24,COc1cc2c(cc1C)C(=O)C(Oc1cccc(CN3CCCCC3)c1)C2,-11.71,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341","Tyr124, Phe295",1,ok
+22,COc1cc2c(cc1OCF)CC(Oc1ccc(CN3CCCC3)cc1)C2=O,-11.4,0.7857142857142857,True,False,True,"Trp286, Tyr341","Trp86, Tyr337, Phe338","Asp74, Tyr124, Trp286, Tyr341","Ser125, Tyr341",1,ok
+23,O=C(c1ccncc1)N(CCC1CCN(Cc2ccccc2)CC1)CC1CC1,-10.25,0.75,True,False,True,"Tyr337, Phe338, Tyr341","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341","Trp86, Ser125",1,ok
+21,O=C(CCC1CCN(CC2CC2)CC1)c1ccc2c(c1)CNCCO2,-8.751,1.0,False,True,True,"Trp86, Tyr337, Phe338","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341","Tyr124, Ser293, Tyr341",2,ok
+25,COc1cc2c(cc1C)CC(Oc1cccc(CN3CCCCC3)c1)C2=O,-11.91,1.0,False,True,True,Trp86,"Trp86, Tyr337, Phe338","Trp286, Tyr341",Phe295,1,ok
+26,COc1cc2c(cc1Cl)CC(CC1CCN(Cc3ccccn3)CC1)C2=O,-11.73,0.9285714285714286,True,True,True,"Trp86, Tyr337","Trp86, Tyr337, Phe338","Tyr72, Tyr124, Trp286, Tyr341","Tyr124, Ser125",1,ok
+28,COc1cc2c(cc1Cl)C(=O)C(CC1CCN(Cc3ccccn3)CC1)C2,-11.85,0.9285714285714286,True,True,True,"Trp86, Tyr337","Trp86, Tyr337, Phe338","Tyr124, Trp286, Tyr341","Tyr124, Ser125",1,ok
+29,COc1cc2c(cc1Cl)CC(Oc1ccc(CN3CCCC3)cc1)C2=O,-11.18,1.0,False,True,True,"Trp86, His447","Trp86, Tyr337, Phe338, His447","Trp286, Tyr341",Phe295,1,ok
+30,COc1cc2c(cc1SC)CC(Oc1ccc(CN3CCCC3)cc1)C2=O,-10.89,1.0,False,True,True,"Trp86, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Tyr124,1,ok
+27,CCCN1CCC(CCC(=O)c2ccc3c(c2)CNCCO3)CC1,-8.322,1.0,False,True,True,"Tyr72, Trp86, Trp286, Tyr337, Tyr341","Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341","Tyr72, Phe295",2,ok
+31,O=C(CCC1CCN(CC2CC2)CC1)c1cc2c3c(c1)CC(=O)N3CCC2,-11.87,1.0,False,True,True,"Trp86, Tyr337, Phe338, Tyr341","Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341","Tyr72, Phe295",1,ok
+32,CCN1CCC(CCC(=O)c2cc3c4c(c2)CC(=O)N4CCC3)CC1,-11.67,0.9285714285714286,False,True,True,"Trp86, Tyr337, Phe338","Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341","Tyr72, Phe295",1,ok
+33,O=C(CCC1CCN(CCC2CC2)CC1)c1cc2c3c(c1)CC(=O)N3CCC2,-11.22,0.8571428571428571,False,True,True,"Trp86, Tyr337","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341","Tyr72, Phe295",1,ok
+34,COc1cc2c(cc1SC)C(=O)C(Oc1ccc(CN3CCCC3)cc1)C2,-10.76,1.0,False,True,True,"Trp86, His447","Trp86, Tyr337, Phe338, His447","Trp286, Tyr341",Phe295,1,ok
+36,O=C(CCC1CCN(Cc2ccccc2F)CC1)c1ccc2c(c1)OCCO2,-12.14,0.9642857142857143,True,True,True,"Trp86, Tyr337","Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341","Tyr72, Phe295",1,ok
+35,COc1cc2c(cc1OC)C(=O)C(CC1CCN(Cc3ccc(CO)cc3)CC1)C2,-12.04,0.8571428571428571,True,True,True,"Tyr124, Phe297, Phe338, Tyr341","Trp86, Tyr337, Phe338","Tyr72, Asp74, Tyr124, Trp286, Tyr341","Tyr72, Tyr124, Ser125, Tyr341",1,ok
+37,COc1cc2c(cc1Cl)C(=O)C(Oc1ccc(CN3CCCC3)cc1)C2,-11.34,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341",Phe295,1,ok
+38,O=C(CCC1CCN(Cc2ccccc2F)CC1)c1ccc2c(c1)OCO2,-11.56,0.7857142857142857,True,False,True,"Tyr337, Phe338, Tyr341","Trp86, Ser203, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341","Trp86, Tyr124, Ser125, Ser203",1,ok
+39,O=C(CO)N(CCC1CCN(Cc2ccccc2)CC1)c1ccccc1,-10.76,0.9285714285714286,True,True,True,"Trp86, Tyr337","Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341","Phe295, Arg296",1,ok
+41,COc1cc2c(cc1OC)C(=O)C(Cc1ccc(CN3CCN(C)CC3)cc1)C2,-12.13,0.8928571428571429,True,False,True,"Trp286, Tyr341","Trp86, Tyr337, Phe338, His447","Asp74, Tyr124, Trp286, Tyr341","Ser125, Tyr341",2,ok
+42,O=C(CCC1CCN(CC2CC2)CC1)c1cc2c3c(c1)CCC(=O)N3CCC2,-11.6,1.0,False,True,True,"Trp86, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+40,O=C(CCC1CCN(c2ccccc2)CC1)c1ccc2c(c1)CNCCO2,-9.541,1.0,True,True,True,"Tyr72, Trp286, Tyr341","Trp86, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341","Tyr72, Phe295",1,ok
+43,CCN1CCC(CCC(=O)c2cc3c4c(c2)CCC(=O)N4CCC3)CC1,-11.33,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+46,CCN1CCC(CC2Cc3cc(OC)c(SC)cc3C2=O)CC1,-10.01,0.75,False,True,True,"Trp86, Tyr124, Tyr337, Tyr341","Trp86, Tyr337, Phe338","Tyr72, Asp74, Tyr124, Trp286, Tyr341","Tyr124, Phe295",1,ok
+44,O=C(CCC1CCN(CCC2CC2)CC1)c1cc2c3c(c1)CCC(=O)N3CCC2,-11.77,1.0,False,True,True,"Trp86, Tyr337, Phe338, Tyr341","Trp86, Glu202, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341",Phe295,1,ok
+45,COc1cc(NC(=O)C2CCN(Cc3ccccc3)CC2)ccc1OCF,-10.1,1.0,True,True,True,"Trp86, Tyr337","Trp86, Tyr337, Phe338","Trp286, Tyr341",,1,ok
+47,COc1cc2c(cc1C)CC(Oc1ccc(CN3CCN(CC4CC4)CC3)cc1)C2=O,-11.85,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341",Phe295,2,ok
+50,CCCN1CCC(CCC(=O)c2ccc3c(c2)OCCO3)CC1,-9.678,0.9642857142857143,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Tyr124,1,ok
+48,COc1cc(NC(=O)C2CCN(Cc3ccccc3)CC2)ccc1OC1CC1,-10.14,0.8571428571428571,True,True,True,"Trp86, Tyr124","Trp86, Phe338","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+49,CCOc1ccc(NC(=O)C2CCN(Cc3ccccc3)CC2)cc1OC,-9.908,0.8928571428571429,True,False,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341",,1,ok
+52,Cc1nc2cc(C(=O)CCC3CCN(CCC4CC4)CC3)ccc2[nH]1,-10.5,0.7142857142857143,True,False,True,"Tyr124, Phe297, Phe338, Tyr341","Trp86, Tyr337, Phe338, His447","Asp74, Tyr124, Trp286, Tyr341","Trp86, Tyr124, Ser125",1,ok
+51,COc1ccc(NC(=O)C2CCN(Cc3ccccc3)CC2)cc1OCF,-9.939,0.8928571428571429,True,True,True,"Trp86, Tyr337","Trp86, Tyr337, Phe338, His447","Tyr72, Asp74, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+54,CCCN1CCC(CCC(=O)c2cc3c4c(c2)CC(=O)N4CCC3)CC1,-11.32,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+53,O=C(CO)N(CCC1CCN(Cc2ccccc2)CC1)c1cccc(F)c1,-10.88,0.9642857142857143,True,True,True,"Trp86, Tyr337, Phe338","Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341","Phe295, Arg296",1,ok
+55,Cc1nc2cc(C(=O)CCC3CCN(CC4CC4)CC3)ccc2[nH]1,-10.47,0.9642857142857143,False,True,True,"Trp86, Tyr337, His447","Trp86, Glu202, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Tyr124,1,ok
+56,COc1ccc2cc(C(=O)NCCC3CCN(CC4CC4)CC3)ccc2c1,-10.85,0.9642857142857143,False,True,True,"Trp86, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+58,CCCN1CCC(CCC(=O)c2cc3c4c(c2)CCC(=O)N4CCC3)CC1,-11.52,0.8928571428571429,True,False,True,"Trp286, Tyr341","Trp86, Tyr133, Glu202, Tyr337, Phe338","Trp286, Tyr341","Tyr133, Glu202, Tyr337, Tyr341",1,ok
+59,CCCc1ccc2nc3c(c(NCCN4CCOCC4)c2c1)CCCC3,-9.88,0.8214285714285714,False,False,True,"Trp86, Tyr124","Trp86, Tyr337, Phe338, His447","Asp74, Tyr124, Trp286, Tyr341","Trp86, Tyr124, Ser125",1,ok
+60,CCCN1CCC(CCNc2cc3c(nn2)-c2ccccc2CC3)CC1,-11.13,1.0,False,True,True,Trp86,"Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Tyr124,1,ok
+61,O=C(CCC1CCN(CC2CC2)CC1)c1ccc2c(c1)OCCO2,-10.43,0.9642857142857143,False,True,True,"Trp86, Tyr337, Phe338","Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341","Tyr72, Phe295",1,ok
+62,CCCN1CCC(CCNC(=O)c2ccc3cc(OC)ccc3c2)CC1,-10.77,0.9642857142857143,False,True,True,"Trp86, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Tyr124,1,ok
+57,CCN1CCC(CCC(=O)c2cc3c4c(c2)CCN4C(=O)CCC3)CC1,-9.245,0.8928571428571429,False,True,True,"Trp86, Tyr337","Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341",Phe295,1,ok
+63,Clc1ccc(-c2nnc(NC3CCN(Cc4ccccc4)CC3)o2)cc1,-11.23,0.9642857142857143,True,True,True,"Trp86, Tyr337","Trp86, Tyr337, Phe338","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+66,Clc1ccc2nc3c(c(NCCN4CCOCC4)c2c1)CCCC3,-9.386,0.6785714285714286,False,False,True,"Trp86, Tyr124","Trp86, Glu202, Tyr337, Phe338, His447","Asp74, Tyr124","Trp86, Tyr124",1,ok
+65,Fc1ccc2nc3c(c(NCCN4CCOCC4)c2c1)CCCC3,-9.932,0.6071428571428571,False,False,True,"Trp86, Tyr124","Trp86, Glu202, Tyr337, Phe338, His447","Asp74, Tyr124, Tyr341","Trp86, Tyr124, Ser125, Tyr337",1,ok
+64,CC(=O)N(CCC1CCN(Cc2ccccc2)CC1)CC1CC1,-9.221,0.8571428571428571,False,True,True,"Tyr124, Phe338, Tyr341","Trp86, Tyr337, Phe338","Tyr124, Trp286, Tyr341","Tyr124, Ser125",1,ok
+67,COc1cc2c(cc1C)CC(Oc1ccc(CN3CCN(C)CC3)cc1)C2=O,-11.41,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Tyr124,2,ok
+69,CCN1CCC(CCC(=O)c2ccc3[nH]c(C4CC4)nc3c2)CC1,-10.19,0.8571428571428571,False,False,True,His447,"Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341","Tyr124, Tyr337, Tyr341",1,ok
+70,CCN1CCC(CCC(=O)c2ccc3[nH]c(CC4CC4)nc3c2)CC1,-10.17,0.75,False,False,True,Trp86,"Trp86, Ser203, Tyr337, Phe338, His447","Asp74, Tyr124, Tyr341","Trp86, Tyr124, Ser203, His447",1,ok
+71,CCCN1CCC(CCC(=O)c2ccc3[nH]c(C)nc3c2)CC1,-10.19,0.6785714285714286,True,False,True,"Tyr337, Phe338, Tyr341","Trp86, Glu202, Ser203, Tyr337, Phe338, His447","Asp74, Tyr124, Tyr341","Trp86, Gly121, Tyr124, Ser125, Glu202, Ser203",1,ok
+68,COCC(=O)N(CCC1CCN(Cc2ccccc2)CC1)c1ccccc1,-10.9,0.7857142857142857,True,True,True,"Tyr337, Phe338, Tyr341","Trp86, Glu202, Ser203, Tyr337, Phe338, His447","Trp286, Tyr341","Gly122, Glu202, Ser203, His447",1,ok
+72,COc1ccc(NC(=O)C2CCN(Cc3ccccc3)CC2)cc1OC1CC1,-10.13,0.8928571428571429,True,False,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+75,COc1ccc(NC(=O)C2CCN(Cc3ccccc3)CC2)cc1SC,-10.2,0.9642857142857143,True,True,True,"Trp86, Tyr337","Trp86, Tyr337, Phe338","Tyr72, Tyr124, Trp286, Tyr341",,1,ok
+74,COc1cc2c(cc1C)CC(Cc1ccc(CN3CCN(CCO)CC3)cc1)C2=O,-11.85,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Trp286, Tyr341","Trp86, Ser125, Gly126, Phe295",2,ok
+73,O=C(CCC1CCN(CCC2CC2)CC1)c1ccc2c(c1)CNCCO2,-8.854,1.0,False,True,True,"Tyr72, Trp86, Trp286, Tyr337, Tyr341","Trp86, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341","Tyr72, Phe295",2,ok
+77,CCCN1CCC(CCN(C(=O)c2ccncc2)c2ccccc2)CC1,-9.258,0.8571428571428571,True,True,True,"Trp86, His447","Trp86, Tyr337, Phe338, His447","Asp74, Tyr124, Trp286, Tyr341",,1,ok
+76,Cc1cc2c(cc1OC1CC1)C(=O)C(Oc1ccc(CN3CCN(C)CC3)cc1)C2,-12.13,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Glu202, Ser203, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341","Tyr124, Glu202, Ser203",2,ok
+78,O=C(CCC1CCN(CCC2CC2)CC1)c1ccc2c(c1)OCCO2,-10.19,0.8928571428571429,False,True,True,"Trp86, Tyr337, Phe338, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341",Tyr72,1,ok
+80,CC(=O)N(CCC1CCN(Cc2ccccc2)CC1)C1CC1,-9.276,0.8928571428571429,False,True,True,"Tyr124, Phe297, Phe338, Tyr341","Trp86, Glu202, Ser203, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Ser203,1,ok
+82,CN(CCC1CCN(Cc2ccccc2)CC1)C(=O)CC1CC1,-9.916,0.9285714285714286,True,False,True,"Trp86, Tyr337, Phe338","Trp86, Tyr337, Phe338","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+79,COc1cc2c(cc1C)C(=O)C(Cc1ccc(CN3CCN(CCO)CC3)cc1)C2,-12.24,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr133, Glu202, Tyr337, Phe338, His447","Tyr72, Trp286, Tyr341","Gly120, Tyr133, Glu202, Phe295",2,ok
+81,O=C(CO)N(CCC1CCN(Cc2ccccc2)CC1)c1ccncc1,-10.27,0.8571428571428571,True,True,True,"Tyr337, Phe338, Tyr341","Trp86, Glu202, Ser203, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341","Gly121, Gly122, Glu202, Ser203, His447",1,ok
+83,COc1cc(NC(=O)C2CCN(Cc3ccccc3)CC2)ccc1SC,-9.906,0.8571428571428571,True,True,True,"Trp86, Tyr124","Trp86, Tyr337, Phe338","Tyr72, Asp74, Tyr124, Trp286, Tyr341",,1,ok
+86,COc1cc2c(cc1C)C(=O)C(CC1CCN(C)CC1)C2,-10.18,0.8571428571428571,False,True,True,"Trp86, Tyr124, Tyr337","Trp86, Tyr337, Phe338","Tyr72, Tyr124, Trp286, Tyr341",Phe295,1,ok
+85,CCCCc1ccc2nc3c(c(NCCN4CCOCC4)c2c1)CCCC3,-10.32,0.8571428571428571,False,False,True,"Trp86, Tyr124","Trp86, Tyr337, Phe338, His447","Asp74, Tyr124, Trp286, Tyr341","Trp86, Ser125",1,ok
+87,CCN1CCC(CCC(=O)c2ccc3c(c2)CCN3C)CC1,-10.32,0.9285714285714286,False,True,True,"Trp86, Tyr337, Phe338","Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341",Phe295,1,ok
+90,CCN1CCC(CCC(=O)c2ccc3c(c2)NCCC3)CC1,-10.3,0.75,False,False,True,"Trp86, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341","Tyr124, Tyr337, Tyr341",1,ok
+84,CN1CCN(Cc2ccc(OC3Cc4cc(OC5CC5)c(OC5CC5)cc4C3=O)cc2)CC1,-11.35,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Tyr124,2,ok
+88,CSc1cc2c(cc1OC1CC1)CC(Oc1ccc(CN3CCN(C)CC3)cc1)C2=O,-11.35,0.9285714285714286,False,True,True,"Trp86, Tyr124, Tyr337","Trp86, Tyr337, Phe338","Tyr72, Tyr124, Trp286, Tyr341","Tyr124, Phe295",2,ok
+89,CSc1cc2c(cc1OC1CC1)C(=O)C(Oc1ccc(CN3CCN(C)CC3)cc1)C2,-11.78,1.0,False,True,True,Trp86,"Trp86, Tyr337, Phe338","Tyr72, Trp286, Tyr341",Phe295,2,ok
+94,COc1cc(NC(=O)C2CCN(Cc3ccccc3)CC2)ccc1C,-10.3,0.8571428571428571,True,True,True,"Tyr124, Phe338, Tyr341","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Gly120,1,ok
+91,CN1CCN(Cc2ccc(OC3Cc4cc(Cl)c(OC5CC5)cc4C3=O)cc2)CC1,-11.83,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341","Tyr124, Phe295",2,ok
+92,CCN1CCC(CCC(=O)c2ccc3c(c2)CCNCC3)CC1,-8.362,0.9285714285714286,False,True,True,"Trp86, Trp286, Tyr337, Phe338, Tyr341","Trp86, Tyr337, Phe338, His447","Trp286, Tyr341",Phe295,2,ok
+96,CN1CCC(CCC(=O)c2cc3c4c(c2)CCC(=O)N4CCC3)CC1,-11.22,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+93,COc1cc2c(cc1OC)C(=O)C(Cc1ccc(CN3CCN(CCN)CC3)cc1)C2,-11.75,0.9285714285714286,True,False,True,"Tyr124, Trp286, Phe338, Tyr341","Trp86, Tyr337, Phe338, His447","Asp74, Tyr124, Trp286, Tyr341","Ser125, Ser293, Arg296, Tyr337",3,ok
+95,O=C(Nc1ccccc1OC1CC1)C1CCN(Cc2ccccc2)CC1,-9.998,0.8571428571428571,True,True,True,"Tyr124, Phe338, Tyr341","Trp86, Tyr337, Phe338","Asp74, Tyr124, Trp286, Tyr341",,1,ok
+97,CN1CCC(CCC(=O)c2cc3c4c(c2)CC(=O)N4CCC3)CC1,-11.29,0.9285714285714286,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr72, Tyr124, Trp286, Tyr341",Tyr124,1,ok
+100,CCN1CCC(CCC(=O)c2ccc3[nH]c(Cl)nc3c2)CC1,-9.898,0.6785714285714286,True,False,True,"Tyr124, Phe297, Phe338, Tyr341","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341","Trp86, Tyr124, Ser125",1,ok
+98,CCN1CCC(CCNC(=O)c2ccc3cc(OC)ccc3c2)CC1,-10.62,1.0,False,True,True,"Trp86, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Tyr124,1,ok
+99,CCN1CCC(CCC(=O)c2ccc3c(c2)CCN3OC(C)=O)CC1,-10.37,0.9642857142857143,True,False,True,"Trp286, Tyr341","Trp86, Ser203, Tyr337, Phe338, His447","Trp286, Tyr341","Gly121, Ser203",1,ok
+103,CCN1CCC(CCC(=O)c2ccc3c(c2)CCCN3)CC1,-10.4,1.0,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341",Tyr124,1,ok
+101,CN1CCN(Cc2ccc(OC3Cc4cc(OC5CC5)c(Cl)cc4C3=O)cc2)CC1,-11.59,1.0,False,True,True,"Trp86, His447","Trp86, Tyr337, Phe338, His447","Trp286, Tyr341",Phe295,2,ok
+102,CCN1CCC(CCC(=O)c2ccc3c(c2)CCCN3OC(C)=O)CC1,-10.51,0.9642857142857143,False,True,True,"Trp86, Tyr337, His447","Trp86, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341","Tyr124, Ser293, Arg296",1,ok
+104,COc1cccc(N(CCC2CCN(CCC3CC3)CC2)C(C)=O)c1,-9.582,0.7142857142857143,True,False,True,"Tyr337, Phe338, Tyr341","Trp86, Ser203, Tyr337, Phe338, His447","Tyr124, Trp286, Tyr341","Ser125, Ser203, His447",1,ok
+106,C=Cc1ccc2nc3c(c(NCCN4CCOCC4)c2c1)CCCC3,-9.616,0.7142857142857143,False,False,True,Trp86,"Trp86, Tyr337, Phe338, His447","Asp74, Tyr124, Trp286, Tyr341","Tyr124, Ser125",1,ok
+105,c1cc2nc3c(c(NCCN4CCOCC4)c2cc1C1CC1)CCCC3,-10.48,0.75,False,False,True,"Trp86, Tyr124","Trp86, Tyr337, Phe338, His447","Asp74, Tyr124, Tyr341","Tyr124, Ser125",1,ok

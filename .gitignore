@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.log
+*.aux
+*.blg
+*.out
+venv/
+.venv/
+docking/vina
+docking/vina.exe

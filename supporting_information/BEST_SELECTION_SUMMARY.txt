@@ -1,0 +1,11 @@
+delivered set                                                                                106
+1 priority tier (margin >= 10 %)                                                             106 ->  63
+2 graph-network probability >= 0.70                                                           63 ->  61
+3 docking gates in all 3 runs and after protonation                                           61 ->  60
+4 no PAINS / Brenk / NIH alert                                                                60 ->  56
+5 computed route of at most 3 steps                                                           56 ->  45
+6 no Lipinski violation, Veber criteria met                                                   45 ->  45
+
+ranking: 5000 random weightings over 8 axes; selected 20 molecules (<= 2 per scaffold, <= 4 per parent)
+selected molecules: scaffolds 16 | parents 10 | margin median 14.7 % | graph-network p median 0.96 | worst Vina median -11.28 | steps: {1: 10, 2: 6, 3: 4} | Trp86+Trp286 stacking: 6 | contact score 3: 6
+rank stability: median of the selected molecules' 5th-95th percentile rank width 23; equal-weight rank <= 30 for 20 of 20

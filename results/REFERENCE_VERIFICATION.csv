@@ -1,0 +1,58 @@
+key,doi,bib_title,status,detail
+wallach,10.1021/acs.jcim.7b00403,Most Ligand-Based Classification Benchmarks Reward Memorization Rather than Generalization,OK,
+murcko,10.1021/jm9602928,The Properties of Known Drugs. 1. Molecular Frameworks,OK,
+tropsha,10.1002/minf.201000061,"Best Practices for QSAR Model Development, Validation, and Exploitation",OK,
+dut,10.1002/minf.202400018,Chemoinformatic regression methods and their applicability domain,OK,
+liang,10.1002/minf.202300327,Prediction of blood-brain barrier permeability using machine learning approaches based on ,OK,
+nabi,10.1002/minf.202400325,Machine Learning in Drug Development for Neurological Diseases: A Review of Blood Brain Ba,OK,
+hu,10.1007/s11095-007-9502-2,On The Rate and Extent of Drug Delivery to the Brain,CHECK,year 2008 vs Crossref 2007
+ertl_psa,10.1021/jm000942e,Fast Calculation of Molecular Polar Surface Area as a Sum of Fragment-Based Contributions ,OK,
+hitchcock,10.1021/jm060642i,Structure-Brain Exposure Relationships,OK,
+sugimoto,10.1021/jm00024a009,Synthesis and Structure-Activity Relationships of Acetylcholinesterase Inhibitors: 1-Benzy,OK,
+chembl,10.1093/nar/gky1075,ChEMBL: towards direct deposition of bioassay data,CHECK,year 2019 vs Crossref 2018
+pdb,10.1021/jm300871x,Structures of Human Acetylcholinesterase in Complex with Pharmacologically Important Ligan,OK,
+inest,10.1016/s0896-6273(00)80108-7,Acetylcholinesterase Accelerates Assembly of Amyloid-$\beta$-Peptides into Alzheimer's Fib,OK,
+ferrari,10.1021/bi0101392,A Structural Motif of Acetylcholinesterase That Promotes Amyloid $\beta$-Peptide Fibril Fo,OK,
+hr,10.1021/ci900450m,Computationally Efficient Algorithm to Identify Matched Molecular Pairs (MMPs) in Large Da,OK,
+griffen,10.1021/jm200452d,Matched Molecular Pairs as a Medicinal Chemistry Tool,OK,
+vina,10.1002/jcc.21334,"AutoDock Vina: Improving the speed and accuracy of docking with a new scoring function, ef",CHECK,year 2010 vs Crossref 2009
+vina12,10.1021/acs.jcim.1c00203,"AutoDock Vina 1.2.0: New Docking Methods, Expanded Force Field, and Python Bindings",OK,
+amodini,10.1002/minf.70031,Novel Molecules Generation Using Graph Generative Adversarial Networks,CHECK,"first author 'amodini' vs Crossref ['a p', 'dasari']"
+deepbbbp,10.1002/minf.202100315,DeepBBBP: High Accuracy Blood-brain-barrier Permeability Prediction with a Mixed Deep Lear,OK,
+majumdar,10.1002/minf.201800164,Finding Needles in a Haystack: Determining Key Molecular Descriptors Associated with the B,OK,
+shaker,10.1093/bioinformatics/btad577,A machine learning-based quantitative model (LogBB\_Pred) to predict the blood--brain barr,OK,
+mokrani,10.1002/minf.201800118,Identification of New Potent Acetylcholinesterase Inhibitors Using Virtual Screening and i,OK,
+rl,10.1186/s13321-017-0235-x,Molecular de-novo design through deep reinforcement learning,OK,
+hergli,10.1186/s13321-025-01148-4,MolGAN-QRL: a hybrid framework for molecule generation using quantum-enhanced reinforcemen,OK,
+mysinger,10.1021/jm300687e,"Directory of Useful Decoys, Enhanced (DUD-E): Better Ligands and Decoys for Better Benchma",OK,
+chaput,10.1186/s13321-016-0167-x,Benchmark of four popular virtual screening programs: construction of the active/decoy dat,OK,
+agarwal,10.1002/minf.202200188,Speed vs Accuracy: Effect on Ligand Pose Accuracy of Varying Box Size and Exhaustiveness i,CHECK,year 2023 vs Crossref 2022
+b3db,10.1038/s41597-021-01069-5,A curated diverse molecular database of blood-brain barrier permeability with chemical des,OK,
+brocc,10.1021/jm101421d,A Novel Approach for Predicting P-Glycoprotein (ABCB1) Inhibition Using Molecular Interact,OK,
+martins,10.1021/ci300124c,A Bayesian Approach to in Silico Blood-Brain Barrier Penetration Modeling,OK,
+tdc,10.1038/s41589-022-01131-2,Artificial intelligence foundation for therapeutic science,OK,
+bdb,10.1093/nar/gkv1072,"BindingDB in 2015: A public database for medicinal chemistry, computational chemistry and ",CHECK,year 2016 vs Crossref 2015
+rdkit,,RDKit: Open-Source Cheminformatics Software,NO DOI - manual,
+rf,10.1023/a:1010933404324,Random Forests,OK,
+sklearn,,Scikit-learn: Machine Learning in Python,NO DOI - manual,
+ecfp,10.1021/ci100050t,Extended-Connectivity Fingerprints,OK,
+pains,10.1021/jm901137j,New Substructure Filters for Removal of Pan Assay Interference Compounds (PAINS) from Scre,OK,
+brenk,10.1002/cmdc.200700139,Lessons Learnt from Assembling Screening Libraries for Drug Discovery for Neglected Diseas,OK,
+ertl,10.1186/1758-2946-1-8,Estimation of synthetic accessibility score of drug-like molecules based on molecular comp,OK,
+wager10,10.1021/cn100008c,Moving beyond Rules: The Development of a Central Nervous System Multiparameter Optimizati,OK,
+wager16,10.1021/acschemneuro.6b00029,Central Nervous System Multiparameter Optimization Desirability: Application in Drug Disco,OK,
+tsne,,Visualizing Data using t-SNE,NO DOI - manual,
+pubchem,10.1093/nar/gkac956,PubChem 2023 update,CHECK,year 2023 vs Crossref 2022
+surechembl,10.1093/nar/gkv1253,"SureChEMBL: a large-scale, chemically annotated patent document database",CHECK,year 2016 vs Crossref 2015
+ellman,10.1016/0006-2952(61)90145-9,A new and rapid colorimetric determination of acetylcholinesterase activity,OK,
+dimorphite,10.1186/s13321-019-0336-9,Dimorphite-{DL}: an open-source program for enumerating the ionization states of drug-like,OK,
+boltz2,10.1101/2025.06.14.659707,Boltz-2: Towards Accurate and Efficient Binding Affinity Prediction,OK,
+openmm,10.1021/acs.jpcb.3c06662,{OpenMM} 8: Molecular Dynamics Simulation with Machine Learning Potentials,CHECK,year 2024 vs Crossref 2023
+ff14sb,10.1021/acs.jctc.5b00255,ff14{SB}: Improving the Accuracy of Protein Side Chain and Backbone Parameters from ff99{S,OK,
+gaff,10.1002/jcc.20035,Development and testing of a general amber force field,OK,
+am1bcc,10.1002/jcc.10128,"Fast, efficient generation of high-quality atomic charges. {AM1-BCC} model: {II}. Paramete",OK,
+aizynth,10.1186/s13321-020-00472-1,"AiZynthFinder: a fast, robust and flexible open-source software for retrosynthetic plannin",OK,
+thakkar,10.1039/C9SC04944D,Datasets and their influence on the development of computer assisted synthesis planning to,OK,
+zinc,10.1021/acs.jcim.5b00559,ZINC 15 -- Ligand Discovery for Everyone,OK,
+yu2001,,Methyl analogues of the experimental Alzheimer drug phenserine: synthesis and structure/ac,NO DOI - manual,
+greigpatent,,Substituted phenserines as specific inhibitors of acetylcholinesterase,NO DOI - manual,

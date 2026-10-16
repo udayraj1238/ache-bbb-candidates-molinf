@@ -1,0 +1,460 @@
+% ---------------------------------------------------------------------------
+% Molecular Informatics (Wiley-VCH) -- Full Paper, manuscript-submission layout (v4)
+% Compile with pdfLaTeX (twice) and BibTeX.  Main file: main.tex
+% Journal conventions: abstract 600-1000 characters; at most five keywords, alphabetical;
+% bracketed superscript citations; booktabs tables; Introduction / Results and Discussion /
+% Conclusions / Computational Methods.  Every number about the delivered set is generated
+% by src/ad_v2_paper_facts.py (results/AD_V2_PAPER_FACTS.txt) from results/SYNTHESIS_SET.csv.
+% ---------------------------------------------------------------------------
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{mathptmx}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{seqsplit}
+\usepackage{url}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[labelfont=bf,labelsep=period,font=small,justification=justified,singlelinecheck=off]{caption}
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\bfseries\large}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries\itshape}{\thesubsection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{16pt}{6pt}
+\titlespacing*{\subsection}{0pt}{12pt}{4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\sloppy
+\renewcommand{\cite}[1]{\textsuperscript{[\citenum{#1}]}}
+\renewcommand{\bibsection}{\section*{References}}
+\renewcommand{\bibfont}{\small}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\begin{document}
+\pagestyle{plain}
+
+\noindent{\itshape Full Paper}\par
+\vspace{6pt}
+{\large\bfseries Computational Design of 106 Novel, Brain-Penetrant Acetylcholinesterase Inhibitor Candidates with Computed Synthetic Routes\par}
+\vspace{10pt}
+Uday Raj, Mahim Aggarwal, Ishank Sharma, and Chandra Mohan Dasari* \par
+\vspace{6pt}
+{\footnotesize
+Indian Institute of Information Technology Design and Manufacturing Kurnool, Jagannathagattu Hill, Kurnool, Andhra Pradesh 518008, India.\\
+E-mail: chandramohan.d@iiitk.ac.in\par}
+
+\section*{Abstract}
+{\small Computational papers on acetylcholinesterase (AChE) inhibitors rarely go beyond predicted potency. We designed 2,700 analogues of potent published inhibitors by one or two matched-pair edits and passed them through gates for activity, brain penetration, drug-likeness, toxicity, docking, protonation and stereochemistry, a four-source novelty search and computed retrosynthesis. 106 molecules on 63 scaffolds cleared every gate with at least 5 \% margin (63 with 10 \% or more), each absent from PubChem, ChEMBL and SureChEMBL and each with a computed route of one to six steps from purchasable materials. A shortlist of 20 was ranked under 5,000 random weightings of eight further checks. The models behind the gates were tested on held-out scaffolds and on compounds published after a cutoff year, where the activity model beat simple baselines overall but not for chemistry unlike its training set; molecular dynamics kept the poses of 16 of 17 simulated shortlist molecules; and the weak components (docking score, efflux term, hERG) are reported. All results are predictions; nothing has been synthesized.\par}
+\vspace{4pt}
+\noindent{\small\textbf{Keywords:} acetylcholinesterase $\cdot$ blood--brain barrier $\cdot$ drug design $\cdot$ inhibitors $\cdot$ retrosynthesis\par}
+
+\newpage
+\noindent\textbf{Graphical Table-of-Contents entry (separate upload)}\par
+\noindent\textbf{Title:} Computational Design of 106 Novel, Brain-Penetrant Acetylcholinesterase Inhibitor Candidates with Computed Synthetic Routes\par
+\noindent\textbf{Authors:} U.~Raj, M.~Aggarwal, I.~Sharma, C.~M.~Dasari* (* corresponding author)\par
+\noindent\textbf{Text (49 words):} A cascade of activity, brain-penetration, docking, novelty and retrosynthesis gates turns 2,700 designed analogues of potent AChE inhibitors into 106 candidates. Each is absent from four chemical databases, clears every gate with at least 5 \% margin and has a computed route from purchasable materials. None has been synthesized.\par
+\vspace{6pt}
+\includegraphics[width=13cm]{figures/TOC_graphic.png}
+\newpage
+
+\section{Introduction}
+\label{sec:1}
+
+Drugs for Alzheimer's disease must bind their target and reach the brain. The blood--brain barrier (BBB), a layer of tightly joined endothelial cells that carries efflux transporters such as P-glycoprotein (P-gp), keeps most circulating molecules out of the central nervous system.\cite{hu} Computational prioritization of such drugs therefore chains several models: an activity classifier, a permeability model, a brain-exposure estimate, a docking score and drug-likeness filters. A component of that chain is only as useful as its performance on molecules unlike its training data, and random data splits reward the recognition of close analogues,\cite{wallach} so scaffold-disjoint evaluation, in which no scaffold of the test set occurs in training, is the relevant test for a design campaign.\cite{murcko,tropsha}
+
+Acetylcholinesterase (AChE, EC 3.1.1.7) is the validated target of donepezil, rivastigmine and galantamine, and the 2.35 \AA{} co-crystal structure of the human enzyme with donepezil (PDB ID 4EY7) resolves a ligand that spans the catalytic and the peripheral anionic site.\cite{sugimoto,pdb} Peripheral-site occupancy is also associated with inhibition of AChE-induced amyloid-$\beta$ aggregation.\cite{inest,ferrari} Thousands of measured inhibitors are available in ChEMBL,\cite{chembl} which makes AChE a suitable target for a data-driven design study, but a useful candidate must also be new, brain-penetrant and makeable. Computational papers on this target often stop at predicted potency; novelty and synthetic accessibility are checked less often and rarely by a computed route.
+
+Here we describe a design cascade that turns published potent AChE inhibitors into a list of molecules that are, on every computed criterion we could apply, candidates to take to a chemist for synthesis planning. Candidates are generated by matched-molecular-pair (MMP) edits,\cite{hr,griffen} filtered by activity and permeability models trained on scaffold-disjoint partitions, by a validated logBB regression, by drug-likeness, toxicity and stability rules, by docking against 4EY7,\cite{vina,vina12} by protonation, tautomer and stereochemistry checks, by novelty searches in four independent sources, and finally by a computed retrosynthesis to purchasable starting materials.\cite{aizynth} The delivered set is every molecule that clears all gates, ordered by the margin with which it does so. We report what each component can and cannot support, because the margin of a molecule is only as meaningful as the models that define it, and we state plainly that no molecule has been synthesized or assayed.
+
+%%BEGIN-CONTRIB
+Figure~\ref{fig:workflow} gives an overview of the study. Our contributions are three. First, a gated design cascade whose components are each tested on held-out scaffolds against simple baselines, with the weak components named. Second, a delivered set of 106 candidates, complete for the gates used, each with a computed route and a four-source novelty check, with a priority tier of 63 and a shortlist of 20. Third, falsifiable predictions for the first assay (Section~\ref{sec:discussion}), chosen so that the experiment discriminates between the structure-based and the ligand-based view of these molecules.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure7.pdf}
+\caption{Overview of the study. Counts are those of the delivered set; the gates are listed in Table~\ref{tab:1} and the shortlist ranking in Section~\ref{sec:best}.}
+\label{fig:workflow}
+\end{figure}
+
+%%END-CONTRIB
+\textit{Related work.} Machine-learning BBB models have been reported in this journal, for example an extra-trees model on B3DB with ROC-AUC 0.932 on a random partition\cite{liang} and a review of such models;\cite{nabi} LogBB\_Pred, published elsewhere, reports \textit{R}\textsuperscript{2} 0.61 for measured logBB.\cite{shaker} Most of these are evaluated on random partitions, which reward recognition of close analogues, so we report held-out-scaffold performance for every model we rely on. Structure-based screening for AChE has been reported in this journal with in vitro confirmation of 12 of 14 tested compounds,\cite{mokrani} and a graph generative adversarial network with reinforcement learning has been described for unconstrained generation.\cite{amodini} The present work constrains design to analogues of potent inhibitors, applies brain-penetration, novelty and synthesis criteria jointly, and stops short of experiment, which is the main respect in which it falls short of the AChE study cited. Docking benchmarks depend on how decoys are built,\cite{mysinger,chaput} and Vina pose accuracy is largely insensitive to box size and exhaustiveness,\cite{agarwal} so we tested both the pose and the score on our own system.
+
+\section{Results and Discussion}
+\label{sec:3}
+
+\subsection{What the models behind the gates can support}
+\label{sec:3.1}
+
+Table~\ref{tab:2} gives the held-out performance of the components that define the gates. The activity model reaches ROC-AUC 0.900 on 1,289 held-out-scaffold compounds, ahead of nearest-neighbor similarity (0.871) and physicochemical descriptors (0.732), but on the least similar third of the test set it falls to 0.728 and is indistinguishable from nearest-neighbor lookup (0.720). It is therefore a reliable ranker near known chemistry, which is where every candidate lies (similarity to the nearest potent active 0.45--0.90, median 0.73), and it says little about unrelated chemotypes. The BBB classifier (AUC 0.802) beats the polar-surface-area baseline (0.721), and the scaffold-validated logBB regression (Spearman $\rho$ = 0.71) beats TPSA alone (0.65); both are used as the exposure evidence. Asking an independently trained second model to agree improved the precision of the activity selection (top-\textit{k} better in 16 of 20 scaffold partitions) but not that of the permeability selection (6 of 20), so the BBB gates rest on three models (two in-house and one independently trained on a different data set), and the second in-house model is not claimed to add independent information to the first.
+
+%%BEGIN-SPLIT
+The split protocol matters. On random 80/20 splits the BBB classifier and the activity model reach ROC-AUC 0.96 and 0.96; when whole scaffolds are assigned at random they reach 0.92 and 0.92; on the deterministic scaffold split used for every figure in this paper, in which the largest scaffold groups fill the training set and the test set holds the rarest scaffolds, they reach 0.80 and 0.90. For logBB the Spearman correlation falls from 0.79 under random cross-validation to 0.70 under scaffold-grouped cross-validation. Numbers from random splits, which dominate the BBB literature, therefore overstate what a design campaign can expect.
+
+%%END-SPLIT
+%%BEGIN-GNN
+An independent graph neural network (edge-aware message passing on the molecular graph, five seeds, trained on the same training scaffolds and not tuned on the test partitions) reached ROC-AUC 0.813 (0.785--0.839) on the 1,289 held-out-scaffold compounds, against 0.900 for the random forest and 0.871 for nearest-neighbor lookup. Scored with it, the delivered molecules have a median activity probability of 0.92 (minimum 0.66); 106 of 106 reach 0.5 and 103 reach 0.7, and its probabilities correlate with those of the random forest at Spearman $\rho$ = 0.11. A second model family therefore supports the activity gate for the delivered set; the low rank correlation is expected, because both models place every candidate in a narrow band of high probability (random forest 0.74--0.94, graph network 0.66--1.00), within which their orderings carry little shared information.
+
+%%END-GNN
+\begin{table}[htbp]
+\centering\small
+\caption{Held-out performance of the components behind the gates (deterministic scaffold split unless stated).}
+\label{tab:2}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\centering\arraybackslash}p{0.17\textwidth}>{\centering\arraybackslash}p{0.17\textwidth}@{}}
+\toprule
+\textbf{Component} & \textbf{Test} & \textbf{Result} & \textbf{Baseline} \\
+\midrule
+AChE activity & 1,289 held-out-scaffold compounds, AUC & 0.900 & NN 0.871 \\
+AChE, least similar third & same, novelty tertile & 0.728 & NN 0.720 \\
+BBB classifier & 1,165 compounds, AUC & 0.802 & $-$TPSA 0.721 \\
+Martins BBB & 582 compounds, AUC & 0.929 & -- \\
+logBB regression & 1,025, scaffold-grouped CV, $\rho$ & 0.71 & TPSA 0.65 \\
+Docking pose & donepezil re-docked, 25 runs, RMSD & 0.83--0.92 \AA{} & 2.0 \AA{} \\
+Docking score & 138 binders vs 526 matched decoys, AUC & 0.64 & properties 0.52 \\
+P-gp term & BBB+ vs BBB$-$, permeable stratum, AUC & 0.52 & 0.60 required \\
+hERG potency regression & 10,470 compounds, scaffold CV $\rho$; ten blockers vs ten non-blockers, AUC & 0.67; 1.00 & cisapride $>$ donepezil: not met \\
+Matched-pair statistics & change in audit BBB probability & $-$0.100 & random $-$0.096 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three results limit how the gates should be read, and we state them because the delivered set rests on them. First, the docking score separated known binders from property-matched decoys only weakly (AUC 0.64, 0.59--0.69; Figure~\ref{fig:docking}), so the Vina gate is a plausibility filter on size and fit and is not evidence of potency; the pose of donepezil was reproduced within 0.9 \AA{} in all 25 re-docking runs, and pose coverage of the crystallographic footprint is the more informative structural criterion. Second, the P-gp term did not separate BBB-permeable from non-permeable compounds (AUC 0.52), and a composite exposure score that included it correlated with measured logBB at only $\rho$ = 0.24; the P-gp and exposure-surrogate gates are retained as conservative donepezil-anchored exclusions (they remove 26 candidates), but the logBB regression, not they, supplies the exposure evidence (Figure~\ref{fig:exposure}). Third, the matched-pair statistics selected edits no better than random edits, so the edit library is a source of chemically plausible analogues and the gates do the selecting. Two attempts to do better than Vina did not help: rescoring the same poses with the neural-network functions of GNINA gave AUC 0.47 to 0.70 against 0.72 for Vina on the first, molecular-weight-matched decoy set, and an independent co-folding check with Boltz-2 did not reach its enrichment bar (AUC 0.67, 0.54--0.81). No structural claim beyond docking is made.
+
+%%BEGIN-DOCKSEEDS
+Docking gates are reproducible for the delivered set: re-docking every molecule from two new random seeds (new starting conformer and new Vina seed) changed the Vina score by a median of 0.33 kcal mol\textsuperscript{$-$1} (95th percentile 0.94, maximum 1.36) across the three runs, the pose coverage of the donepezil footprint had a minimum of 0.54 over the runs (median 0.93), and 105 of 106 molecules (99\%) passed both docking gates in all three runs. The pre-specified criterion (at least 90 \% of molecules passing in all runs) was met.
+%%END-DOCKSEEDS
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure5.pdf}
+\caption{Brain-exposure tests. (a) Out-of-fold logBB predictions of the scaffold-grouped cross-validated ensemble against measured values (\textit{n} = 1,025); dotted lines mark logBB = $-$1. (b) Spearman correlation with measured logBB (95 \% bootstrap intervals) for the exposure score, its two terms, two physicochemical descriptors and the cross-validated logBB ensemble; the dashed line is the pre-specified bar of 0.30. (c) ROC-AUC of one minus the P-gp probability for separating BBB+ from BBB$-$ compounds in B3DB, overall and within strata of increasing passive permeability; the dotted line is the pre-specified bar of 0.60.}
+\label{fig:exposure}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure6.pdf}
+\caption{Docking tests. (a) Heavy-atom RMSD of the top-ranked pose for donepezil re-docked into 4EY7 at three exhaustiveness values and three box sizes, five seeds each; the dashed line is the 2.0 \AA{} convention. (b) ROC curves of the Vina score on property-matched decoys (set A), on measured inactives (set B) and on a first, molecular-weight-matched decoy set, and of a classifier that sees only nine properties of that first set (no docking). (c) Distribution of Vina scores for the binders and the set-A decoys; the dashed line is galantamine's score.}
+\label{fig:docking}
+\end{figure}
+
+\subsection{From 2,700 designs to 106 molecules}
+\label{sec:3.2}
+
+Figure~\ref{fig:funnel} shows the funnel (the counts are also listed in the Supporting Information). The stored designs lose most of their number at the first four steps, where the activity and BBB models and the logBB gate act together; 374 designs pass every audited gate, and 292 of them clear 5 \% margin. The efflux and exposure gates, stereochemistry, docking, protonation and tautomer checks, novelty and retrosynthesis then reduce the 292 to the delivered 106. Of the 194 candidates that reached docking, one failed the docking gate and two the protonation check, and none was a tautomer of a known compound.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Figure1.pdf}
+\caption{Funnel from the 2,700 stored designs to the delivered set. Blue, design-stage and structure-stage gates; orange, the novelty and synthesis gates; green, the delivered set.}
+\label{fig:funnel}
+\end{figure}
+
+
+\subsection{The delivered set}
+\label{sec:3.3}
+
+The 106 molecules lie on 63 Bemis--Murcko scaffolds and come from 34 published parents; 39 carry one edit and 67 carry two. Their predicted properties are within the gates by construction, and the distributions show how far inside: the primary AChE probability has median 0.85 (minimum 0.74), both BBB models have median 0.88--0.89 (minimum 0.79), the independent Martins model 0.845 (minimum 0.75), and the predicted logBB has median 0.36 (minimum $-$0.21). The median molecule has MW 364, cLogP 3.9, TPSA 41 \AA{}\textsuperscript{2}, no hydrogen-bond donor and CNS MPO 4.3; the median Vina score is $-$10.85 kcal mol\textsuperscript{$-$1} and the median pose coverage of the donepezil footprint 0.96. The margin on the tightest audited gate is at least 5 \% for all molecules (median 11 \%, maximum 20.5 \%), and 63 molecules have at least 10 \%; these 63 form the priority tier (margin tier 1) and the other 43, with 5--10 \%, are tier 2. The tightest gate is a BBB model for 60 molecules and the logBB applicability domain for 26, which identifies where the set sits closest to the boundary of what these models support. Figure~\ref{fig:properties} shows the distributions and Table~\ref{tab:4} lists the twelve molecules with the largest margins (structures in Figure~\ref{fig:structures}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure2.pdf}
+\caption{Properties of the delivered set. (a) Margin on the tightest gate; the dashed line marks 10 \%. (b) Predicted logBB against the primary AChE probability, colored by margin; dashed lines are the gate thresholds. (c) Vina score against pose coverage of the donepezil footprint; dashed lines are the thresholds. (d) Length of the computed route.}
+\label{fig:properties}
+\end{figure}
+
+\begin{table}[htbp]
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\caption{The twelve delivered molecules with the largest margins (all 106 are in the Supporting Information). Edits: number of matched-pair transformations from the parent. AChE: primary probability. logBB: predicted. Vina in kcal mol\textsuperscript{$-$1} (a plausibility filter, not evidence of binding). Pose: coverage of the donepezil footprint. Margin: smallest slack (\%) on any audited gate. Steps: length of the longest linear sequence of the computed route (a convergent route contains more reactions in total; every reaction is listed in the dossier).}
+\label{tab:4}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.04\textwidth}>{\centering\arraybackslash}p{0.43\textwidth}>{\centering\arraybackslash}p{0.06\textwidth}>{\centering\arraybackslash}p{0.07\textwidth}>{\centering\arraybackslash}p{0.07\textwidth}>{\centering\arraybackslash}p{0.07\textwidth}>{\centering\arraybackslash}p{0.06\textwidth}>{\centering\arraybackslash}p{0.07\textwidth}>{\centering\arraybackslash}p{0.06\textwidth}@{}}
+\toprule
+\textbf{No.} & \textbf{SMILES} & \textbf{Edits} & \textbf{AChE} & \textbf{logBB} & \textbf{Vina} & \textbf{Pose} & \textbf{Margin} & \textbf{Steps} \\
+\midrule
+% rows generated from results/SYNTHESIS_SET.csv (see top12_rows.tex)
+1 & {\ttfamily\scriptsize\seqsplit{CCN1CCC(F)(CC2Cc3cc(OC4CC4)c(OC)cc3C2=O)CC1}} & 2 & 0.89 & 0.43 & $-$10.7 & 0.93 & 20 & 3 \\
+2 & {\ttfamily\scriptsize\seqsplit{CCN1CCC(F)(CC2Cc3cc(OC)c(OC4CC4)cc3C2=O)CC1}} & 2 & 0.89 & 0.43 & $-$10.6 & 0.93 & 20 & 3 \\
+3 & {\ttfamily\scriptsize\seqsplit{CCN1CCC(CC2Cc3cc(OC)c(OC4CC4)cc3C2=O)CC1}} & 2 & 0.90 & 0.43 & $-$9.8 & 0.89 & 19 & 1 \\
+4 & {\ttfamily\scriptsize\seqsplit{CCN1CCC(CC2Cc3cc(OC4CC4)c(OC)cc3C2=O)CC1}} & 2 & 0.90 & 0.43 & $-$10.4 & 0.96 & 19 & 1 \\
+5 & {\ttfamily\scriptsize\seqsplit{COc1cc2c(cc1C1CC1)CC(Oc1ccc(CN3CCCC3)cc1)C2=O}} & 2 & 0.86 & 0.46 & $-$11.2 & 1.00 & 18 & 5 \\
+6 & {\ttfamily\scriptsize\seqsplit{O=C(C1CC1)N(CCC1CCN(Cc2ccccc2)CC1)c1ccncc1}} & 1 & 0.92 & 0.48 & $-$10.7 & 0.82 & 18 & 2 \\
+7 & {\ttfamily\scriptsize\seqsplit{C=Cc1cc2c(cc1OC)C(=O)C(CC1CCN(Cc3ccccn3)CC1)C2}} & 2 & 0.89 & 0.41 & $-$12.1 & 1.00 & 18 & 2 \\
+8 & {\ttfamily\scriptsize\seqsplit{COc1cc2c(cc1SC)CC(CC1CCN(Cc3ccccn3)CC1)C2=O}} & 1 & 0.90 & 0.50 & $-$11.8 & 1.00 & 18 & 2 \\
+9 & {\ttfamily\scriptsize\seqsplit{COc1cc2c(cc1SC)C(=O)C(CC1CCN(Cc3ccccn3)CC1)C2}} & 1 & 0.90 & 0.50 & $-$11.6 & 1.00 & 18 & 2 \\
+10 & {\ttfamily\scriptsize\seqsplit{COc1cc2c(cc1C)CC(CC1CCN(Cc3cccc(C)n3)CC1)C2=O}} & 1 & 0.88 & 0.52 & $-$12.4 & 1.00 & 17 & 4 \\
+11 & {\ttfamily\scriptsize\seqsplit{O=C(CF)N(CCC1CCN(Cc2ccccc2)CC1)c1ccncc1}} & 2 & 0.91 & 0.35 & $-$9.9 & 0.75 & 17 & 2 \\
+12 & {\ttfamily\scriptsize\seqsplit{O=C(c1ccncc1)N(CCC1CCN(Cc2ccccc2)CC1)C1CC1}} & 2 & 0.88 & 0.52 & $-$10.3 & 0.93 & 17 & 2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure4.pdf}
+\caption{Structures of the twelve delivered molecules with the largest margins, with primary AChE probability, predicted logBB, margin and the length of the computed route.}
+\label{fig:structures}
+\end{figure}
+
+
+%%BEGIN-REFDRUGS
+For orientation, \hyperref[tab:refdrugs]{Table~\ref{tab:refdrugs}} gives the established AChE drugs under the same models. Donepezil scores 0.99 on the activity model and tacrine 0.87, whereas the delivered set has a median of 0.85, so the candidates are not predicted to be more active than donepezil; their advantages in this study are predicted brain exposure, novelty and a computed route. The activity and BBB gates keep donepezil and tacrine and reject the others, which means that the cascade selects for donepezil-like and tacrine-like chemistry and is not a general AChE filter.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Established AChE drugs under the models and gates of this study (activity probability; BBB in-loop / audit / Martins; predicted logBB; CNS MPO; Vina in kcal mol\textsuperscript{$-$1}; pose coverage), and the median of the delivered set.}
+\label{tab:refdrugs}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\textbf{Compound} & \textbf{AChE} & \textbf{BBB} & \textbf{logBB} & \textbf{MPO} & \textbf{Vina} & \textbf{Pose} \\
+\midrule
+Donepezil & 0.99 & 0.99 / 0.95 / 0.85 & 0.75 & 4.1 & -11.8 & 1.00 \\
+Galantamine & 0.50 & 0.47 / 0.52 / 0.90 & 0.31 & 5.8 & -8.2 & 0.43 \\
+Rivastigmine & 0.28 & 0.24 / 0.38 / 0.84 & 0.82 & 5.3 & -7.8 & 0.82 \\
+Tacrine & 0.87 & 0.90 / 0.76 / 0.88 & -0.30 & 5.4 & -8.8 & 0.57 \\
+Huperzine A & 0.71 & 0.84 / 0.19 / 0.85 & -0.14 & 5.5 & -9.3 & 0.64 \\
+\midrule
+Delivered set (median) & 0.85 & 0.88 / 0.89 / 0.84 & 0.36 & 4.3 & -10.9 & 0.96 \\
+\bottomrule
+\end{tabular}
+\end{table}
+%%END-REFDRUGS
+\textit{Novelty and its limits.} Every molecule is absent from PubChem (exact structure and same connectivity), ChEMBL (flexmatch) and SureChEMBL. Twelve candidates that passed everything before the novelty search were removed because PubChem, ChEMBL or SureChEMBL found them, some in more than one source. The nearest potent ChEMBL active of each molecule has median Tanimoto similarity 0.73 (0.45--0.90), and 38 molecules (12 of the 63 scaffolds) carry a Bemis--Murcko scaffold that already occurs among ChEMBL AChE compounds. The molecules are therefore close analogues within known donepezil-like, tacrine-like and related series and not new chemotypes (Figure~\ref{fig:space}). A negative database search shows that the exact structure has not been indexed; it does not exclude disclosure within the scope of a patent claim. We found direct evidence of that gap for one series. The eseroline phenylcarbamates, to which nine otherwise eligible candidates belong (including the one with the largest margin before this exclusion, a 2-fluorophenyl analogue of phenserine), derive from parents that are the subject of a patent family on substituted phenserines\cite{greigpatent} (now expired) and of systematic work on the aryl ring of the carbamate.\cite{yu2001} Such disclosures are prior art whose scope a structure query does not capture, so these nine were excluded for novelty and the set is reported without them. The same caution applies in principle to the remaining series, whose parents are also published drugs and drug candidates: a database miss is not a novelty opinion, and novelty and freedom to operate must be assessed by a patent attorney; neither is asserted here.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/Figure3.pdf}
+\caption{Chemical space of the delivered candidates. t-SNE embedding (Jaccard distance on ECFP4) of 1,200 potent ChEMBL AChE actives, the delivered candidates and five marketed drugs.}
+\label{fig:space}
+\end{figure}
+
+\textit{Synthesis.} All 106 molecules have a computed route whose leaves are purchasable: 35 in one step, 39 in two, 10 in three, 7 in four, 12 in five and 3 in six, with a median route score of 0.994 (minimum 0.956). The routes stem from literature reaction templates and are hypotheses for a chemist to review. No computed route passes through the parent: the tool builds each molecule directly from purchasable building blocks. The parent is listed by suppliers for 27 of the 106 molecules and not for 79, so parent availability does not limit the routes, although a chemist may prefer a late-stage modification of a catalogued parent where one exists. Stereochemistry is fully specified: 65 molecules carry defined stereocenters from their parents or by design, and 41 are specified as racemates because every undefined center lies $\alpha$ to a carbonyl and epimerizes.
+
+%%BEGIN-BENCH
+As a reference for these rates, the same first-pass search (200 iterations, 120 s) found a route for 52 of 80 (65 \%) randomly chosen potent ChEMBL AChE actives and for 3 of 6 established AChE drugs (donepezil (route), tacrine (route), galantamine (no route), rivastigmine (route), huperzine A (no route), physostigmine (no route)), against 95 of 179 (53 \%) of the novelty-clear candidates; the second, deeper pass added 20 candidates. The difference is not significant (Fisher exact $p$ = 0.08), so the candidates are not detectably harder to route than known inhibitors. The tool also misses some established drugs, so ``no route found'' should not be read as ``not makeable''.
+
+%%END-BENCH
+\textit{Structural plausibility.} Most molecules belong to the donepezil family: 77 of the 106 carry an N-alkylpiperidine, 41 an indanone and 36 an N-benzylpiperidine or N-benzylpyrrolidine, and six are tacrine-like. The four molecules with the largest margins, and a fifth at rank 46, are N-ethyl indanone-piperidines in which donepezil's benzyl ring is replaced by an ethyl group. In our docked poses these molecules keep the peripheral-site stacking of the indanone ring but no longer have an aromatic ring to stack on Trp86, and their docking scores do not register that loss; they rank high because the smaller, less lipophilic structure raises the predicted logBB and the BBB margins. Three molecules of the delivered set (ranks 1, 2 and 4) were tested earlier in 2 ns of explicit-solvent molecular dynamics with one replica each. Two kept their pose (second-half RMSD 2.5 and 0.8 \AA{}) and one drifted (3.6 \AA{}, above the 3.0 \AA{} criterion). This is a screen and not converged sampling, and the other 103 molecules were not simulated.
+
+%%BEGIN-BEST-RESULTS
+\subsection{A shortlist of twenty molecules for first synthesis}
+\label{sec:shortlist}
+
+To choose where to start, the 63 priority-tier molecules were put through every remaining computational check and ranked (Section~\ref{sec:best}). The independent graph network removed 2, the docking gates in all three seed runs and after re-docking with the protonated amine removed 1, structural alerts removed 4 (none of the 106 has a PAINS or Brenk alert; 4 carry a NIH alert, among them a monofluoroacetamide and three alpha-halo heteroatom groups), a route longer than three steps removed 11, and no molecule violated the Lipinski or Veber criteria. The 45 that remained were ranked on eight evidence axes under 5,000 random weightings, and the twenty with the best median rank, with at most two per scaffold and four per parent, are listed in \hyperref[tab:best]{Table~\ref{tab:best}}. They lie on 16 scaffolds from 10 parents, have a median margin of 14.7 \% and a median graph-network probability of 0.96, and a median worst-case Vina score of $-$11.3 kcal mol\textsuperscript{$-$1}; 10 with a one-step route, 6 with two steps, 4 with three steps, and 6 stack on both Trp86 and Trp286 with the protonated amine, as donepezil does. The order inside the list is not firm: the median width of the 5th--95th percentile rank interval is 23 positions, so the list is robust as a group and its individual order is not. All twenty still carry the open issues stated elsewhere in this paper, above all that hERG block and potency are unmeasured, and the list is a proposal for a first synthesis batch, not a finding.
+
+\begin{table}[htbp]
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\caption{The shortlist of twenty molecules for first synthesis, in order of median rank under 5,000 random weightings of eight evidence axes. Margin: smallest slack on any audited gate (\%). GNN: probability from the independent graph network. Vina: worst of four docking runs (kcal mol\textsuperscript{$-$1}). Steps: longest linear sequence of the computed route. Contacts: Trp86 stacking, Trp286 stacking and cation--$\pi$ contact in the protonated re-docking (0--3).}
+\label{tab:best}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.05\textwidth}>{\centering\arraybackslash}p{0.52\textwidth}>{\centering\arraybackslash}p{0.09\textwidth}>{\centering\arraybackslash}p{0.07\textwidth}>{\centering\arraybackslash}p{0.08\textwidth}>{\centering\arraybackslash}p{0.07\textwidth}>{\centering\arraybackslash}p{0.09\textwidth}@{}}
+\toprule
+\textbf{No.} & \textbf{SMILES} & \textbf{Margin} & \textbf{GNN} & \textbf{Vina} & \textbf{Steps} & \textbf{Contacts} \\
+\midrule
+1 & {\ttfamily\scriptsize\seqsplit{COc1cc2c(cc1SC)CC(CC1CCN(Cc3ccccn3)CC1)C2=O}} & 17.5 & 0.94 & $-$11.5 & 2 & 3 \\
+2 & {\ttfamily\scriptsize\seqsplit{COc1cc2c(cc1SC)C(=O)C(CC1CCN(Cc3ccccn3)CC1)C2}} & 17.5 & 0.94 & $-$11.6 & 2 & 3 \\
+3 & {\ttfamily\scriptsize\seqsplit{O=C(CCC1CCN(CC2CC2)CC1)c1cc2c3c(c1)CC(=O)N3CCC2}} & 14.3 & 0.99 & $-$11.7 & 1 & 2 \\
+4 & {\ttfamily\scriptsize\seqsplit{COc1cc2c(cc1OC1CC1)C(=O)C(CC1CCN(Cc3ccccn3)CC1)C2}} & 16.8 & 0.92 & $-$11.2 & 2 & 3 \\
+5 & {\ttfamily\scriptsize\seqsplit{COc1cc2c(cc1OC)C(=O)C(CC1CCN(Cc3ccc(CO)cc3)CC1)C2}} & 13.7 & 0.93 & $-$11.7 & 2 & 3 \\
+6 & {\ttfamily\scriptsize\seqsplit{O=C(CCC1CCN(CCC2CC2)CC1)c1cc2c3c(c1)CCC(=O)N3CCC2}} & 12.6 & 0.99 & $-$11.6 & 1 & 2 \\
+7 & {\ttfamily\scriptsize\seqsplit{O=C(CCC1CCN(CC2CC2)CC1)c1cc2c3c(c1)CCC(=O)N3CCC2}} & 12.7 & 0.99 & $-$11.6 & 1 & 2 \\
+8 & {\ttfamily\scriptsize\seqsplit{COc1cc2c(cc1OC1CC1)CC(CC1CCN(Cc3ccccn3)CC1)C2=O}} & 16.8 & 0.92 & $-$11.0 & 2 & 3 \\
+9 & {\ttfamily\scriptsize\seqsplit{CCN1CCC(CC2Cc3cc(OC4CC4)c(OC)cc3C2=O)CC1}} & 18.7 & 0.96 & $-$10.2 & 1 & 2 \\
+10 & {\ttfamily\scriptsize\seqsplit{CCN1CCC(F)(CC2Cc3cc(OC)c(OC4CC4)cc3C2=O)CC1}} & 20.5 & 0.96 & $-$10.0 & 3 & 2 \\
+11 & {\ttfamily\scriptsize\seqsplit{COc1cc2c(cc1C)C(=O)C(Oc1ccc(CN3CCCC3)cc1)C2}} & 15.8 & 0.95 & $-$11.5 & 3 & 2 \\
+12 & {\ttfamily\scriptsize\seqsplit{CCN1CCC(CCC(=O)c2cc3c4c(c2)CC(=O)N4CCC3)CC1}} & 14.3 & 0.99 & $-$11.1 & 1 & 2 \\
+13 & {\ttfamily\scriptsize\seqsplit{CCN1CCC(CC2Cc3cc(OC)c(OC4CC4)cc3C2=O)CC1}} & 18.7 & 0.96 & $-$9.8 & 1 & 2 \\
+14 & {\ttfamily\scriptsize\seqsplit{O=C(CCC1CCN(CCC2CC2)CC1)c1cc2c3c(c1)CC(=O)N3CCC2}} & 14.3 & 1.00 & $-$11.2 & 1 & 2 \\
+15 & {\ttfamily\scriptsize\seqsplit{CCN1CCC(F)(CC2Cc3cc(OC4CC4)c(OC)cc3C2=O)CC1}} & 20.5 & 0.96 & $-$9.7 & 3 & 2 \\
+16 & {\ttfamily\scriptsize\seqsplit{O=C(CCC1CCN(Cc2ccccc2F)CC1)c1ccc2c(c1)OCCO2}} & 13.6 & 0.85 & $-$12.1 & 2 & 3 \\
+17 & {\ttfamily\scriptsize\seqsplit{CCCN1CCC(CCC(=O)c2cc3c4c(c2)CC(=O)N4CCC3)CC1}} & 11.1 & 0.99 & $-$11.1 & 1 & 2 \\
+18 & {\ttfamily\scriptsize\seqsplit{COc1cc2c(cc1C)C(=O)C(Oc1cccc(CN3CCCCC3)c1)C2}} & 15.2 & 0.96 & $-$11.4 & 3 & 2 \\
+19 & {\ttfamily\scriptsize\seqsplit{CCCN1CCC(CCNC(=O)c2ccc3cc(OC)ccc3c2)CC1}} & 10.7 & 0.96 & $-$10.7 & 1 & 2 \\
+20 & {\ttfamily\scriptsize\seqsplit{CCN1CCC(CCC(=O)c2cc3c4c(c2)CCC(=O)N4CCC3)CC1}} & 12.6 & 0.99 & $-$11.3 & 1 & 2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%%END-BEST-RESULTS
+\subsection{Safety and selectivity flags}
+\label{sec:3.4}
+
+No molecule has a toxicity probability more than 0.10 worse than that of its parent, but the absolute values are not reassuring. The predicted hERG probability has median 0.85 (maximum 0.93), as it does for the donepezil-like parents, and the hERG classifier could not rank cisapride, a far more potent blocker, above donepezil when we tested it, so the value cannot be used to separate candidates; hERG liability must be measured and is the most likely reason for a candidate to fail. We therefore tried a second model, a regression on the measured potencies of 10,470 ChEMBL compounds, with its pass criteria fixed beforehand. It ranked unseen scaffolds well (scaffold-grouped cross-validated Spearman $\rho$ = 0.67, AUC 0.82 for IC\textsubscript{50} $\leq$ 10 \textmu{}M) and separated ten potent blockers from ten drugs without meaningful hERG block perfectly (AUC 1.00, panel structures held out of training), but it failed the third criterion, that cisapride be predicted more potent than donepezil (5.37 against 5.69 in pChEMBL units), because its predictions are compressed toward the mean: the delivered molecules span only 5.15--6.06 and 55 of 106 are predicted slightly weaker than their parent. By the rule that all three criteria must hold, it was not used to label the molecules, and the statement stands that hERG block cannot yet be ranked computationally for this set. Ames and DILI probabilities have median 0.49 and 0.45. For butyrylcholinesterase, 104 molecules have a higher predicted AChE than BChE probability, and 30 have a predicted BChE probability of at least 0.5, which is not a defect for Alzheimer's disease but should be known when interpreting an assay. The BCRP similarity flag, which failed its own calibration, flags one molecule (rank 94) and is not evidence of absence of BCRP efflux for the others. P-gp and BCRP efflux were not measured.
+
+%%BEGIN-DISCUSSION
+\subsection{Discussion and falsifiable predictions}
+\label{sec:discussion}
+
+This study does not claim that the delivered molecules are better inhibitors than donepezil; the activity models score donepezil higher than the delivered set, and no potency has been measured. What it offers is a worked, audited route from published inhibitors to makeable, novel-by-search, brain-penetrant candidates, in which every gate has a stated validity and the weak ones are named. The molecules sit close to known donepezil-like series, so the realistic expectation is activity of the same kind as that series and hERG liability like its parents; novelty would lie in the exact structures and in the pathway, and the chance of a clinical advantage is small.
+
+The first assay should be designed to test something. The activity models and the structure-based view disagree about one feature. In the protonated re-docking, 44 of the 106 molecules place an aromatic ring on Trp86, as donepezil's benzyl ring does (37 of them carry a benzyl-type N-CH\textsubscript{2}-aryl group), and 62 do not (37 of these have only small alkyl groups on the basic nitrogen and 25 have a benzyl-type group that does not reach Trp86 in the top pose). The random forest scores the stackers slightly higher (mean probability 0.87 against 0.84) but the graph network scores them lower (0.86 against 0.92), so ligand-based models do not register the difference. Structure-based reasoning predicts that molecules that keep the Trp86 interaction are markedly more potent than those that lose it. We state that as a prediction: in an Ellman assay with donepezil on the same plate, the stackers should have clearly lower IC\textsubscript{50} values than the non-stackers within each chemical series, and if they do not, the structure-based reading of this pocket is wrong for these compounds. Two further predictions are that the first-pass computed routes succeed in the laboratory for most of the one- and two-step molecules, and that every active molecule shows hERG block at micromolar concentrations, as the parents do; a molecule that is both active and free of hERG block would be the finding worth following.
+
+%%END-DISCUSSION
+%%BEGIN-TIMEMD-RESULTS
+\subsection{Temporal validation and pose stability of the shortlist}
+\label{sec:timeresults}
+
+Time-split validation (Table~\ref{tab:time}). Trained only on compounds reported up to a cutoff year, the activity design ranked the later-published compounds well: ROC-AUC 0.74, 0.77 and 0.78 at the 2012, 2015 and 2018 cutoffs against 0.75, 0.74 and 0.70 for nearest-neighbour similarity and 0.69, 0.67 and 0.68 for the descriptor model. It beat both baselines at 2015 and 2018 and was level with similarity at 2012 (0.74 against 0.75). In the third of later compounds least similar to the training set, which is the relevant case for designed analogues, it did not: at 2015 its AUC was 0.55 against 0.58 for similarity and 0.58 for the descriptor model, so the pre-specified bar was not met, and at 2018 it was 0.60, 0.58 and 0.61. The activity gate therefore adds information when a candidate lies near known chemistry and little beyond similarity and simple properties when it does not. This is consistent with the scaffold-split result above and is why we state that the delivered molecules sit close to known donepezil-like series; the activity gate should be read as a series-level filter and not as a potency prediction for a new chemotype.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Time-split validation of the activity design: ROC-AUC (95 \% bootstrap interval) on compounds first reported after the cutoff year. Prim.: the activity design; NN: nearest-neighbour similarity to training actives; Desc.: logistic regression on eight descriptors. The pre-specified bar (2015, least-similar third) was not met.}
+\label{tab:time}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcccccc}
+\toprule
+Cutoff & Train / test & Prim. (all) & NN (all) & Desc. (all) & Prim. (least similar) & NN (least similar) & Desc. (least similar) \\
+\midrule
+2012 & 1677 / 2380 & 0.74 (0.71--0.76) & 0.75 (0.73--0.77) & 0.69 (0.67--0.71) & 0.51 (0.47--0.55) & 0.59 (0.55--0.63) & 0.65 (0.61--0.69) \\
+2015 & 2255 / 1802 & 0.77 (0.75--0.79) & 0.74 (0.71--0.76) & 0.67 (0.64--0.69) & 0.55 (0.51--0.60) & 0.58 (0.53--0.63) & 0.58 (0.53--0.62) \\
+2018 & 2846 / 1211 & 0.78 (0.75--0.80) & 0.70 (0.66--0.72) & 0.68 (0.65--0.71) & 0.60 (0.55--0.65) & 0.58 (0.53--0.64) & 0.61 (0.56--0.67) \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+Pose stability (Table~\ref{tab:md}). Donepezil from its crystal pose stayed in the gorge (mean RMSD over the second half 2.12 \AA{}), so the protocol is valid. Of the 17 shortlisted molecules simulated, 16 kept their pose by the criterion and 1 did not (Shortlist 12, RMSD 4.16 \AA{}). Shortlist 18, 19 and 20 were not simulated because the time budget of the Kaggle session was used. One 2 ns replica is a short and single test, so this is a screen for gross pose instability and not a free-energy or residence-time result; no molecule's potency can be inferred from it.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Pose stability in 2 ns of explicit-solvent dynamics (one replica). RMSD: mean ligand heavy-atom RMSD over the second half of production (\AA{}); COM: centre-of-mass shift over the same period (\AA{}); Trp86: fraction of frames with a ligand aromatic ring centroid within 5.5 \AA{} of the Trp86 ring centroid (all values here were recovered from the saved trajectories and the run log, because the summary file of one of the two GPU processes was overwritten by the other; the remaining contact fractions and the MM-GBSA energies survive for only half of the molecules and are therefore not reported). Stable: RMSD at most 3.0 \AA{} and centre-of-mass shift at most 6 \AA{}.}
+\label{tab:md}
+\begin{tabular}{lcccc}
+\toprule
+Molecule & RMSD & COM & Trp86 & Stable \\
+\midrule
+donepezil (crystal pose) & 2.12 & 0.56 & 0.96 & yes \\
+Shortlist 1 & 1.08 & 0.70 & 0.99 & yes \\
+Shortlist 2 & 2.64 & 2.04 & 0.98 & yes \\
+Shortlist 3 & 0.99 & 0.79 & 0.00 & yes \\
+Shortlist 4 & 2.53 & 0.70 & 0.78 & yes \\
+Shortlist 5 & 1.23 & 0.67 & 1.00 & yes \\
+Shortlist 6 & 1.48 & 1.01 & 0.00 & yes \\
+Shortlist 7 & 2.17 & 1.39 & 0.00 & yes \\
+Shortlist 8 & 0.99 & 0.64 & 0.99 & yes \\
+Shortlist 9 & 2.41 & 2.15 & 0.00 & yes \\
+Shortlist 10 & 0.71 & 0.41 & 0.00 & yes \\
+Shortlist 11 & 1.47 & 0.83 & 0.00 & yes \\
+Shortlist 12 & 4.16 & 2.95 & 0.00 & no \\
+Shortlist 13 & 1.98 & 1.57 & 0.00 & yes \\
+Shortlist 14 & 1.42 & 0.72 & 0.00 & yes \\
+Shortlist 15 & 2.27 & 1.52 & 0.00 & yes \\
+Shortlist 16 & 1.33 & 0.99 & 1.00 & yes \\
+Shortlist 17 & 0.99 & 0.62 & 0.00 & yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%%END-TIMEMD-RESULTS
+\subsection{Limitations}
+\label{sec:3.5}
+
+Nothing reported here has been synthesized or assayed; every property is a prediction. The activity model is reliable only near known chemistry (in the time-split test it did not beat nearest-neighbour similarity for compounds unlike its training set, Section~\ref{sec:timeresults}), the docking score is a weak filter, the exposure estimate is a regression on total brain-to-blood ratios (cross-validated RMSE 0.55 log units, a typical error of a factor of about 3.5) and not a measured unbound ratio, and the P-gp and BCRP models are proxies. The margin that ranks the molecules is defined by those models, so a larger margin means the molecule sits farther inside their thresholds and not that it is a more potent inhibitor. The statement that these 106 molecules are the strongest we could find holds for the 2,700 designs generated and for the gates stated in Table~\ref{tab:1}; molecules outside the library, from a different generator, or judged by different models are not covered. The set is also a selection near threshold edges: only the 63 priority-tier molecules have at least 10 \% margin, and none of the 106 can be ranked for hERG risk with the models we have. The first experimental step is an Ellman assay\cite{ellman} for AChE inhibition with donepezil on the same plate, a BChE counter-screen, an MDCK-MDR1 permeability assay with and without a P-gp inhibitor, a BCRP transport assay and hERG patch clamp, beginning with the molecules that have a one- or two-step route.
+
+\section{Conclusions}
+\label{sec:4}
+
+We turned 2,700 designed analogues of potent AChE inhibitors into 106 candidates that pass every computational gate we could apply: activity, brain penetration by three independent models and a validated logBB regression, drug-likeness, toxicity relative to the parent, docking and pose coverage, protonation, tautomer and stereochemical checks, novelty in four independent sources, and a computed route of one to six steps from purchasable materials. Each candidate clears its tightest gate by at least 5 \% (median 11 \%; 63 molecules form a priority tier at 10 \% or more), and the set lies on 63 scaffolds from 34 parents. The components behind the gates were tested on held-out scaffolds: the activity, BBB and logBB models and the docking pose held up, whereas the docking score, the P-gp term and the matched-pair statistics did not add independent evidence, and we have said where the set depends on each. The molecules are close analogues of known drugs, a negative database search is not freedom to operate, and hERG, efflux and potency must be measured. The 106 structures with all evidence columns, the computed routes and the reasons for every rejected candidate are provided as Supporting Information as the starting point for synthesis.
+
+\section{Computational Methods}
+\label{sec:2}
+
+\subsection{Data and models}
+\label{sec:2.1}
+
+AChE activity data (4,295 compounds, 70 \% active) came from ChEMBL\cite{chembl} (target CHEMBL220): active at pChEMBL $\geq$ 6, inactive at $\leq$ 5, the ambiguous band discarded, duplicates averaged. Potent compounds (pChEMBL $\geq$ 6.5; 2,225) served as design parents and as the prior-art reference. BBB classification data (7,763 compounds) were derived from B3DB\cite{b3db} and measured logBB values (1,025 compounds) came from its regression portion. P-gp (Broccatelli,\cite{brocc} 1,212 compounds), PAMPA, Martins BBB\cite{martins} (1,942) and six toxicity endpoints (hERG, Ames, DILI, CYP1A2, CYP2C9, CYP2D6) came from Therapeutics Data Commons.\cite{tdc} Structures were standardized with RDKit\cite{rdkit} (largest organic fragment, neutralization, canonical tautomer), every data set was partitioned by Bemis--Murcko scaffold,\cite{murcko} and overlap between data sets was checked by InChIKey before any set was accepted as a test set.
+
+Activity and permeability use ensembles of random forest,\cite{rf} extra-trees and histogram gradient-boosting classifiers in scikit-learn\cite{sklearn} on ECFP4\cite{ecfp} fingerprints plus 20 physicochemical descriptors (view A, the in-loop model) and, for an independent second opinion, on MACCS keys, FCFP6 and the same descriptors trained on different scaffolds (view B, the audit model). A single random forest (400 trees) gives the primary AChE probability, and a second AChE pair trained by the same recipe is used as a consistency check. The Martins BBB model is a third, independently trained predictor. Brain exposure is estimated by a logBB regression (random forest, extra-trees and gradient-boosting regressors, 1,025 compounds) selected by five-fold scaffold-grouped cross-validation. Toxicity models give a probability for each of six endpoints, which is used only relative to the molecule's own parent.
+
+\subsection{Design and gates}
+\label{sec:2.2}
+
+Matched pairs were mined from the BBB data by fragmentation and indexing\cite{hr} (33,331 pairs, 54,350 transformations, 1,090 analyzed). One transformation was applied to each potent parent in round 1 and a second to 16,000 round-1 products in round 2, which, after a design-stage filter for PAINS\cite{pains} and Brenk\cite{brenk} alerts, gave the 2,700 stored designs of this study. Candidates had to pass the gates of Table~\ref{tab:1} in this order. Two kinds of threshold are used: \textit{anchored} ones are values of a reference compound under the same protocol (donepezil for efflux and exposure, galantamine for docking, each molecule's own parent for toxicity), and \textit{conventional} ones are round numbers from the literature fixed before any candidate was scored. Reference structures were verified against PubChem before an anchored threshold was computed. For each molecule and each numeric gate we computed the \textit{slack}, the relative amount by which the gate could be made stricter before the molecule fails it; the \textit{margin} of a molecule is its smallest slack over the audited gates, and a molecule needed a margin of at least 5 \% to be considered.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Gates applied to every candidate. All gates are applied conjunctively; none was relaxed to reach the delivered number.}
+\label{tab:1}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.52\textwidth}>{\centering\arraybackslash}p{0.16\textwidth}@{}}
+\toprule
+\textbf{Gate} & \textbf{Criterion} & \textbf{Origin} \\
+\midrule
+BBB permeability & in-loop and audit models both $\geq$ 0.75; independent Martins model $\geq$ 0.513 & conventional; glucose \\
+AChE activity & primary $\geq$ 0.70; both second-pair models $\geq$ 0.50; nearest-potent-active similarity $\geq$ 0.417 (model domain) & conventional \\
+Brain exposure & predicted logBB $\geq$ $-$0.45; nearest-neighbor similarity to the logBB set $\geq$ 0.35 & conventional \\
+Drug-likeness & CNS MPO $\geq$ 4.0;\cite{wager10,wager16} SA score $\leq$ 3.5;\cite{ertl} MW $\leq$ 450; no unstable functional group & conventional \\
+Toxicity & no endpoint more than 0.10 worse than the parent (hERG, Ames, DILI, three CYP) & own parent \\
+Prior art & similarity to nearest potent active $<$ 0.90 & conventional \\
+Margin & slack $\geq$ 5 \% on every gate above & conventional \\
+Efflux and exposure & P-gp interaction $\leq$ 0.713; exposure surrogate (passive $\times$ [1 $-$ P-gp]) $\geq$ 0.2485 & donepezil \\
+Docking & Vina $\leq$ $-$8.20 kcal mol\textsuperscript{$-$1}; pose coverage of the donepezil footprint $\geq$ 0.43 & galantamine \\
+Structure & all stereocenters defined or justified racemate; rule-based protonation equals Dimorphite-DL state at pH 7.4; not a tautomer of any training or reference compound & -- \\
+Novelty & no match in PubChem (exact and same-connectivity), ChEMBL (flexmatch) or SureChEMBL & -- \\
+Synthesis & computed route to purchasable starting materials (AiZynthFinder) & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Docking, protonation and stereochemistry}
+\label{sec:2.3}
+
+Molecules were docked with AutoDock Vina\cite{vina,vina12} into 4EY7 (chain A) in a 26 \AA{} box centered on the donepezil site (exhaustiveness 8 for the score, 16 for pose analysis), from a fresh ETKDG conformer. Pose coverage is the fraction of the 28 heavy atoms of crystallographic donepezil within 2.5 \AA{} of a candidate heavy atom. The dominant charge state at pH 7.4 given by a fixed rule (every basic aliphatic amine protonated) was compared with that of Dimorphite-DL.\cite{dimorphite} Stereocenters $\alpha$ to a carbonyl were assigned as justified racemates (they epimerize; donepezil is marketed as the racemate); the remainder were fixed by the parent's configuration or by docking each isomer and comparing the spread with the 0.25 kcal mol\textsuperscript{$-$1} noise of the search.
+
+\subsection{Novelty}
+\label{sec:2.4}
+
+Each molecule was queried against four sources one request at a time: PubChem\cite{pubchem} by exact structure and by same connectivity (which finds a tautomer, salt or stereoisomer already public), ChEMBL by flexmatch, and the SureChEMBL patent corpus.\cite{surechembl} Each source was first verified on a known drug (must be found) and on an unregistered structure (must not be found); a source that failed was treated as unavailable and no molecule was called novel on it. Failed requests were never recorded as ``novel''. A molecule is clear only when all four sources answered and none found it.
+
+\subsection{Computed retrosynthesis}
+\label{sec:2.5}
+
+Routes were planned with AiZynthFinder 4.4.1\cite{aizynth} using the USPTO expansion and filter policies\cite{thakkar} and the ZINC stock of purchasable compounds\cite{zinc} (17.4 million entries), with at most six transformations. A molecule counts as routed when the search finds a route whose leaves are all in stock. The route length quoted throughout is the tool's step count, the number of steps in the longest linear sequence; a convergent route contains more reactions in total (93 of the 106 delivered routes have as many reactions as steps and 13 have one more, up to six reactions in total), and the dossier lists every reaction. The routes were exported in a final run limited by iteration count only, so that processor load cannot change them; for one molecule (rank 99) this run found a shorter route (three steps, score 0.987) than the search that first routed it (four steps, 0.975), and the values reported here are those of the exported routes. The first pass used 200 iterations and 120 s; molecules without a route then received a second pass of 1,000 iterations and 300 s, and the better result was kept. Before every run the tool had to solve donepezil and had to fail on a deliberately unsynthesizable structure. A computed route comes from literature reaction templates; it is not a laboratory-validated route, and the ZINC stock is a proxy for supplier availability.
+
+\subsection{Selection}
+\label{sec:2.6}
+
+Molecules that passed every gate were ordered by margin; no limit was placed on the number per scaffold or per parent, so the delivered set is complete for the gates used and is not a subset chosen for diversity. The eseroline-carbamate series (physostigmine, phenserine and tolserine analogues) was excluded for prior-art risk, as explained in the Results. An independent audit script then re-read every gate from the delivered file. The computations ran on a laptop computer (Intel Core i5-12500H, 16 GB of memory) with Python 3.13 (RDKit 2026.03, scikit-learn 1.9) and, for retrosynthesis, Python 3.12 with AiZynthFinder 4.4.1 and onnxruntime. Seeds were fixed in every script.
+
+%%BEGIN-BEST-METHODS
+\subsection{Shortlist ranking}
+\label{sec:best}
+
+From the 63 priority-tier molecules, a molecule was eligible if it had an independent graph-network activity probability of at least 0.70, passed both docking gates in the original run, in two re-dockings from new seeds and after re-docking with the basic amine protonated (exhaustiveness 16, a contact being $\pi$-stacking when an aromatic ring centroid of the ligand lies within 5.5 \AA{} of the Trp86 or Trp286 ring centroid, and a cation--$\pi$ contact when the protonated nitrogen lies within 6.0 \AA{} of a ring centroid of the gorge, both on the top-ranked pose), carried no PAINS, Brenk or NIH alert (RDKit filter catalogs), had a computed route of at most three steps, and violated neither the Lipinski nor the Veber criteria. The eligible molecules were ranked on eight axes (margin; graph-network probability; worst Vina score and smallest pose coverage over the four docking runs; route length; AChE-minus-BChE probability; number of binding-mode contacts, 0--3; agreement of the three logBB regressors), each converted to a rank score between 0 and 1. The scores were combined with 5,000 random weight vectors drawn from a flat Dirichlet distribution, and the molecules were ordered by their median rank. The twenty best, with at most two per Bemis--Murcko scaffold and four per parent drug, form the shortlist. The criteria and the weighting scheme were fixed before the ranking was run (script header), and the same scheme was applied to all eligible molecules.
+
+%%END-BEST-METHODS
+%%BEGIN-TIMEMD-METHODS
+\subsection{Temporal validation and pose-stability dynamics}
+\label{sec:timemd}
+
+Time-split validation. Publication years for the human AChE activity records were taken from ChEMBL (target CHEMBL220, IC\textsubscript{50} and K\textsubscript{i} with a pChEMBL value; 6247 compounds with a label after averaging duplicates and keeping the earliest year; active at mean pChEMBL of 6.0 or more, inactive at 5.0 or less). For each cutoff year (2012, 2015, 2018) a model was trained on compounds first reported up to the cutoff and tested on compounds first reported later. Three scorers were compared: nearest-neighbour Tanimoto similarity to the training actives, a logistic regression on eight physicochemical descriptors, and the activity design used throughout (random forest, extra trees and gradient boosting averaged, on the view-A features). ROC-AUC has a 95 \% bootstrap interval (300 resamples) and is reported for all later compounds and for the third of them least similar to the training set. The bar was fixed before the run: at the 2015 cutoff, in the least-similar third, the activity design must beat both baselines and reach an AUC above 0.65.
+
+Pose-stability dynamics. The 20 shortlisted molecules and donepezil (crystal pose) were simulated in explicit solvent (OpenMM 8, Amber ff14SB and GAFF2 with AM1-BCC charges, TIP3P, 0.15 M NaCl, 4 fs steps with hydrogen mass repartitioning, 300 K, 1 atm) from the top Vina pose of the protonated molecule (exhaustiveness 16, seed 42), after 100 ps with ligand and backbone restraints and 200 ps with backbone restraints, for 2 ns of production. One replica was run. A pose was called stable if the mean ligand heavy-atom RMSD over the second half of production, after fitting the pocket C$\alpha$ atoms, was at most 3.0 \AA{} and the ligand centre of mass stayed within 6 \AA{} of its start; donepezil had to pass for the protocol to be valid. The runs were made on Kaggle GPUs because the laptop has no OpenMM installation.
+
+%%END-TIMEMD-METHODS
+\section*{Statement of Contribution}
+
+All authors contributed to the design of the study and the writing of the manuscript. [Individual contributions to be completed by the authors.]
+
+\section*{Conflict of Interest}
+
+The authors declare no conflict of interest.
+
+\section*{Data and Code Availability Statement}
+
+The Supporting Information provides the 106 delivered structures (SDF and CSV) with every evidence column, and the rejected candidates with the reason for each rejection. The scripts, each with its design and criterion in its header, are available, together with the trained models, the result tables and the Kaggle notebooks for the GPU runs, at \url{https://github.com/udayraj1238/ache-bbb-candidates-molinf} (code under the MIT licence, structures and tables under CC BY 4.0). All input datasets are public (ChEMBL, BindingDB, Therapeutics Data Commons, B3DB, PDB 4EY7, ZINC, USPTO reaction templates).
+
+\section*{Supporting Information}
+
+Supporting Information (SI) is provided with the manuscript: SYNTHESIS\_SET\_106.csv and .sdf (structures and every evidence column), SYNTHESIS\_DOSSIER.docx (structures, computed routes, predicted values with margins, flags, assay plan and quality checklist), REJECTED\_CANDIDATES\_WITH\_REASON.csv, FUNNEL\_COUNTS.csv, COMPUTED\_ROUTES.csv (every reaction of every route), DOCKING\_SEED\_REPLICATES.csv, GNN\_ACTIVITY\_CHECK.csv, REFERENCE\_DRUGS.csv, RETRO\_BENCHMARK.csv, AD\_V2\_PAPER\_FACTS.txt (every number quoted about the delivered set), and the scripts that generate them.
+
+\bibliographystyle{wileyref}
+\bibliography{References}
+
+\end{document}

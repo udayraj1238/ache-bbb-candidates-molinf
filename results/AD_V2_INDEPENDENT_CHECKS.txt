@@ -1,0 +1,2 @@
+Martins BBB, held-out scaffolds n=582 (448 positive): fresh random forest AUC 0.932 | saved model AUC 0.929 | paper 0.929
+logBB scaffold-grouped 5-fold CV (3 shuffles, n=1025): ensemble rho 0.712 (RMSE 0.55) | TPSA-only rho 0.644 (RMSE 0.65) | paper 0.71 (0.55) and 0.65

@@ -1,0 +1,18 @@
+step,molecules_remaining
+Stored designs,2700
+"BBB models (in-loop, audit)",2027
+BBB independent (Martins),2027
+AChE activity,1285
+AChE model domain,1252
+logBB,808
+"CNS MPO, SA, MW",566
+Stability,543
+Toxicity vs parent,375
+Prior-art distance,374
+Margin >= 5 %,292
+"P-gp, exposure",234
+Stereo defined,194
+"Docking, protonation, tautomer",191
+Novel in 4 sources,179
+Computed route,115
+Delivered (carbamate series excluded),106

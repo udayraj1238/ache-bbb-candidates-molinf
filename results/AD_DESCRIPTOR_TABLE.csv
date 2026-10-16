@@ -1,0 +1,26 @@
+block,index,name,rdkit_function,description,used_by
+physicochemical descriptor (views A and B),1,MolWt,rdkit.Chem.Descriptors.MolWt,average molecular weight (Da),"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),2,clogP,rdkit.Chem.Crippen.MolLogP,Wildman-Crippen logP,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),3,TPSA,rdkit.Chem.rdMolDescriptors.CalcTPSA,"topological polar surface area (A^2), Ertl","in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),4,HBD,rdkit.Chem.rdMolDescriptors.CalcNumHBD,hydrogen-bond donors (Lipinski definition),"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),5,HBA,rdkit.Chem.rdMolDescriptors.CalcNumHBA,hydrogen-bond acceptors (Lipinski definition),"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),6,RotB,rdkit.Chem.rdMolDescriptors.CalcNumRotatableBonds,rotatable bonds,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),7,AromRings,rdkit.Chem.rdMolDescriptors.CalcNumAromaticRings,aromatic rings,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),8,Rings,rdkit.Chem.rdMolDescriptors.CalcNumRings,rings,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),9,FracCSP3,rdkit.Chem.rdMolDescriptors.CalcFractionCSP3,fraction of sp3 carbons,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),10,HeavyAtoms,Mol.GetNumHeavyAtoms,heavy-atom count,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),11,MolMR,rdkit.Chem.Crippen.MolMR,Wildman-Crippen molar refractivity,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),12,BalabanJ,rdkit.Chem.Descriptors.BalabanJ,Balaban J index,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),13,BertzCT,rdkit.Chem.Descriptors.BertzCT,Bertz molecular complexity,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),14,Chi1v,rdkit.Chem.Descriptors.Chi1v,"Kier-Hall valence connectivity index, order 1","in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),15,Kappa2,rdkit.Chem.Descriptors.Kappa2,Hall-Kier kappa shape index 2,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),16,LabuteASA,rdkit.Chem.Descriptors.LabuteASA,Labute approximate surface area (A^2),"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),17,NumHeteroatoms,rdkit.Chem.rdMolDescriptors.CalcNumHeteroatoms,heteroatoms,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),18,NumAmideBonds,rdkit.Chem.rdMolDescriptors.CalcNumAmideBonds,amide bonds,"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),19,MaxPartialCharge,rdkit.Chem.Descriptors.MaxPartialCharge,largest Gasteiger partial charge (0 if undefined),"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+physicochemical descriptor (views A and B),20,MinPartialCharge,rdkit.Chem.Descriptors.MinPartialCharge,smallest Gasteiger partial charge (0 if undefined),"in-loop and audit classifiers, AChE primary model, logBB ensemble"
+fingerprint (view A),,ECFP4,"rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)","Morgan circular fingerprint, radius 2, 2,048 folded bits (bit vector, not counts)",view A
+fingerprint (view B),,MACCS,MACCSkeys.GenMACCSKeys,167 MACCS structural keys,view B
+fingerprint (view B),,FCFP6,"GetMorganGenerator(radius=3, fpSize=1024, atomInvariantsGenerator=GetMorganFeatureAtomInvGen())","feature-invariant Morgan fingerprint, radius 3, 1,024 folded bits",view B
+baseline 8-descriptor set (BBB and AChE baselines),,"MW, logP, TPSA, HBD, HBA, RotB, aromatic rings, rings","CalcExactMolWt, Crippen.MolLogP, CalcTPSA, CalcNumHBD, CalcNumHBA, CalcNumRotatableBonds, CalcNumAromaticRings, CalcNumRings","inputs of the logistic-regression baselines (standardized, L2)","ad_bbb_baselines.py, ad_ache_baselines.py"
+logBB 8-descriptor set (logBB linear baselines),,"TPSA, MW, logP, HBD, HBA, RotB, acid count, basic-amine count","CalcTPSA, Descriptors.MolWt, Crippen.MolLogP, CalcNumHBD, CalcNumHBA, CalcNumRotatableBonds, SMARTS counts of carboxylic/sulfonic acids and aliphatic amines","inputs of the ridge baselines for logBB (standardized, alpha = 3)",ad_logbb_model.py

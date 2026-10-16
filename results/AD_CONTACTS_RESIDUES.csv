@@ -1,0 +1,97 @@
+ligand,residue,site,hydrophobic,polar,polar_pairs,pi_stack,cation_pi
+"donepezil (crystal, 4EY7)",Trp286,PAS,21,0,,face-to-face 5.1A face-to-face 3.8A ,
+"donepezil (crystal, 4EY7)",Tyr341,PAS,12,0,,face-to-face 5.1A ,
+"donepezil (crystal, 4EY7)",Phe338,CAS,4,0,,,
+"donepezil (crystal, 4EY7)",Tyr337,CAS,10,0,,,N13 3.9A 
+"donepezil (crystal, 4EY7)",Trp86,CAS,12,0,,face-to-face 4.5A face-to-face 3.9A ,N13 4.7A N13 5.7A 
+"donepezil (crystal, 4EY7)",Gly121,,1,0,,,
+"donepezil (crystal, 4EY7)",His447,CAS,2,0,,face-to-face 5.5A ,
+"donepezil (crystal, 4EY7)",Gly448,,1,0,,,
+"donepezil (crystal, 4EY7)",Phe295,,0,1,O23-N(2.9A) ,,
+"donepezil (crystal, 4EY7)",Tyr72,PAS,2,0,,,
+donepezil (re-docked),Trp286,PAS,20,0,,face-to-face 5.3A face-to-face 4.0A ,
+donepezil (re-docked),Tyr341,PAS,14,0,,tilted 5.0A ,
+donepezil (re-docked),Phe295,,0,1,O11-N(3.1A) ,,
+donepezil (re-docked),Phe338,CAS,5,0,,,N17 5.5A 
+donepezil (re-docked),Tyr337,CAS,6,0,,,N17 4.5A 
+donepezil (re-docked),Trp86,CAS,11,0,,face-to-face 4.6A face-to-face 3.9A ,N17 5.3A N17 5.9A 
+donepezil (re-docked),Gly121,,2,0,,,
+donepezil (re-docked),Gly120,,1,0,,,
+donepezil (re-docked),Gly448,,1,0,,,
+donepezil (re-docked),His447,CAS,0,0,,,N17 5.8A 
+core rank 10,Phe295,,0,1,O0-N(3.2A) ,,
+core rank 10,Tyr341,PAS,10,0,,tilted 4.5A tilted 5.5A ,
+core rank 10,Trp286,PAS,11,0,,face-to-face 4.2A face-to-face 4.4A face-to-face 3.8A ,
+core rank 10,Tyr72,PAS,1,0,,,
+core rank 10,Tyr124,PAS,0,1,O11-OH(2.9A) ,,
+core rank 10,Phe338,CAS,5,0,,,N18 5.8A 
+core rank 10,Tyr337,CAS,4,0,,,N18 4.7A 
+core rank 10,Trp86,CAS,14,0,,face-to-face 4.5A face-to-face 3.9A ,N18 5.2A N18 6.0A 
+core rank 10,Gly121,,2,0,,,
+core rank 10,Gly120,,1,0,,,
+core rank 12,Trp86,CAS,2,0,,,N2 5.7A 
+core rank 12,Phe338,CAS,8,0,,,N2 5.6A 
+core rank 12,Tyr341,PAS,13,0,,face-to-face 5.0A ,
+core rank 12,Trp286,PAS,15,0,,face-to-face 4.2A ,
+core rank 12,Leu289,,3,0,,,
+core rank 12,Tyr124,PAS,0,1,O22-OH(2.9A) ,,
+core rank 12,Tyr337,CAS,3,0,,,N2 5.4A 
+core rank 12,His447,CAS,0,0,,,N2 5.8A 
+core rank 18,Phe295,,0,2,O0-N(3.1A) O3-N(3.1A) ,,
+core rank 18,Val294,,3,0,,,
+core rank 18,Tyr341,PAS,14,0,,tilted 4.5A ,
+core rank 18,Trp286,PAS,12,0,,face-to-face 5.1A face-to-face 4.0A ,
+core rank 18,Arg296,,0,2,O3-N(3.0A) O3-O(2.8A) ,,
+core rank 18,Phe338,CAS,7,0,,,
+core rank 18,Tyr124,PAS,1,1,N10-OH(3.1A) ,,N10 5.6A 
+core rank 18,Trp86,CAS,16,0,,face-to-face 3.9A face-to-face 3.7A ,N10 5.6A 
+core rank 18,Tyr337,CAS,4,0,,,
+core rank 18,Gly448,,1,0,,,
+core rank 18,Tyr72,PAS,3,0,,,
+core rank 21,Phe295,,1,2,O0-N(3.2A) O3-N(3.1A) ,,
+core rank 21,Trp286,PAS,12,0,,face-to-face 4.8A face-to-face 3.9A ,
+core rank 21,Phe297,,2,0,,,
+core rank 21,Arg296,,0,2,O3-N(3.2A) O3-O(3.0A) ,,
+core rank 21,Phe338,CAS,5,0,,,
+core rank 21,Tyr341,PAS,16,0,,tilted 4.7A ,
+core rank 21,Trp86,CAS,22,0,,face-to-face 4.4A face-to-face 3.7A ,N10 5.0A N10 5.8A 
+core rank 21,Tyr337,CAS,7,0,,,N10 4.5A 
+core rank 21,Gly121,,1,0,,,
+core rank 21,Gly448,,1,0,,,
+core rank 21,Tyr72,PAS,4,0,,,
+core rank 23,Trp86,CAS,6,0,,,N2 4.7A N2 5.7A 
+core rank 23,Tyr337,CAS,6,0,,,N2 3.9A 
+core rank 23,Phe338,CAS,7,0,,,
+core rank 23,Tyr341,PAS,17,0,,face-to-face 5.0A ,
+core rank 23,Trp286,PAS,14,0,,face-to-face 4.2A ,
+core rank 23,Tyr72,PAS,1,0,,,
+core rank 23,Leu289,,1,0,,,
+core rank 23,Val294,,1,0,,,
+core rank 23,Phe295,,0,1,O23-N(3.0A) ,,
+core rank 27,Trp86,CAS,10,0,,,N2 5.1A N2 4.7A 
+core rank 27,Gly120,,1,0,,,
+core rank 27,Gly121,,1,0,,,
+core rank 27,His447,CAS,1,0,,,N2 5.4A 
+core rank 27,Tyr337,CAS,2,0,,,
+core rank 27,Phe338,CAS,6,0,,,
+core rank 27,Tyr341,PAS,24,0,,face-to-face 3.6A ,
+core rank 27,Trp286,PAS,10,0,,,
+core rank 27,Val294,,1,0,,,
+core rank 27,Tyr72,PAS,2,0,,,
+core rank 27,Asp74,PAS,0,1,O23-OD2(3.3A) ,,
+core rank 27,Tyr124,PAS,0,1,O23-OH(3.0A) ,,
+core rank 33,Trp86,CAS,4,0,,,N2 5.3A 
+core rank 33,Tyr337,CAS,6,0,,,N2 4.5A 
+core rank 33,Phe338,CAS,5,0,,,N2 5.9A 
+core rank 33,Tyr341,PAS,13,0,,tilted 5.2A ,N2 5.7A 
+core rank 33,Trp286,PAS,19,0,,face-to-face 5.2A face-to-face 3.9A ,
+core rank 33,Leu289,,1,0,,,
+core rank 33,Phe295,,0,1,O22-N(3.2A) ,,
+core rank 101,Trp86,CAS,2,0,,,N2 5.0A N2 5.3A 
+core rank 101,Gly121,,2,0,,,
+core rank 101,Tyr337,CAS,4,0,,,
+core rank 101,Tyr341,PAS,20,0,,face-to-face 4.1A ,
+core rank 101,Phe338,CAS,4,0,,,
+core rank 101,Trp286,PAS,10,0,,face-to-face 4.7A ,
+core rank 101,Val294,,1,0,,,
+core rank 101,Tyr124,PAS,0,1,O21-OH(2.7A) ,,

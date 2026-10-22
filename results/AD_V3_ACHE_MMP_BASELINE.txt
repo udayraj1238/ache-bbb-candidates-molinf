@@ -1,0 +1,2 @@
+ALL single-cut matched pairs of measured AChE compounds (any exchange, same publication, ordered pairs): n=197630 | median |change| 0.48 | share within +-0.5: 0.52 | share losing >1 log: 0.12
+Delivered-set transformations with >=3 same-publication pairs: 17 of 22 | pair-weighted share within +-0.5: 0.65 | pair-weighted share losing >1 log: 0.04

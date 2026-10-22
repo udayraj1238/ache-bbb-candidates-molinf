@@ -1,0 +1,5 @@
+subset,n,active_rate,roc_auc,brier,ece,brier_isotonic,ece_isotonic,coverage_10,set_size_10,coverage_20,set_size_20
+all later compounds,1802,0.7,0.76,0.179,0.053,0.19,0.099,0.651,0.87,0.415,0.47
+most-similar third,601,0.903,0.829,0.079,0.039,0.085,0.06,0.875,0.96,0.782,0.83
+middle third,600,0.64,0.765,0.189,0.07,0.194,0.088,0.643,0.88,0.378,0.43
+least-similar third,601,0.557,0.54,0.269,0.14,0.291,0.176,0.436,0.78,0.085,0.15

@@ -1,0 +1,5 @@
+Same-publication single-cut matched pairs of measured AChE compounds; bootstrap over publications (2000 resamples)
+pairs in the design direction of the 22 delivered-set transformations: 961 | all other pairs: 196669 | publications: 472
+share within +-0.5 log: delivered-set edits 0.645 (0.596-0.700) | other exchanges 0.516 (0.478-0.558) | difference +0.129 (0.076 to 0.178)
+share losing >1 log:    delivered-set edits 0.037 (0.025-0.053) | other exchanges 0.118 (0.100-0.135) | difference -0.081 (-0.102 to -0.058)
+median change: delivered-set edits +0.020 | other exchanges +0.000

@@ -1,0 +1,7 @@
+             subset    n  active_rate  roc_auc  brier   ece  brier_isotonic  ece_isotonic  coverage_10  set_size_10  coverage_20  set_size_20
+all later compounds 1802        0.700    0.760  0.179 0.053           0.190         0.099        0.651         0.87        0.415         0.47
+ most-similar third  601        0.903    0.829  0.079 0.039           0.085         0.060        0.875         0.96        0.782         0.83
+       middle third  600        0.640    0.765  0.189 0.070           0.194         0.088        0.643         0.88        0.378         0.43
+least-similar third  601        0.557    0.540  0.269 0.140           0.291         0.176        0.436         0.78        0.085         0.15
+
+Target coverage 0.90 and 0.80. Accuracy at 0.5: all later compounds 0.722; keeping only compounds with nearest-neighbour similarity >= 0.343: 0.798 (share kept 0.67)

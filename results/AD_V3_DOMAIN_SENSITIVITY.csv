@@ -1,0 +1,13 @@
+threshold,model,n_test,share_of_later,active_rate,roc_auc,auc_lo,auc_hi
+0.3,nearest-neighbour similarity,1343,0.745,0.763,0.739,0.711,0.771
+0.3,physicochemical logistic,1343,0.745,0.763,0.69,0.652,0.72
+0.3,activity design (RF+ET+GB),1343,0.745,0.763,0.804,0.776,0.829
+0.417,nearest-neighbour similarity,825,0.458,0.879,0.676,0.623,0.725
+0.417,physicochemical logistic,825,0.458,0.879,0.687,0.629,0.745
+0.417,activity design (RF+ET+GB),825,0.458,0.879,0.813,0.774,0.85
+0.5,nearest-neighbour similarity,570,0.316,0.919,0.642,0.571,0.731
+0.5,physicochemical logistic,570,0.316,0.919,0.728,0.643,0.806
+0.5,activity design (RF+ET+GB),570,0.316,0.919,0.82,0.762,0.857
+0.6,nearest-neighbour similarity,327,0.181,0.945,0.601,0.463,0.743
+0.6,physicochemical logistic,327,0.181,0.945,0.719,0.556,0.845
+0.6,activity design (RF+ET+GB),327,0.181,0.945,0.819,0.731,0.889

@@ -140,6 +140,23 @@ lim_old = "The first experimental step is an Ellman assay"
 lim_new = ("In a blind re-discovery test the edit library did not find later-reported compounds better than random draws of other edits, so we do not claim that the edit selection adds anything beyond the gates and the anchoring to measured parents. ") + lim_old
 if lim_old in t and "blind re-discovery test the edit library" not in t:
     t = t.replace(lim_old, lim_new, 1)
+TS = pd.read_csv("results/AD_TIME_SPLIT.csv")
+tsv = lambda mdl, sub: float(TS[(TS.cutoff == 2015) & (TS.model == mdl) & (TS["subset"] == sub)].roc_auc.iloc[0])
+row_old = "AChE, least similar third & same, novelty tertile & 0.728 & NN 0.720 \\\\\n"
+row_new = (row_old
+           + "AChE, time split 2015 & later compounds: all / in domain / least-similar third, AUC & %.2f / %.2f / %.2f & NN %.2f / %.2f / %.2f \\\\\n" % (
+               tsv("primary model (RF+ET+GB)", "all test compounds"), ind(2015, AD).roc_auc, tsv("primary model (RF+ET+GB)", "least-similar third"),
+               tsv("nearest-neighbour similarity", "all test compounds"), ind(2015, NNm).roc_auc, tsv("nearest-neighbour similarity", "least-similar third"))
+           + "Edits in real AChE pairs & %s same-publication pairs, share within 0.5 log units & %s \\%% & other exchanges %s \\%% \\\\\n" % (pc(mp[0]), f1d(k[0]), f1d(k[3])))
+if row_old in t and "AChE, time split 2015" not in t:
+    t = t.replace(row_old, row_new, 1)
+DS_ = pd.read_csv("results/AD_V3_DOMAIN_SENSITIVITY.csv")
+dsv = lambda thr, mdl: float(DS_[(DS_.threshold == thr) & (DS_.model == mdl)].roc_auc.iloc[0])
+sens_old = "and we report both."
+sens_new = ("and we report both. The result does not depend on the threshold: at similarities of 0.30, 0.50 and 0.60 the activity design reached ROC-AUC %.2f, %.2f and %.2f against %.2f, %.2f and %.2f for nearest-neighbour similarity (2015 cutoff)." % (
+    dsv(0.30, AD), dsv(0.50, AD), dsv(0.60, AD), dsv(0.30, NNm), dsv(0.50, NNm), dsv(0.60, NNm)))
+if sens_old in t and "The result does not depend on the threshold" not in t:
+    t = t.replace(sens_old, sens_new, 1)
 co_old = "We turned 2,700 designed analogues of potent AChE inhibitors into 106 candidates"
 co_new = "We enumerated 383,752 analogues of potent AChE inhibitors by one or two matched-pair edits, kept 2,700 designs and turned them into 106 candidates"
 if co_old in t:

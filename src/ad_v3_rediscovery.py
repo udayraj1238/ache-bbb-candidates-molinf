@@ -75,6 +75,8 @@ def generate(parents, trans, seed=0):
 
 CUTS = [int(x) for x in sys.argv[1].split(',')] if len(sys.argv) > 1 else [2012, 2015, 2018]
 NDRAW = int(sys.argv[2]) if len(sys.argv) > 2 else 5
+SEL = [int(x) for x in sys.argv[3].split(',')] if len(sys.argv) > 3 else None     # which sets: 0 = design-stage edits, k = random draw k-1
+TAG = '_'.join(['c' + '-'.join(map(str, CUTS))] + ([sys.argv[3].replace(',', '-')] if SEL is not None else []))
 rows = []
 for cut in CUTS:
     pre = C[C.year <= cut]; later = C[C.year > cut]
@@ -82,7 +84,9 @@ for cut in CUTS:
     later_potent = set(later[later.p >= 7.0].index); later_all = set(later.index)
     print("cutoff", cut, "| parents", len(parents), "| later compounds", len(later_all), "| later potent", len(later_potent), flush=True)
     sets = [("design-stage transformations (222)", used)] + [("random draw %d of unused transformations" % k, others.sample(len(used), random_state=k)) for k in range(NDRAW)]
-    for name, tr in sets:
+    for si, (name, tr) in enumerate(sets):
+        if SEL is not None and si not in SEL:
+            continue
         G, n1, n2 = generate(parents, tr)
         G -= set(pre.index)                                  # not a compound already reported before the cutoff
         rec_all = G & later_all; rec_pot = G & later_potent
@@ -95,8 +99,8 @@ for cut in CUTS:
                          reproduced_later=len(rec_all), reproduced_later_potent=len(rec_pot),
                          share_of_later_potent=len(rec_pot) / max(1, len(later_potent)), potent_share_among_reproduced=len(rec_pot) / max(1, len(rec_all)),
                          potent_share_base_rate=len(later_potent) / max(1, len(later_all)), per_10k_generated=1e4 * len(rec_pot) / max(1, len(G)), sampled_for_similarity=len(gfp), near_ge_0_8=float((ms >= 0.8).mean()), near_ge_0_7=float((ms >= 0.7).mean()), mean_max_sim=float(ms.mean()), median_max_sim=float(np.median(ms))))
-        pd.DataFrame(rows).to_csv("results/AD_V3_REDISCOVERY_partial.csv", index=False)
+        pd.DataFrame(rows).to_csv("results/AD_V3_REDISCOVERY_part_%s.csv" % TAG, index=False)
         print(cut, name, "generated", len(G), "| later reproduced", len(rec_all), "| potent", len(rec_pot), "| max-sim mean %.3f, >=0.8: %.3f" % (ms.mean(), (ms >= 0.8).mean()), flush=True)
-R = pd.DataFrame(rows); R.to_csv("results/AD_V3_REDISCOVERY.csv", index=False)
+R = pd.DataFrame(rows); R.to_csv("results/AD_V3_REDISCOVERY_part_%s.csv" % TAG, index=False)
 pd.set_option("display.width", 250)
 print(R.round(3).to_string(index=False))

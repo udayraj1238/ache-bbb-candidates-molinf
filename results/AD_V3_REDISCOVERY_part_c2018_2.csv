@@ -1,0 +1,2 @@
+cutoff,transformations,parents,generated,round1,round2,later_compounds,later_potent,reproduced_later,reproduced_later_potent,share_of_later_potent,potent_share_among_reproduced,potent_share_base_rate,per_10k_generated,sampled_for_similarity,near_ge_0_8,near_ge_0_7,mean_max_sim,median_max_sim
+2018,random draw 1 of unused transformations,1531,306695,24055,283943,1819,393,4,1,0.002544529262086514,0.25,0.2160527762506872,0.03260568317057663,150000,0.022900763358778626,0.08651399491094147,0.4797302259205317,0.47115384615384615

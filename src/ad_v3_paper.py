@@ -63,22 +63,28 @@ AD, NNm, DS = "activity design (RF+ET+GB)", "nearest-neighbour similarity", "phy
 C = pd.read_csv("results/AD_V3_CALIBRATION.csv").set_index("subset"); ctxt = open("results/AD_V3_CALIBRATION.txt").read()
 acc = re.search(r"all later compounds ([0-9.]+); keeping only compounds with nearest-neighbour similarity >= ([0-9.]+): ([0-9.]+) \(share kept ([0-9.]+)\)", ctxt).groups()
 
-# re-discovery
-rd = []
+# re-discovery: per-process part files, plus the exact-match counts of the 2012 cutoff from the first (partial) run
+import glob
+parts = [pd.read_csv(f) for f in sorted(glob.glob("results/AD_V3_REDISCOVERY_part_c*.csv"))]
+RDf = pd.concat(parts, ignore_index=True) if parts else pd.DataFrame()
+if len(RDf):
+    RDf.to_csv("results/AD_V3_REDISCOVERY.csv", index=False)
 txt12 = open("logs/ad_v3_rediscovery_2012_partial.log", encoding="utf-8", errors="ignore").read()
-for m in re.finditer(r"2012 (design-stage transformations \(222\)|random draw (\d) of unused transformations) generated (\d+) \| later reproduced (\d+) \| potent (\d+)", txt12):
-    rd.append((2012, "design" if m.group(2) is None else "random", int(m.group(3)), int(m.group(4)), int(m.group(5))))
-if os.path.exists("results/AD_V3_REDISCOVERY.csv") or os.path.exists("results/AD_V3_REDISCOVERY_partial.csv"):
-    RDf = pd.read_csv("results/AD_V3_REDISCOVERY.csv" if os.path.exists("results/AD_V3_REDISCOVERY.csv") else "results/AD_V3_REDISCOVERY_partial.csv")
-    for r in RDf.itertuples():
-        rd.append((r.cutoff, "design" if r.transformations.startswith("design") else "random", r.generated, r.reproduced_later, r.reproduced_later_potent))
-rdf = pd.DataFrame(rd, columns=["cut", "kind", "gen", "later", "potent"])
+r12 = [(m.group(2) is None, int(m.group(3)), int(m.group(4)), int(m.group(5))) for m in re.finditer(r"2012 (design-stage transformations \(222\)|random draw (\d) of unused transformations) generated (\d+) \| later reproduced (\d+) \| potent (\d+)", txt12)]
 rd_sentences = []
-for cut, g in rdf.groupby("cut"):
-    dsn = g[g.kind == "design"]; rnd = g[g.kind == "random"]
-    if len(dsn) and len(rnd):
-        rd_sentences.append("%d: the design-stage edits generated %s analogues from the earlier potent parents and reproduced %d later-reported compounds exactly (%d of them potent), against %s later compounds (%s potent) for %d random draws of unused edits" % (
-            cut, pc(dsn.gen.iloc[0]), dsn.later.iloc[0], dsn.potent.iloc[0], "%d to %d" % (rnd.later.min(), rnd.later.max()), "%d to %d" % (rnd.potent.min(), rnd.potent.max()), len(rnd)))
+for cut in sorted(RDf.cutoff.unique()):
+    g = RDf[RDf.cutoff == cut]; dsn = g[g.transformations.str.startswith("design")]; rnd = g[~g.transformations.str.startswith("design")]
+    if not (len(dsn) and len(rnd)):
+        continue
+    d0 = dsn.iloc[0]
+    rd_sentences.append("at the %d cutoff the design-stage edits generated %s analogues from %s earlier potent parents and reproduced %d of the %s later compounds exactly (%d of the %d later potent compounds), against %d to %d (%d to %d potent) for %d random draws of unused edits; "
+                        "the share of later potent compounds with a generated analogue at ECFP4 similarity of at least 0.8 was %s %% for the design-stage edits and %s to %s %% for the random draws (mean highest similarity %.2f against %.2f to %.2f)" % (
+        cut, pc(d0.generated), pc(d0.parents), d0.reproduced_later, pc(d0.later_compounds), d0.reproduced_later_potent, d0.later_potent, rnd.reproduced_later.min(), rnd.reproduced_later.max(), rnd.reproduced_later_potent.min(), rnd.reproduced_later_potent.max(), len(rnd),
+        f1d(d0.near_ge_0_8), f1d(rnd.near_ge_0_8.min()), f1d(rnd.near_ge_0_8.max()), d0.mean_max_sim, rnd.mean_max_sim.min(), rnd.mean_max_sim.max()))
+d12 = [r for r in r12 if r[0]]; n12 = [r for r in r12 if not r[0]]
+if d12 and n12:
+    rd_sentences.append("at the 2012 cutoff (exact matches only) the design-stage edits reproduced %d later compounds (%d potent) against %d to %d (%d to %d potent) for %d random draws" % (
+        d12[0][2], d12[0][3], min(r[2] for r in n12), max(r[2] for r in n12), min(r[3] for r in n12), max(r[3] for r in n12), len(n12)))
 
 res = (BS + "subsection{Anchoring the delivered set to measured AChE data}\n" + BS + "label{sec:anchor}\n\n"
        "Review of the design raised two questions: do the edits, which were mined from brain-penetration data, keep AChE potency, and how close is each molecule to something measured? We answered them with the measured AChE data of ChEMBL (5,814 compounds).\n\n"
@@ -92,8 +98,8 @@ res = (BS + "subsection{Anchoring the delivered set to measured AChE data}\n" + 
        "The pre-specified bar (2015 cutoff, in domain, above both baselines and above 0.65) was met. We state that this analysis was added after the earlier test failed in the least-similar third, motivated by the domain gate the design already enforced, and we report both.\n\n"
        "Calibration and abstention. For later compounds the model's probabilities were reasonably calibrated in the most similar third (expected calibration error %.2f) and poorly calibrated in the least similar (%.2f); conformal prediction sets aimed at 90 \\%% coverage covered %s \\%% of all later compounds and %s \\%% of the least similar third, so the usual coverage guarantee does not hold under this temporal shift. "
        "Abstaining below a nearest-neighbour similarity of %s raised accuracy at 0.5 from %s to %s while keeping %s \\%% of compounds, in line with the domain gate.\n\n"
-       "Blind re-discovery. Using only compounds reported up to a cutoff year, we applied the design stage's edits to the potent parents and asked how many compounds reported later were reproduced exactly (%s). "
-       "Exact re-discovery is rare and, at this number of analogues, not distinguishable from random draws of unused edits: the edit library has not been shown to find future compounds better than other edits, which agrees with the matched-pair statistics test of Table~" + BS + "ref{tab:1}. The value of the cascade therefore lies in its gates and its anchoring to measured parents and not in the edit selection.\n\n"
+       "Blind re-discovery. Using only compounds reported up to a cutoff year, we applied the design stage's edits to the potent parents and asked how many compounds reported later were reproduced exactly and how close the generated analogues came to later potent compounds: %s. "
+       "Exact re-discovery is rare and the counts are too small to separate the edit sets, and the near-recovery measure shows at most a small difference (the design-stage edits are within the range of the random draws at 2015 and slightly above it at 2018): the edit library has not been shown to find future compounds clearly better than other edits, which agrees with the matched-pair statistics test of Table~" + BS + "ref{tab:1}. The value of the cascade therefore lies in its gates and its anchoring to measured parents and not in the edit selection.\n\n"
        ) % (
     22, n_ge3, pc(mp[0]), pc(mp[2]), f1d(k[0]), f1d(k[1]), f1d(k[2]), f1d(l[0]), f1d(l[1]), f1d(l[2]), pc(mp[1]), f1d(k[3]), f1d(k[4]), f1d(k[5]), f1d(l[3]), f1d(l[4]), f1d(l[5]),
     f1(float(Td[Td["transform"] == "c1ccc([*:1])cc1 >> C[*:1]"].lose1_same.iloc[0])), int(Td[Td["transform"] == "c1ccc([*:1])cc1 >> C[*:1]"].n_pairs_same_doc.iloc[0]), int(Td[Td["transform"] == "C[*:1] >> C1CC1C[*:1]"].n_pairs_same_doc.iloc[0]),

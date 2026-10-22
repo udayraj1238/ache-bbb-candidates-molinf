@@ -1,0 +1,2 @@
+cutoff,transformations,parents,generated,round1,round2,later_compounds,later_potent,reproduced_later,reproduced_later_potent,share_of_later_potent,potent_share_among_reproduced,potent_share_base_rate,per_10k_generated,sampled_for_similarity,near_ge_0_8,near_ge_0_7,mean_max_sim,median_max_sim
+2015,design-stage transformations (222),1247,325244,20977,304724,2784,593,7,5,0.008431703204047217,0.7142857142857143,0.2130028735632184,0.1537307375385864,150000,0.02866779089376054,0.10118043844856661,0.47887116043922595,0.45555555555555555

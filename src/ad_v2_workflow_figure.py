@@ -13,9 +13,9 @@ n_final, n_pri, n_elig, n_best = len(S), int((S.min_slack_validated >= 0.10).sum
 BLUE, ORANGE, GREEN, GREY = "#0072B2", "#D55E00", "#009E73", "#444444"
 fig, ax = plt.subplots(figsize=(10.5, 4.4)); ax.set_xlim(0, 100); ax.set_ylim(-2, 50); ax.axis("off")
 cols = [(1, "1  Design", BLUE, ["Potent published AChE", "inhibitors (ChEMBL)", "1-2 matched-pair edits", "PAINS / Brenk filter"], "%s designs" % format(n0, ",")),
-        (26, "2  Model gates", BLUE, ["Activity (3 models)", "BBB (3 models), logBB", "CNS MPO, SA, MW", "Stability, toxicity", "Prior-art distance"], "%d pass all model gates\n%d with margin >= 5 %%" % (n_model, n_m5)),
-        (51, "3  Checks and route", ORANGE, ["P-gp / exposure; stereo", "Docking, protonation,", "tautomer checks", "Novelty in 4 sources", "Computed route"], "%d delivered\n%d at margin >= 10 %%" % (n_final, n_pri)),
-        (76, "4  Shortlist", GREEN, ["Graph-network opinion", "Docking: seeds, protonated", "Alerts, Lipinski/Veber", "Route <= 3 steps", "8 axes, 5,000 weightings"], "%d eligible\n%d ranked best" % (n_elig, n_best))]
+        (26, "2  Model gates", BLUE, ["Activity (3 models)", "BBB (3 models), logBB", "CNS MPO, SA, MW", "Stability, toxicity", "Prior-art distance"], "%d pass all model gates\n%d with margin ≥ 5 %%" % (n_model, n_m5)),
+        (51, "3  Checks and route", ORANGE, ["P-gp / exposure; stereo", "Docking, protonation,", "tautomer checks", "Novelty in 4 sources", "Computed route"], "%d delivered\n%d at margin ≥ 10 %%" % (n_final, n_pri)),
+        (76, "4  Shortlist", GREEN, ["Graph-network opinion", "Docking: seeds, protonated", "Alerts, Lipinski/Veber", "Route ≤ 3 steps", "8 axes, 5,000 weightings"], "%d eligible\n%d ranked best" % (n_elig, n_best))]
 for x, title, c, lines, foot in cols:
     ax.add_patch(FancyBboxPatch((x, 9), 23, 35, boxstyle="round,pad=0.4,rounding_size=1.2", fc="white", ec=c, lw=1.6))
     ax.text(x + 11.5, 41, title, ha="center", va="center", fontsize=10, fontweight="bold", color=c)

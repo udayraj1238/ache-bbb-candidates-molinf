@@ -41,7 +41,7 @@ N = pd.read_csv("results/AD_V2_NOVELTY.csv")
 R = pd.read_csv("results/SYNTHESIS_SET_REJECTS.csv")
 nov = int(N[N.smiles.isin(U.smiles)].novelty_clear.sum())
 routed = int((R.reject_reason == "").sum() + (R.reject_reason == "prior-art risk: eseroline-carbamate series (substituted phenserine patent family)").sum() + len(S))
-steps += [("Margin >= 5 %", len(a5)), ("P-gp, exposure", legacy), ("Stereo defined", len(U)), ("Docking, protonation, tautomer", int(U.offline_pass.sum())),
+steps += [("Margin ≥ 5 %", len(a5)), ("P-gp, exposure", legacy), ("Stereo defined", len(U)), ("Docking, protonation, tautomer", int(U.offline_pass.sum())),
           ("Novel in 4 sources", nov), ("Computed route", routed), ("Delivered (carbamate series excluded)", len(S))]
 fig, ax = plt.subplots(figsize=(6.6, 5.2))
 labels = [s[0] for s in steps][::-1]

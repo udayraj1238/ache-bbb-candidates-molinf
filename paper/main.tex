@@ -634,10 +634,6 @@ Pose-stability dynamics. The 20 shortlisted molecules and donepezil (crystal pos
 Anchoring analyses. Measured AChE data are the human AChE (CHEMBL220) IC\textsubscript{50} and K\textsubscript{i} records with a pChEMBL value (5,814 compounds after standardisation to the largest fragment without stereochemistry; mean pChEMBL per compound, and per publication for same-publication pairs). Matched pairs were found by one-cut fragmentation as in the design stage; for each of the 22 transformations of the delivered set every pair of measured compounds with the same constant part and the two variable fragments exchanged in the design direction was taken, and the shares were bootstrapped over publications (2,000 resamples) because pairs from one publication are not independent. The first edit of a two-edit molecule was recovered by applying every transformation to the parent and keeping the one that gives the stored intermediate. The in-domain time-split test repeats the time-split procedure for later compounds whose maximum ECFP4 similarity to the training actives is at least 0.417; calibration used a random 25 \% of the training compounds as a calibration set (reliability in ten equal-count bins; split-conformal sets with score one minus the probability of the true class) and the 2015 cutoff. The re-discovery test generated one- and two-edit analogues (second edit on a random 16,000 of the size-filtered round-1 products, seed 0) from the potent parents (pChEMBL of at least 6.5) first reported up to each cutoff, using the design stage's 222 transformations, and counted exact matches with compounds first reported later; the comparison sets were random draws of 222 of the 868 unused library transformations.
 
 %%END-ANCHOR-METHODS
-\section*{Statement of Contribution}
-
-All authors contributed to the design of the study and the writing of the manuscript. [Individual contributions to be completed by the authors.]
-
 \section*{Conflict of Interest}
 
 The authors declare no conflict of interest.

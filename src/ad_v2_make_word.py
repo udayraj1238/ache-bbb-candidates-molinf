@@ -88,7 +88,7 @@ p = doc.add_paragraph(); r = p.add_run("Keywords: "); r.bold = True; add_runs(p,
 doc.add_page_break()
 
 # ---- body
-body = tex[tex.index(BS + "section{Introduction}"):tex.index(BS + "section*{Statement of Contribution}")]
+body = tex[tex.index(BS + "section{Introduction}"):tex.index(BS + "section*{Conflict of Interest}")]
 sec_n, sub_n = 0, 0
 fig_n, tab_n = 0, 0
 blocks = re.split(r"(\\begin\{table\}.*?\\end\{table\}|\\begin\{figure\}.*?\\end\{figure\})", body, flags=re.S)
@@ -178,7 +178,7 @@ for blk in blocks:
         emit_text(blk)
 
 # ---- back matter
-tail = tex[tex.index(BS + "section*{Statement of Contribution}"):tex.index(BS + "bibliographystyle")]
+tail = tex[tex.index(BS + "section*{Conflict of Interest}"):tex.index(BS + "bibliographystyle")]
 for m in re.finditer(r"\\section\*\{([^}]*)\}\s*(.*?)(?=\\section\*|\Z)", tail, re.S):
     doc.add_heading(m.group(1), 2)
     for para in re.split(r"\n\s*\n", m.group(2).strip()):

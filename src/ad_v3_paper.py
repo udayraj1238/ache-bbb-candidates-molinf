@@ -123,7 +123,7 @@ meth = ("Anchoring analyses. Measured AChE data are the human AChE (CHEMBL220) I
         "The first edit of a two-edit molecule was recovered by applying every transformation to the parent and keeping the one that gives the stored intermediate. "
         "The in-domain time-split test repeats the time-split procedure for later compounds whose maximum ECFP4 similarity to the training actives is at least 0.417; calibration used a random 25 \\% of the training compounds as a calibration set (reliability in ten equal-count bins; split-conformal sets with score one minus the probability of the true class) and the 2015 cutoff. "
         "The re-discovery test generated one- and two-edit analogues (second edit on a random 16,000 of the size-filtered round-1 products, seed 0) from the potent parents (pChEMBL of at least 6.5) first reported up to each cutoff, using the design stage's 222 transformations, and counted exact matches with compounds first reported later; the comparison sets were random draws of 222 of the 868 unused library transformations.")
-put("ANCHOR-METHODS", BS + "section*{Statement of Contribution}", meth)
+put("ANCHOR-METHODS", BS + "section*{Conflict of Interest}", meth)
 
 # ---------------- abstract, contributions, limitations, conclusions
 ab_old = "All results are predictions; nothing has been synthesized."

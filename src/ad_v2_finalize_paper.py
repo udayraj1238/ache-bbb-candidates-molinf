@@ -93,6 +93,7 @@ if os.path.exists("results/AD_V2_DOCK_SEEDS_SUMMARY.txt"):
         shutil.copy("results/AD_V2_DOCK_SEEDS_BY_MOLECULE.csv", D + "Supporting_Information/DOCKING_SEED_REPLICATES.csv")
 
 # ---------------- write, compile, rebuild ----------------
+t = t.replace("[htbp]", "[htb]")   # no stand-alone float pages (they left half-empty pages)
 open(D + "main.tex", "w", encoding="utf-8", newline="").write(t)
 for cmd in (["pdflatex", "-interaction=nonstopmode", "main.tex"], ["bibtex", "main"], ["pdflatex", "-interaction=nonstopmode", "main.tex"], ["pdflatex", "-interaction=nonstopmode", "main.tex"]):
     p = subprocess.run(cmd, cwd=D, capture_output=True, text=True)

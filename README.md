@@ -72,6 +72,7 @@ Corresponding author: C. M. Dasari, Indian Institute of Information Technology D
 | `kaggle/md_validation/` | actives-versus-inactives set for validating the pose-stability screen (result: `results/AD_V3_MD_VALIDATION.txt`; the screen did not separate the two classes) |
 | `src/ad_v3_figures_redo.py` | redraws Figures 2, 3 and 6 at print size from the stored result tables |
 | `src/ad_v3_refcheck.py` | checks every reference DOI of `paper/References.bib` against Crossref |
+| `src/ad_v3_condense.py` | moves detailed tables to the Supplementary Information (`supporting_information/Supplementary_Information.pdf`) and shortens the main text; run after `ad_v3_polish.py` |
 | `src/ad_v3_polish.py` | final text pass (abstract, limitations, methods, SI list); run after the v3 scripts and before `ad_v2_finalize_paper.py` |
 | `src/ad_v3_md_validation.py`, `src/ad_v3_md_validation_paper.py` | analysis of that validation run and the paper section |
 | `src/ad_v3_paper.py`, `src/ad_v2_generation_paper.py` | write the corresponding sections of `paper/main.tex` from the result files |

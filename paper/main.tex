@@ -228,14 +228,9 @@ Delivered set (median) & 0.85 & 0.88 / 0.89 / 0.84 & 0.36 & 4.3 & $-$10.9 & 0.96
 \end{tabular}
 \end{table}
 %%END-REFDRUGS
-\textit{Novelty and its limits.} Every molecule is absent from PubChem (exact structure and same connectivity), ChEMBL (flexmatch) and SureChEMBL. Twelve candidates that passed everything before the novelty search were removed because PubChem, ChEMBL or SureChEMBL found them, some in more than one source. The nearest potent ChEMBL active of each molecule has median Tanimoto similarity 0.73 (0.45--0.90), and 38 molecules (12 of the 63 scaffolds) carry a Bemis--Murcko scaffold that already occurs among ChEMBL AChE compounds. The molecules are therefore close analogues within known donepezil-like, tacrine-like and related series and not new chemotypes (Figure~\ref{fig:space}). A negative database search shows that the exact structure has not been indexed; it does not exclude disclosure within the scope of a patent claim. We found direct evidence of that gap for one series. The eseroline phenylcarbamates, to which nine otherwise eligible candidates belong (including the one with the largest margin before this exclusion, a 2-fluorophenyl analogue of phenserine), derive from parents that are the subject of a patent family on substituted phenserines\cite{greigpatent} (now expired) and of systematic work on the aryl ring of the carbamate.\cite{yu2001} Such disclosures are prior art whose scope a structure query does not capture, so these nine were excluded for novelty and the set is reported without them. The same caution applies in principle to the remaining series, whose parents are also published drugs and drug candidates: a database miss is not a novelty opinion, and novelty and freedom to operate must be assessed by a patent attorney; neither is asserted here.
+\textit{Novelty and its limits.} Every molecule is absent from PubChem (exact structure and same connectivity), ChEMBL (flexmatch) and SureChEMBL. Twelve candidates that passed everything before the novelty search were removed because PubChem, ChEMBL or SureChEMBL found them, some in more than one source. The nearest potent ChEMBL active of each molecule has median Tanimoto similarity 0.73 (0.45--0.90), and 38 molecules (12 of the 63 scaffolds) carry a Bemis--Murcko scaffold that already occurs among ChEMBL AChE compounds. The molecules are therefore close analogues within known donepezil-like, tacrine-like and related series and not new chemotypes (Supplementary Figure~1). A negative database search shows that the exact structure has not been indexed; it does not exclude disclosure within the scope of a patent claim. We found direct evidence of that gap for one series. The eseroline phenylcarbamates, to which nine otherwise eligible candidates belong (including the one with the largest margin before this exclusion, a 2-fluorophenyl analogue of phenserine), derive from parents that are the subject of a patent family on substituted phenserines\cite{greigpatent} (now expired) and of systematic work on the aryl ring of the carbamate.\cite{yu2001} Such disclosures are prior art whose scope a structure query does not capture, so these nine were excluded for novelty and the set is reported without them. The same caution applies in principle to the remaining series, whose parents are also published drugs and drug candidates: a database miss is not a novelty opinion, and novelty and freedom to operate must be assessed by a patent attorney; neither is asserted here.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/Figure3.pdf}
-\caption{Chemical space of the delivered candidates. t-SNE embedding (Jaccard distance on ECFP4) of 1,200 potent ChEMBL AChE actives, the delivered candidates and five marketed drugs.}
-\label{fig:space}
-\end{figure}
+
 
 \textit{Synthesis.} All 106 molecules have a computed route whose leaves are purchasable: 35 in one step, 39 in two, 10 in three, 7 in four, 12 in five and 3 in six, with a median route score of 0.994 (minimum 0.956). The routes stem from literature reaction templates and are hypotheses for a chemist to review. No computed route passes through the parent: the tool builds each molecule directly from purchasable building blocks. The parent is listed by suppliers for 27 of the 106 molecules and not for 79, so parent availability does not limit the routes, although a chemist may prefer a late-stage modification of a catalogued parent where one exists. Stereochemistry is fully specified: 65 molecules carry defined stereocenters from their parents or by design, and 41 are specified as racemates because every undefined center lies $\alpha$ to a carbonyl and epimerizes.
 
@@ -293,13 +288,13 @@ Review of the design raised two questions: do the edits, which were mined from b
 
 Edits in real pairs. For the 22 transformations of the delivered set we found every pair of measured AChE compounds that differ by exactly that exchange, in the design direction and from the same publication (Table~\ref{tab:edits}); 17 of the 22 transformations have at least three such pairs. Over 961 pairs (472 publications), 64.5 \% of the pairs changed pChEMBL by 0.5 log units or less (95 \% interval over publications 59.6--70.0 \%) and 3.7 \% lost more than one log unit (2.5--5.3 \%); for all other exchanges between measured compounds (196,669 pairs) the shares were 51.6 \% (47.8--55.8 \%) and 11.8 \% (10.0--13.5 \%). The edits used are therefore conservative substitutions that, on average, preserve potency; this is expected of small exchanges such as methyl for cyclopropyl or chloro for fluoro, and is not evidence that any single edit preserves it. The exceptions are visible in Table~\ref{tab:edits}: removing a phenyl ring (14 molecules) lost more than one log unit in 12 \% of its 92 pairs, as often as arbitrary exchanges, and methyl to cyclopropylmethyl (11 molecules) rests on 4 pairs only.
 
-Parents and what to expect. 104 of the 106 molecules have a measured parent (median pChEMBL 7.16, about 69 nM; range 6.57 to 8.44) and none is itself a measured compound; the most similar measured compound has a median ECFP4 similarity of 0.75 (Table~\ref{tab:anchor} lists the shortlist). We asked whether the edit-specific change seen in real pairs can refine that expectation: predicting each pair's change from the median change of the same exchange in other publications was no better than predicting no change (mean absolute error 0.482 against 0.475 log units; Spearman correlation 0.058 between predicted and observed change; 954 pairs of 17 exchanges). The best expectation for a molecule is therefore the potency of its parent, with a typical change of about half a log unit in either direction, and a loss of more than one log unit in about one pair in twenty-five.
+Parents and what to expect. 104 of the 106 molecules have a measured parent (median pChEMBL 7.16, about 69 nM; range 6.57 to 8.44) and none is itself a measured compound; the most similar measured compound has a median ECFP4 similarity of 0.75 (Supplementary Table~4 lists the shortlist). We asked whether the edit-specific change seen in real pairs can refine that expectation: predicting each pair's change from the median change of the same exchange in other publications was no better than predicting no change (mean absolute error 0.482 against 0.475 log units; Spearman correlation 0.058 between predicted and observed change; 954 pairs of 17 exchanges). The best expectation for a molecule is therefore the potency of its parent, with a typical change of about half a log unit in either direction, and a loss of more than one log unit in about one pair in twenty-five.
 
 Time-split validation inside the applicability domain. The activity gate admits only molecules whose similarity to the nearest potent training active is at least 0.417 (Section~\ref{sec:2.2}). Repeating the time-split test for the later compounds that satisfy that condition (41, 46 and 48 \% of later compounds at the three cutoffs), the activity design reached ROC-AUC 0.79, 0.81 and 0.85 against 0.67, 0.68 and 0.72 for nearest-neighbour similarity and 0.64, 0.69 and 0.73 for the descriptor model, with non-overlapping intervals; outside the domain it reached 0.60, 0.63 and 0.64. The pre-specified bar (2015 cutoff, in domain, above both baselines and above 0.65) was met. We state that this analysis was added after the earlier test failed in the least-similar third, motivated by the domain gate the design already enforced, and we report both. The result does not depend on the threshold: at similarities of 0.30, 0.50 and 0.60 the activity design reached ROC-AUC 0.80, 0.82 and 0.82 against 0.74, 0.64 and 0.60 for nearest-neighbour similarity (2015 cutoff).
 
 Calibration and abstention. For later compounds the model's probabilities were reasonably calibrated in the most similar third (expected calibration error 0.04) and poorly calibrated in the least similar (0.14); conformal prediction sets aimed at 90 \% coverage covered 65 \% of all later compounds and 44 \% of the least similar third, so the usual coverage guarantee does not hold under this temporal shift. Abstaining below a nearest-neighbour similarity of 0.343 raised accuracy at 0.5 from 0.722 to 0.798 while keeping 67 \% of compounds, in line with the domain gate.
 
-Blind re-discovery. Using only compounds reported up to a cutoff year, we applied the design stage's edits to the potent parents and asked how many compounds reported later were reproduced exactly and how close the generated analogues came to later potent compounds: at the 2015 cutoff the design-stage edits generated 325,244 analogues from 1,247 earlier potent parents and reproduced 7 of the 2,784 later compounds exactly (5 of the 593 later potent compounds), against 5 to 8 (2 to 3 potent) for 3 random draws of unused edits; the share of later potent compounds with a generated analogue at ECFP4 similarity of at least 0.8 was 2.9 \% for the design-stage edits and 2.0 to 2.9 \% for the random draws (mean highest similarity 0.48 against 0.47); at the 2018 cutoff the design-stage edits generated 345,702 analogues from 1,531 earlier potent parents and reproduced 6 of the 1,819 later compounds exactly (3 of the 393 later potent compounds), against 4 (1 to 3 potent) for 3 random draws of unused edits; the share of later potent compounds with a generated analogue at ECFP4 similarity of at least 0.8 was 2.5 \% for the design-stage edits and 1.5 to 2.3 \% for the random draws (mean highest similarity 0.49 against 0.47 to 0.48); at the 2012 cutoff (exact matches only) the design-stage edits reproduced 5 later compounds (4 potent) against 3 to 8 (2 to 3 potent) for 2 random draws. Exact re-discovery is rare and the counts are too small to separate the edit sets, and the near-recovery measure shows at most a small difference (the design-stage edits are within the range of the random draws at 2015 and slightly above it at 2018): the edit library has not been shown to find future compounds clearly better than other edits, which agrees with the matched-pair statistics test of Table~\ref{tab:1}. The value of the cascade therefore lies in its gates and its anchoring to measured parents and not in the edit selection.
+Blind re-discovery. Using only compounds reported up to the 2015 and 2018 cutoffs, the design-stage edits reproduced 7 of 2,784 and 6 of 1,819 later compounds exactly, against 5 to 8 and 4 for random draws of unused edits, and the share of later potent compounds with a generated analogue at ECFP4 similarity of at least 0.8 was 2.9 \% and 2.5 \% against 2.0 to 2.9 \% and 1.5 to 2.3 \% for random edits (Supplementary Information, Section~S3). The edit library has therefore not been shown to find later compounds better than other edits; its role here is to supply plausible analogues, and the gates and the anchoring do the selecting, which agrees with the matched-pair statistics of Table~\ref{tab:2}.
 
 \begin{figure}[htbp]
 \centering
@@ -333,38 +328,7 @@ cPr$\to$Et & 2 & 6 & 3 & $-$0.04 & 67 \% & 33 \% \\
 \end{tabular}}
 \end{table}
 
-\begin{table}[htbp]
-\centering\small
-\caption{The shortlist anchored to measured AChE data. Parent: measured pChEMBL of the potent published parent. Edits: the one or two matched-pair edits. Nearest measured: ECFP4 similarity and pChEMBL of the most similar measured AChE compound. P(active): activity-model probability.}
-\label{tab:anchor}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{rcllc}
-\toprule
-Rank & Parent & Edits & Nearest measured & P(active) \\
-\midrule
-1 & 6.8 & OMe$\to$SMe & 0.83 / 6.8 & 0.90 \\
-2 & 6.8 & OMe$\to$SMe & 0.83 / 6.8 & 0.90 \\
-3 & 8.4 & Ph$\to$Me, Me$\to$cPr & 0.73 / 8.4 & 0.90 \\
-4 & 6.8 & Me$\to$cPr & 0.90 / 6.8 & 0.91 \\
-5 & 6.9 & Me$\to$CH2Cl, CH2Cl$\to$CH2OH & 0.83 / 6.9 & 0.94 \\
-6 & 7.8 & Ph$\to$Me, Me$\to$CH2cPr & 0.74 / 7.8 & 0.89 \\
-7 & 7.8 & Ph$\to$Me, Me$\to$cPr & 0.74 / 7.8 & 0.90 \\
-8 & 6.8 & Me$\to$cPr & 0.90 / 6.8 & 0.91 \\
-9 & 7.6 & Me$\to$cPr, Ph$\to$Me & 0.67 / 8.1 & 0.90 \\
-10 & -- & Me$\to$cPr, Ph$\to$Me & 0.48 / 8.1 & 0.89 \\
-11 & 6.9 & OMe$\to$Me & 0.86 / 6.9 & 0.86 \\
-12 & 8.4 & Ph$\to$Me & 0.73 / 8.4 & 0.84 \\
-13 & 7.6 & Me$\to$cPr, Ph$\to$Me & 0.67 / 8.1 & 0.90 \\
-14 & 8.4 & Ph$\to$Me, Me$\to$CH2cPr & 0.73 / 8.4 & 0.89 \\
-15 & -- & Me$\to$cPr, Ph$\to$Me & 0.48 / 8.1 & 0.89 \\
-16 & 7.5 & Ph$\to$2-F-Ph & 0.75 / 7.5 & 0.94 \\
-17 & 8.4 & Ph$\to$Me, Et$\to$Pr & 0.71 / 8.4 & 0.88 \\
-18 & 6.6 & OMe$\to$Me & 0.87 / 6.6 & 0.86 \\
-19 & 6.7 & Ph$\to$Me, Et$\to$Pr & 0.74 / 6.7 & 0.77 \\
-20 & 7.8 & Ph$\to$Me & 0.74 / 7.8 & 0.86 \\
-\bottomrule
-\end{tabular}}
-\end{table}
+
 
 %%END-ANCHOR-RESULTS
 \subsection{Safety and selectivity flags}
@@ -403,112 +367,11 @@ Cutoff & Train / test & Prim. (all) & NN (all) & Desc. (all) & Prim. (least simi
 \end{tabular}}
 \end{table}
 
-Pose stability (Table~\ref{tab:md}). Donepezil from its crystal pose stayed in the gorge (mean RMSD over the second half 2.12 \AA{}), so the protocol is valid for this replica. Of the 17 shortlisted molecules simulated, 16 kept their pose by the criterion and 1 did not (Shortlist 12, RMSD 4.16 \AA{}). Shortlist 18, 19 and 20 were not simulated in this first replica because its time budget was used; the second replica below covers them. One 2 ns replica is a short and single test (a second replica follows), so this is a screen for gross pose instability and not a free-energy or residence-time result; no molecule's potency can be inferred from it.
-
-\begin{table}[htbp]
-\centering\small
-\caption{Pose stability in 2 ns of explicit-solvent dynamics (first replica, seed 1). RMSD: mean ligand heavy-atom RMSD over the second half of production (\AA{}); COM: centre-of-mass shift over the same period (\AA{}); Trp86: fraction of frames with a ligand aromatic ring centroid within 5.5 \AA{} of the Trp86 ring centroid (all values here were recovered from the saved trajectories and the run log, because the summary file of one of the two GPU processes was overwritten by the other; the remaining contact fractions and the MM-GBSA energies survive for only half of the molecules and are therefore not reported). Stable: RMSD at most 3.0 \AA{} and centre-of-mass shift at most 6 \AA{}.}
-\label{tab:md}
-\begin{tabular}{lcccc}
-\toprule
-Molecule & RMSD & COM & Trp86 & Stable \\
-\midrule
-donepezil (crystal pose) & 2.12 & 0.56 & 0.96 & yes \\
-Shortlist 1 & 1.08 & 0.70 & 0.99 & yes \\
-Shortlist 2 & 2.64 & 2.04 & 0.98 & yes \\
-Shortlist 3 & 0.99 & 0.79 & 0.00 & yes \\
-Shortlist 4 & 2.53 & 0.70 & 0.78 & yes \\
-Shortlist 5 & 1.23 & 0.67 & 1.00 & yes \\
-Shortlist 6 & 1.48 & 1.01 & 0.00 & yes \\
-Shortlist 7 & 2.17 & 1.39 & 0.00 & yes \\
-Shortlist 8 & 0.99 & 0.64 & 0.99 & yes \\
-Shortlist 9 & 2.41 & 2.15 & 0.00 & yes \\
-Shortlist 10 & 0.71 & 0.41 & 0.00 & yes \\
-Shortlist 11 & 1.47 & 0.83 & 0.00 & yes \\
-Shortlist 12 & 4.16 & 2.95 & 0.00 & no \\
-Shortlist 13 & 1.98 & 1.57 & 0.00 & yes \\
-Shortlist 14 & 1.42 & 0.72 & 0.00 & yes \\
-Shortlist 15 & 2.27 & 1.52 & 0.00 & yes \\
-Shortlist 16 & 1.33 & 0.99 & 1.00 & yes \\
-Shortlist 17 & 0.99 & 0.62 & 0.00 & yes \\
-\bottomrule
-\end{tabular}
-\end{table}
+Pose-stability dynamics. The twenty shortlisted molecules were simulated for 2 ns in explicit solvent in two replicas (Supplementary Tables~1 and 2). No molecule left the binding gorge in either replica (largest centre-of-mass shift 3.3 \AA{}), but the 3.0 \AA{} RMSD criterion did not reproduce: the RMSD values of the two replicas correlate at Spearman $\rho$ = 0.11, and the donepezil reference gave 2.12 and 3.13 \AA{}. Applied to ten potent and ten inactive published compounds the screen did not separate them (area under the curve 0.47; Supplementary Table~3). The dynamics are therefore used only as a check against gross loss of the pose, and no ranking or claim in this paper depends on them.
 
 %%END-TIMEMD-RESULTS
-%%BEGIN-MD-REPLICA
-Replicate. A second 2 ns replica (seed 2, identical poses and protocol, no MM-GBSA) covered all 20 shortlisted molecules, including Shortlist 18 to 20, which the first replica did not reach (Table~\ref{tab:mdrep}). In the replica donepezil, the reference that must pass for the protocol to be valid, had a mean RMSD of 3.13 \AA{} (2.12 \AA{} in the first replica), just over the 3.0 \AA{} criterion, so the protocol did not meet its own validity condition in this replica. The difference between the two donepezil trajectories (about 1 \AA{}) is the run-to-run variation of a single 2 ns trajectory, and every stable or unstable call below carries it. In the replica 19 of 20 shortlisted molecules met the stability criterion. For the 17 molecules simulated twice, 15 were stable in both replicas and the call agreed for 15; the calls differed for Shortlist 12 (RMSD 4.16 and 1.28 \AA{}) and Shortlist 13 (RMSD 1.98 and 3.81 \AA{}). The Spearman correlation between the RMSD values of the two replicas is only 0.11 (mean absolute difference 0.90 \AA{}). The dynamics therefore detect gross instability reproducibly, since no shortlisted molecule left the gorge in either replica (largest centre-of-mass shift 3.3 \AA{}), but a 3.0 \AA{} RMSD criterion on a 2 ns trajectory does not separate individual molecules reliably, and the first-replica statement about Shortlist 12 should be read with this variation. Two replicas of 2 ns remain a screen, and agreement between them would say only that the screen is repeatable, not that the poses are correct.
 
-\begin{table}[htbp]
-\centering\small
-\caption{Replicate pose-stability dynamics (2 ns each; seeds 1 and 2). RMSD: mean ligand heavy-atom RMSD over the second half of production (\AA{}); Stable: RMSD at most 3.0 \AA{} and centre-of-mass shift at most 6 \AA{}. The first replica did not reach Shortlist 18 to 20 (--).}
-\label{tab:mdrep}
-\begin{tabular}{lcccc}
-\toprule
-Molecule & RMSD 1 & RMSD 2 & Stable 1 & Stable 2 \\
-\midrule
-donepezil (crystal pose) & 2.12 & 3.13 & yes & no \\
-Shortlist 1 & 1.08 & 0.75 & yes & yes \\
-Shortlist 2 & 2.64 & 2.70 & yes & yes \\
-Shortlist 3 & 0.99 & 1.98 & yes & yes \\
-Shortlist 4 & 2.53 & 1.59 & yes & yes \\
-Shortlist 5 & 1.23 & 2.15 & yes & yes \\
-Shortlist 6 & 1.48 & 2.43 & yes & yes \\
-Shortlist 7 & 2.17 & 1.75 & yes & yes \\
-Shortlist 8 & 0.99 & 1.58 & yes & yes \\
-Shortlist 9 & 2.41 & 1.92 & yes & yes \\
-Shortlist 10 & 0.71 & 2.29 & yes & yes \\
-Shortlist 11 & 1.47 & 2.52 & yes & yes \\
-Shortlist 12 & 4.16 & 1.28 & no & yes \\
-Shortlist 13 & 1.98 & 3.81 & yes & no \\
-Shortlist 14 & 1.42 & 1.15 & yes & yes \\
-Shortlist 15 & 2.27 & 1.01 & yes & yes \\
-Shortlist 16 & 1.33 & 1.89 & yes & yes \\
-Shortlist 17 & 0.99 & 0.83 & yes & yes \\
-Shortlist 18 & -- & 0.84 & -- & yes \\
-Shortlist 19 & -- & 0.65 & -- & yes \\
-Shortlist 20 & -- & 1.17 & -- & yes \\
-\bottomrule
-\end{tabular}
-\end{table}
 
-%%END-MD-REPLICA
-%%BEGIN-MD-VAL
-Validation of the screen against known activity. To test whether the pose-stability screen carries any information about activity, we applied the identical protocol (docking, preparation, 2 ns explicit-solvent run, one trajectory each) to ten potent and ten inactive published AChE compounds (Table~\ref{tab:mdval}). The screen did not separate them. The criterion RMSD at most 3.0 \AA{} with centre-of-mass shift at most 6 \AA{} was met by 10 of 10 potent and 8 of 10 inactive compounds (Fisher test, p = 0.47); the second-half RMSD gave an area under the curve of 0.47 (95\% interval 0.20 to 0.74, Mann--Whitney p = 0.85) and the centre-of-mass shift 0.63 (0.38 to 0.87, p = 0.34), with the potent compounds having the slightly higher median RMSD (1.52 against 1.33 \AA{}). Donepezil in its crystal pose again exceeded the RMSD criterion in this run (3.29 \AA{}), so the protocol did not meet its own validity condition here either. Persistent stacking on Trp86 was the one measure that differed (potent compounds, median fraction 0.99; inactive compounds, 0.35; area under the curve 0.81, 95\% interval 0.58 to 0.99, p = 0.018); it was one of three measures examined, the test is not corrected for that, and it rests on ten compounds per class, so it is a lead for further work and not a demonstrated discriminator. We therefore state that the stability screen, as run, is a check against gross loss of the pose and not a predictor of potency, and no ranking in this paper depends on it.
-
-\begin{table}[htbp]
-\centering\small
-\caption{Does the pose-stability screen separate potent from inactive published AChE compounds? Ten potent (pChEMBL at least 8.5) and ten inactive (below 5) compounds from ChEMBL were docked and simulated with the protocol of the shortlist (one 2 ns trajectory each, seed 7). RMSD and COM shift: second half of production (\AA{}); Trp86: fraction of frames with a ligand aromatic ring centroid within 5.5 \AA{} of the Trp86 ring centroid.}
-\label{tab:mdval}
-\begin{tabular}{llcccc}
-\toprule
-Compound & Class & pChEMBL & RMSD & COM & Trp86 \\
-\midrule
-1 & potent & 9.1 & 2.48 & 1.47 & 0.99 \\
-2 & potent & 8.9 & 1.03 & 0.46 & 0.99 \\
-3 & potent & 9.1 & 1.30 & 0.79 & 0.99 \\
-4 & potent & 8.5 & 2.34 & 0.72 & 0.99 \\
-5 & potent & 8.6 & 1.17 & 0.62 & 1.00 \\
-6 & potent & 8.9 & 1.45 & 0.52 & 0.96 \\
-7 & potent & 9.0 & 2.08 & 1.23 & 1.00 \\
-8 & potent & 9.1 & 1.90 & 0.62 & 1.00 \\
-9 & potent & 8.6 & 1.58 & 0.68 & 0.99 \\
-10 & potent & 9.5 & 1.18 & 0.52 & 1.00 \\
-11 & inactive & 4.7 & 3.16 & 1.43 & 0.00 \\
-12 & inactive & 4.9 & 2.36 & 1.32 & 0.00 \\
-13 & inactive & 4.8 & 1.15 & 0.66 & 0.69 \\
-14 & inactive & 4.5 & 1.40 & 0.57 & 1.00 \\
-15 & inactive & 4.5 & 3.79 & 1.96 & 1.00 \\
-16 & inactive & 4.9 & 1.04 & 0.70 & 0.00 \\
-17 & inactive & 4.5 & 1.17 & 0.61 & 0.99 \\
-18 & inactive & 4.4 & 2.26 & 1.25 & 0.98 \\
-19 & inactive & 4.5 & 1.26 & 0.94 & 0.00 \\
-20 & inactive & 4.6 & 0.69 & 0.47 & 0.00 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-%%END-MD-VAL
 \subsection{Limitations}
 \label{sec:3.5}
 
@@ -537,7 +400,7 @@ The designs were generated from known, potent inhibitors and not from scratch. T
 
 Round 1 applied each of the 222 transformations once to all 2,225 parents (38,209 distinct analogues). Round 2 applied a second transformation to 16,000 round-1 products, a random sample (seed 0) of the size-filtered round-1 analogues, giving 345,543 further analogues; the two rounds together are the 383,752 distinct one- or two-edit analogues of this study (Table~\ref{tab:gen}). These were reduced at the design stage in the order of Table~\ref{tab:gen}: removal of structures already present in the project's training data, size, CNS MPO, synthetic-accessibility, PAINS\cite{pains}/Brenk\cite{brenk} and unstable-group filters, agreement of two independent BBB models, a predicted AChE probability of at least 0.5, and a limit of eight designs per scaffold chosen by a confidence score. The 2,454 survivors of the 16,000-seed run and 859 designs from the earlier single-edit run (613 shared) form the 2,700 stored designs, from 386 distinct parents, of which 1,838 are two-edit and 862 one-edit molecules. The gates of Section~\ref{sec:2.2} were applied to these 2,700 designs only, so the 383,752 analogues are a pool that was screened by the design-stage filters and not by the audited gates.
 
-The delivered molecules use only 22 distinct transformations, all of them ordinary medicinal-chemistry substitutions: methyl to cyclopropyl (22); phenyl to methyl (14); methoxy to methyl (11); methyl to cyclopropylmethyl (11); ethyl to propyl (8); methoxy to methylthio (7). 39 of the 106 are one-edit and 67 two-edit molecules; all 106 come from exploratory-tier transformations (median 9 pairs per transformation, range 5 to 111), and only 5 carry a transformation with $q<0.05$. The transformation statistics describe how an edit moved brain penetration in other compounds; they do not show that an edit preserves AChE inhibition on a particular parent, which is only predicted by the activity model, and the matched-pair statistics did no better than random edits when tested (Table~\ref{tab:1}). That an edit can be made is supported differently: each delivered molecule has a computed route of one to six steps from purchasable materials, found by retrosynthesis and independent of the transformation library (Section~\ref{sec:2.6}).
+The delivered molecules use only 22 distinct transformations, all of them ordinary medicinal-chemistry substitutions: methyl to cyclopropyl (22); phenyl to methyl (14); methoxy to methyl (11); methyl to cyclopropylmethyl (11); ethyl to propyl (8); methoxy to methylthio (7). 39 of the 106 are one-edit and 67 two-edit molecules; all 106 come from exploratory-tier transformations (median 9 pairs per transformation, range 5 to 111), and only 5 carry a transformation with $q<0.05$. The transformation statistics describe how an edit moved brain penetration in other compounds; they do not show that an edit preserves AChE inhibition on a particular parent, which is only predicted by the activity model, and the matched-pair statistics did no better than random edits when tested (Table~\ref{tab:2}). That an edit can be made is supported differently: each delivered molecule has a computed route of one to six steps from purchasable materials, found by retrosynthesis and independent of the transformation library (Section~\ref{sec:2.6}).
 
 \begin{table}[htbp]
 \centering\small
@@ -627,7 +490,7 @@ From the 63 priority-tier molecules, a molecule was eligible if it had an indepe
 
 Time-split validation. Publication years for the human AChE activity records were taken from ChEMBL (target CHEMBL220, IC\textsubscript{50} and K\textsubscript{i} with a pChEMBL value; 6,247 compounds with a label after averaging duplicates and keeping the earliest year; active at mean pChEMBL of 6.0 or more, inactive at 5.0 or less). For each cutoff year (2012, 2015, 2018) a model was trained on compounds first reported up to the cutoff and tested on compounds first reported later. Three scorers were compared: nearest-neighbour Tanimoto similarity to the training actives, a logistic regression on eight physicochemical descriptors, and the activity design used throughout (random forest, extra trees and gradient boosting averaged, on the view-A features). ROC-AUC has a 95 \% bootstrap interval (300 resamples) and is reported for all later compounds and for the third of them least similar to the training set. The bar was fixed before the run: at the 2015 cutoff, in the least-similar third, the activity design must beat both baselines and reach an AUC above 0.65.
 
-Pose-stability dynamics. The 20 shortlisted molecules and donepezil (crystal pose) were simulated in explicit solvent (OpenMM 8, Amber ff14SB and GAFF2 with AM1-BCC charges, TIP3P, 0.15 M NaCl, 4 fs steps with hydrogen mass repartitioning, 300 K, 1 atm) from the top Vina pose of the protonated molecule (exhaustiveness 16, seed 42), after 100 ps with ligand and backbone restraints and 200 ps with backbone restraints, for 2 ns of production. Two replicas (seeds 1 and 2) were run. A third set of runs (seed 7, one trajectory each) applied the identical protocol to ten potent and ten inactive published AChE compounds (Table~\ref{tab:mdval}). A pose was called stable if the mean ligand heavy-atom RMSD over the second half of production, after fitting the pocket C$\alpha$ atoms, was at most 3.0 \AA{} and the ligand centre of mass stayed within 6 \AA{} of its start; donepezil had to pass for the protocol to be valid. The runs were made on Kaggle GPUs because the laptop has no OpenMM installation.
+Pose-stability dynamics. The 20 shortlisted molecules and donepezil (crystal pose) were simulated in explicit solvent (OpenMM 8, Amber ff14SB and GAFF2 with AM1-BCC charges, TIP3P, 0.15 M NaCl, 4 fs steps with hydrogen mass repartitioning, 300 K, 1 atm) from the top Vina pose of the protonated molecule (exhaustiveness 16, seed 42), after 100 ps with ligand and backbone restraints and 200 ps with backbone restraints, for 2 ns of production. Two replicas (seeds 1 and 2) were run. A third set of runs (seed 7, one trajectory each) applied the identical protocol to ten potent and ten inactive published AChE compounds (Supplementary Table~3). A pose was called stable if the mean ligand heavy-atom RMSD over the second half of production, after fitting the pocket C$\alpha$ atoms, was at most 3.0 \AA{} and the ligand centre of mass stayed within 6 \AA{} of its start; donepezil had to pass for the protocol to be valid. The runs were made on Kaggle GPUs because the laptop has no OpenMM installation.
 
 %%END-TIMEMD-METHODS
 %%BEGIN-ANCHOR-METHODS
@@ -644,7 +507,7 @@ The Supporting Information provides the 106 delivered structures (SDF and CSV) w
 
 \section*{Supporting Information}
 
-Supporting Information (SI) is provided with the manuscript: SYNTHESIS\_SET\_106.csv and .sdf (structures and every evidence column), SYNTHESIS\_DOSSIER.docx (structures, computed routes, predicted values with margins, flags, assay plan and quality checklist), REJECTED\_CANDIDATES\_WITH\_REASON.csv, FUNNEL\_COUNTS.csv, COMPUTED\_ROUTES.csv (every reaction of every route), DOCKING\_SEED\_REPLICATES.csv, GNN\_ACTIVITY\_CHECK.csv, REFERENCE\_DRUGS.csv, RETRO\_BENCHMARK.csv, AD\_V2\_PAPER\_FACTS.txt (every number quoted about the delivered set), the result tables of the time-split, anchoring, re-discovery and molecular-dynamics analyses (AD\_TIME\_SPLIT.csv, AD\_V3\_*.csv, MD\_REPLICA\_COMBINED.csv, AD\_V3\_MD\_VALIDATION.csv), and the scripts that generate them.
+Supporting Information (SI) is provided with the manuscript: SYNTHESIS\_SET\_106.csv and .sdf (structures and every evidence column), SYNTHESIS\_DOSSIER.docx (structures, computed routes, predicted values with margins, flags, assay plan and quality checklist), REJECTED\_CANDIDATES\_WITH\_REASON.csv, FUNNEL\_COUNTS.csv, COMPUTED\_ROUTES.csv (every reaction of every route), DOCKING\_SEED\_REPLICATES.csv, GNN\_ACTIVITY\_CHECK.csv, REFERENCE\_DRUGS.csv, RETRO\_BENCHMARK.csv, AD\_V2\_PAPER\_FACTS.txt (every number quoted about the delivered set), the result tables of the time-split, anchoring, re-discovery and molecular-dynamics analyses (AD\_TIME\_SPLIT.csv, AD\_V3\_*.csv, MD\_REPLICA\_COMBINED.csv, AD\_V3\_MD\_VALIDATION.csv), Supplementary\_Information.pdf (pose-stability tables, anchored shortlist, re-discovery test, chemical-space figure), and the scripts that generate them.
 
 \bibliographystyle{wileyref}
 \bibliography{References}

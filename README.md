@@ -60,3 +60,16 @@ See `CITATION.cff`. A permanent DOI (Zenodo) will be added to the paper and this
 ## Contact
 
 Corresponding author: C. M. Dasari, Indian Institute of Information Technology Design and Manufacturing Kurnool (chandramohan.d@iiitk.ac.in).
+
+## Anchoring analyses (added in the revised version)
+
+| Script | What it does |
+|---|---|
+| `src/ad_v3_ache_mmp.py`, `ad_v3_mmp_bootstrap.py`, `ad_v3_anchor2.py`, `ad_v3_anchor_validate.py` | the delivered-set edits in real AChE compound pairs (ChEMBL), parents and measured nearest neighbours, and whether the edit-specific change adds predictive skill |
+| `src/ad_v3_indomain.py`, `ad_v3_domain_sensitivity.py`, `ad_v3_calibration.py` | time-split validation inside the applicability domain, its sensitivity to the domain threshold, calibration and conformal coverage |
+| `src/ad_v3_rediscovery.py` | blind re-discovery test of the edit library (run per cutoff and set; see the header) |
+| `src/ad_v3_md_replica.py`, `kaggle/md_shortlist/` | second molecular-dynamics replica of the shortlist and the Kaggle notebook generator |
+| `kaggle/md_validation/` | actives-versus-inactives set for validating the pose-stability screen (run pending) |
+| `src/ad_v3_paper.py`, `src/ad_v2_generation_paper.py` | write the corresponding sections of `paper/main.tex` from the result files |
+
+Results are in `results/AD_V3_*` and `results/MD_REPLICA_COMBINED.csv`.

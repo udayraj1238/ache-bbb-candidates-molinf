@@ -61,7 +61,7 @@ b.set_yticks(range(len(rows))); b.set_yticklabels([r[0] for r in rows][::-1]); b
 b.axvline(0.30, color=RED, ls="--", lw=0.9); b.text(0.31, -0.55, "bar 0.30", color=RED, fontsize=7); b.set_ylim(-0.8, len(rows) - 0.4); b.set_xlim(-0.1, 0.8)
 b.set_xlabel("Spearman ρ with measured logBB (95 % CI)"); panel(b, "b")
 c = ax[2]
-labs = ["all compounds\n(n = %d)" % P.n[0]] + ["passive term ≥ %s\n(n = %d)" % (s.split(">=")[1].strip(), n) for s, n in zip(P.stratum[1:], P.n[1:])]
+labs = ["all compounds\n(n = {:,})".format(int(P.n[0]))] + ["passive term ≥ {}\n(n = {:,})".format(s.split(">=")[1].strip(), int(n)) for s, n in zip(P.stratum[1:], P.n[1:])]
 for i, r in enumerate(P.itertuples()):
     yy = len(P) - 1 - i
     c.plot([r.auc_lo, r.auc_hi], [yy, yy], color=RED, lw=2.2, solid_capstyle="butt"); c.scatter([r.auc_1_minus_pgp], [yy], s=28, color=RED, edgecolor="black", linewidth=0.6, zorder=3)

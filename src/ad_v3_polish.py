@@ -51,6 +51,10 @@ for lab in ("tab:refdrugs", "tab:edits"):
 #     which supersedes the earlier JSON (526 decoys, 0.52) written before the timed-out decoys were re-docked
 rep("Docking score & 138 binders vs 526 matched decoys, AUC & 0.64 & properties 0.52", "Docking score & 138 binders vs 542 matched decoys, AUC & 0.64 & properties 0.51", "table 1 docking row")
 
+# 5c. thousands separators: Table 7 train / test counts and the compound count in the time-split methods
+t = re.sub(r"(20(?:12|15|18) & )(\d)(\d{3}) / (\d)(\d{3}) &", lambda mo: "%s%s,%s / %s,%s &" % (mo.group(1), mo.group(2), mo.group(3), mo.group(4), mo.group(5)), t)
+t = t.replace("6247 compounds", "6,247 compounds")
+
 # 6. "4 to 4" / "0.47 to 0.47" from identical minimum and maximum
 t = re.sub(r"against (\d+) to \1 \(", r"against \1 (", t)
 t = re.sub(r"against (\d+\.\d+) to \1\)", r"against \1)", t)

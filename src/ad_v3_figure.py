@@ -16,7 +16,7 @@ for flag, col, lab in ((False, GREY, "other exchanges (n = %s)" % "{:,}".format(
     d = np.clip(R[R.delivered == flag].d.values, -3, 3)
     ax[0].hist(d, bins=bins, density=True, histtype="stepfilled" if flag else "step", alpha=0.55 if flag else 1.0, color=col, edgecolor=col, linewidth=1.0, label=lab)
 ax[0].axvspan(-0.5, 0.5, color="#dddddd", alpha=0.5, zorder=0); ax[0].axvline(-1, color=ORANGE, lw=0.8, ls="--")
-ax[0].set_xlabel("change in pChEMBL (to minus from)"); ax[0].set_ylabel("density"); ax[0].legend(frameon=False, fontsize=7, loc="upper left"); ax[0].set_title("(a) edits in measured AChE pairs", fontsize=8, loc="left")
+ax[0].set_xlabel("change in pChEMBL (to minus from)"); ax[0].set_ylabel("density"); ax[0].set_ylim(0, ax[0].get_ylim()[1] * 1.3); ax[0].legend(frameon=False, fontsize=7, loc="upper left"); ax[0].set_title("(a) edits in measured AChE pairs", fontsize=8, loc="left")
 labs = ["2012", "2015", "2018"]; x = np.arange(3); w = 0.13
 models = [("nearest-neighbour similarity", GREY, "similarity"), ("physicochemical logistic", "#cccccc", "descriptors"), ("activity design (RF+ET+GB)", BLUE, "activity design")]
 k = 0

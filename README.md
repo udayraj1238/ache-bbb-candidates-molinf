@@ -70,6 +70,7 @@ Corresponding author: C. M. Dasari, Indian Institute of Information Technology D
 | `src/ad_v3_rediscovery.py` | blind re-discovery test of the edit library (run per cutoff and set; see the header) |
 | `src/ad_v3_md_replica.py`, `kaggle/md_shortlist/` | second molecular-dynamics replica of the shortlist and the Kaggle notebook generator |
 | `kaggle/md_validation/` | actives-versus-inactives set for validating the pose-stability screen (result: `results/AD_V3_MD_VALIDATION.txt`; the screen did not separate the two classes) |
+| `src/ad_v3_polish.py` | final text pass (abstract, limitations, methods, SI list); run after the v3 scripts and before `ad_v2_finalize_paper.py` |
 | `src/ad_v3_md_validation.py`, `src/ad_v3_md_validation_paper.py` | analysis of that validation run and the paper section |
 | `src/ad_v3_paper.py`, `src/ad_v2_generation_paper.py` | write the corresponding sections of `paper/main.tex` from the result files |
 

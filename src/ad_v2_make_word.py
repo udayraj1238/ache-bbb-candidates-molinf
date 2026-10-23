@@ -14,8 +14,8 @@ aux = open(D + "main.aux", encoding="utf-8").read()
 bbl = open(D + "main.bbl", encoding="utf-8").read()
 num = {k: int(n) for k, n in re.findall(r"\\bibcite\{([^}]+)\}\{\{(\d+)\}", aux)}
 BS = "\\"
-SYM = [(BS + "geq", "\u2265"), (BS + "leq", "\u2264"), (BS + "cdot", "\u00b7"), (BS + "alpha", "\u03b1"), (BS + "beta", "\u03b2"), (BS + "mu", "\u00b5"), (BS + "rho", "\u03c1"), (BS + "pi", "\u03c0"),
-       ("$-$", "\u2212"), (BS + "AA{}", "\u00c5"), (BS + "AA", "\u00c5"), ("--", "\u2013"), ("~", "\u00a0"), (BS + "%", "%"), (BS + "&", "&"), (BS + "_", "_"), ("``", "\u201c"), ("''", "\u201d"),
+SYM = [(BS + "times", "\u00d7"), (BS + "geq", "\u2265"), (BS + "leq", "\u2264"), (BS + "cdot", "\u00b7"), (BS + "alpha", "\u03b1"), (BS + "beta", "\u03b2"), (BS + "mu", "\u00b5"), (BS + "rho", "\u03c1"), (BS + "pi", "\u03c0"),
+       ("$" + BS + "to$", "\u2192"), ("$-$", "\u2212"), (BS + "AA{}", "\u00c5"), (BS + "AA", "\u00c5"), ("--", "\u2013"), ("~", "\u00a0"), (BS + "%", "%"), (BS + "&", "&"), (BS + "_", "_"), ("``", "\u201c"), ("''", "\u201d"),
        (BS + ",", " "), (BS + "textmu{}", "\u00b5"), ("\\textquotesingle", "'")]
 
 

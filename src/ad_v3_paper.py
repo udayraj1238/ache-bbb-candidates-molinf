@@ -78,7 +78,7 @@ for cut in sorted(RDf.cutoff.unique()):
         continue
     d0 = dsn.iloc[0]
     rd_sentences.append("at the %d cutoff the design-stage edits generated %s analogues from %s earlier potent parents and reproduced %d of the %s later compounds exactly (%d of the %d later potent compounds), against %d to %d (%d to %d potent) for %d random draws of unused edits; "
-                        "the share of later potent compounds with a generated analogue at ECFP4 similarity of at least 0.8 was %s %% for the design-stage edits and %s to %s %% for the random draws (mean highest similarity %.2f against %.2f to %.2f)" % (
+                        "the share of later potent compounds with a generated analogue at ECFP4 similarity of at least 0.8 was %s \\%% for the design-stage edits and %s to %s \\%% for the random draws (mean highest similarity %.2f against %.2f to %.2f)" % (
         cut, pc(d0.generated), pc(d0.parents), d0.reproduced_later, pc(d0.later_compounds), d0.reproduced_later_potent, d0.later_potent, rnd.reproduced_later.min(), rnd.reproduced_later.max(), rnd.reproduced_later_potent.min(), rnd.reproduced_later_potent.max(), len(rnd),
         f1d(d0.near_ge_0_8), f1d(rnd.near_ge_0_8.min()), f1d(rnd.near_ge_0_8.max()), d0.mean_max_sim, rnd.mean_max_sim.min(), rnd.mean_max_sim.max()))
 d12 = [r for r in r12 if r[0]]; n12 = [r for r in r12 if not r[0]]

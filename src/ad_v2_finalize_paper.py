@@ -74,6 +74,7 @@ if os.path.exists("results/AD_V2_REFERENCE_DRUGS.csv"):
            + BS + "begin{tabular}{@{}lccccccc@{}}\n" + BS + "toprule\n" + BS + "textbf{Compound} & " + BS + "textbf{AChE} & " + BS + "textbf{BBB} & " + BS + "textbf{logBB} & " + BS + "textbf{MPO} & " + BS + "textbf{Vina} & " + BS + "textbf{Pose} " + BS + BS + "\n" + BS + "midrule\n").replace("textbf{Pose} " + BS + BS, "textbf{Pose} " + BS + BS)
     tab = tab.replace("lccccccc", "lcccccc")
     tab += "\n".join(rows) + "\n" + BS + "bottomrule\n" + BS + "end{tabular}\n" + BS + "end{table}"
+    tab = re.sub(r"(&\s*)-(?=\d)", lambda m: m.group(1) + "$-$", tab)
     put("REFDRUGS", BS + "textit{Novelty and its limits.}", txt + "\n\n" + tab)
 
 # ---------------- docking reproducibility ----------------
@@ -97,6 +98,6 @@ for cmd in (["pdflatex", "-interaction=nonstopmode", "main.tex"], ["bibtex", "ma
     p = subprocess.run(cmd, cwd=D, capture_output=True, text=True)
 errs = [l for l in open(D + "main.log", errors="ignore") if l.startswith("!")]
 print("latex errors:", errs[:3] if errs else "none")
-subprocess.run(["python", "-W", "ignore", "src/ad_v2_dossier.py"])
-subprocess.run(["python", "-W", "ignore", "src/ad_v2_make_word.py"])
+subprocess.run(["C:/Users/Uday Raj/bbbenv/Scripts/python.exe", "-W", "ignore", "src/ad_v2_dossier.py"])
+subprocess.run(["C:/Users/Uday Raj/bbbenv/Scripts/python.exe", "-W", "ignore", "src/ad_v2_make_word.py"])
 print("finalized")

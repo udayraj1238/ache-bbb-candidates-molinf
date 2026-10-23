@@ -47,6 +47,10 @@ for lab in ("tab:refdrugs", "tab:edits"):
     seg2 = re.sub(r"(&\s*)-(?=\d)", lambda mo: mo.group(1) + "$-$", seg)
     t = t[:i] + seg2 + t[j:]
 
+# 5b. Table 1 docking row: counts and property-only baseline of the final docking summary (results/AD_DOCK_ENRICHMENT_MATCHED_SUMMARY.csv, set A: 138 vs 542, properties 0.51),
+#     which supersedes the earlier JSON (526 decoys, 0.52) written before the timed-out decoys were re-docked
+rep("Docking score & 138 binders vs 526 matched decoys, AUC & 0.64 & properties 0.52", "Docking score & 138 binders vs 542 matched decoys, AUC & 0.64 & properties 0.51", "table 1 docking row")
+
 # 6. "4 to 4" / "0.47 to 0.47" from identical minimum and maximum
 t = re.sub(r"against (\d+) to \1 \(", r"against \1 (", t)
 t = re.sub(r"against (\d+\.\d+) to \1\)", r"against \1)", t)

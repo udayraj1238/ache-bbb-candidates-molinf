@@ -100,4 +100,6 @@ body.append(BS + "section*{S4. Chemical space of the delivered candidates}\n" + 
 body.append(BS + "end{document}\n")
 os.makedirs(D + "Supporting_Information/supplement/figures", exist_ok=True)
 open(D + "Supporting_Information/supplement/Supplementary_Information.tex", "w", encoding="utf-8", newline="").write(pre + BS + "usepackage{float}\n" + "\n".join(body).replace("[htbp]", "[H]"))
+if os.path.isdir("paper/SUBMISSION/Overleaf_folder"):
+    import shutil; shutil.copy(D + "Supporting_Information/supplement/Supplementary_Information.tex", "paper/SUBMISSION/Overleaf_folder/supplementary.tex")
 print("condensed | MD: rho %.2f, donepezil %.2f/%.2f, AUC %.2f, max COM %.1f | moved: %s" % (rho, don.rmsd1, don.rmsd2, auc, comax, ", ".join(moved)))

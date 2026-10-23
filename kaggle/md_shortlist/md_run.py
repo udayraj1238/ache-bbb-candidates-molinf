@@ -160,6 +160,8 @@ def run_one(name, a, outdir):
     np.save(os.path.join(outdir, "%s_s%d_rmsd.npy" % (name, a.seed)), rmsd)
     # ---------------- MM-GBSA (single trajectory, GBn2, no entropy)
     try:
+        if a.no_mmgbsa:
+            raise RuntimeError('MM-GBSA skipped for the replica run')
         ffg = app.ForceField("amber14-all.xml", "implicit/gbn2.xml"); ffg.registerTemplateGenerator(gaff.generator)
         def energy_fn(topology):
             s = ffg.createSystem(topology, nonbondedMethod=app.NoCutoff, constraints=None)
@@ -187,7 +189,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--gpu", type=int, default=0); ap.add_argument("--seed", type=int, default=1); ap.add_argument("--ns", type=float, default=4.0)
     ap.add_argument("--out", default="md_results"); ap.add_argument("--only", default=""); ap.add_argument("--budget_h", type=float, default=10.2)
-    ap.add_argument("--shard", type=int, default=0); ap.add_argument("--nshards", type=int, default=1)
+    ap.add_argument("--no_mmgbsa", action="store_true"); ap.add_argument("--shard", type=int, default=0); ap.add_argument("--nshards", type=int, default=1)
     a = ap.parse_args(); os.makedirs(a.out, exist_ok=True); t0 = time.time()
     order = a.only.split(",") if a.only else ORDER          # --only keeps the stated priority order
     todo = order[a.shard::a.nshards]
@@ -200,7 +202,7 @@ def main():
         except Exception as ex:
             r = dict(ligand=name, seed=a.seed, error=repr(ex)[:300])
         rows.append(r); print(json.dumps(r), flush=True)
-        pd.DataFrame(rows).to_csv(os.path.join(a.out, "md_summary_seed%d.csv" % a.seed), index=False)
+        pd.DataFrame(rows).to_csv(os.path.join(a.out, "md_summary_seed%d_shard%d.csv" % (a.seed, a.shard)), index=False)
 
 
 if __name__ == "__main__":

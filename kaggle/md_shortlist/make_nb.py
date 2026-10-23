@@ -39,10 +39,12 @@ if RUN_TS:
         for f in glob.glob('/tmp/ts/results/*'): shutil.copy(f, '/kaggle/working/out/time_split/')
     except BaseException as e:
         print('TIME-SPLIT FAILED', repr(e))""")
-code("""# 3. dock the 20 shortlisted molecules (AutoDock Vina 1.2.7, paper protocol) to get starting poses
-sh('curl -L -o /tmp/vina https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.7/vina_1.2.7_linux_x86_64 && chmod +x /tmp/vina && /tmp/vina --version')
-sh(PY + ' %s/scripts/dock_poses.py %s /tmp/vina' % (root, root) + (' 2' if SMOKE else ''))
-shutil.copy(root + '/DOCK_POSES_SUMMARY.csv', '/kaggle/working/out/')
+code("""# 3. starting poses are provided by the dataset (docked in the first run: AutoDock Vina 1.2.7, exhaustiveness 16, seed 42); docked here only if absent
+if os.path.exists(root + '/ligands/order.txt'):
+    print('docked poses are provided by the dataset; docking skipped')
+else:
+    sh('curl -L -o /tmp/vina https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.7/vina_1.2.7_linux_x86_64 && chmod +x /tmp/vina')
+    sh(PY + ' %s/scripts/dock_poses.py %s /tmp/vina' % (root, root))
 for f in glob.glob(root + '/ligands/*.sdf'): shutil.copy(f, '/kaggle/working/out/')
 print(open(root + '/ligands/order.txt').read())""")
 code("""# 4. MD: 2 ns, 21 ligands split over the GPUs, one replica (seed @@SEED@@); no new ligand after the budget so the notebook ends before the session limit
@@ -51,9 +53,9 @@ nsh = min(2, max(1, ngpu)); procs = []
 NS = '0.02' if SMOKE else '2'
 ONLY = ' --only donepezil_crystal_4EY7' if SMOKE else ''
 def pump(p, tag):
-    for line in p.stdout: print('[%s] %s' % (tag, line.rstrip()[:400]), flush=True)
+    for line in p.stdout: print('[%s] %s' % (tag, line.rstrip()[:20000]), flush=True)
 for k in range(nsh):
-    cmd = '%s %s/scripts/md_run.py --gpu %d --seed %d --ns %s --shard %d --nshards %d --budget_h 8.3 --out /kaggle/working/out/md_results%s' % (PY, root, k, SEED, NS, k, nsh, ONLY)
+    cmd = '%s %s/scripts/md_run.py --gpu %d --seed %d --ns %s --shard %d --nshards %d --budget_h @@BUDGET@@ --no_mmgbsa --out /kaggle/working/out/md_results%s' % (PY, root, k, SEED, NS, k, nsh, ONLY)
     print('$', cmd, flush=True)
     p = subprocess.Popen(cmd, shell=True, executable='/bin/bash', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     t = threading.Thread(target=pump, args=(p, 'gpu%d' % k), daemon=True); t.start(); procs.append((p, t))
@@ -65,6 +67,8 @@ if fs:
     df = pd.concat([pd.read_csv(f) for f in fs], ignore_index=True); df.to_csv('/kaggle/working/out/MD_SUMMARY_SEED@@SEED@@.csv', index=False)
     print(df.drop(columns=[c for c in df.columns if c.startswith('polar')], errors='ignore').to_string())
 print('NOTEBOOK_COMPLETED_OK')""".replace('@@SEED@@', str(SEED)))
+BUD = sys.argv[5] if len(sys.argv) > 5 else "10.2"
+for _c in c: _c["source"] = [s.replace("@@BUDGET@@", BUD) for s in _c["source"]]
 nb = {"cells": c, "metadata": {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"}}, "nbformat": 4, "nbformat_minor": 5}
 import os; os.makedirs("kernel_s%d" % SEED, exist_ok=True)
 json.dump(nb, open("kernel_s%d/md2_s%d.ipynb" % (SEED, SEED), "w"), indent=1)

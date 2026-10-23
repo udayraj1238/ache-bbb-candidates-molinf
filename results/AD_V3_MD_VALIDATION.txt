@@ -1,0 +1,5 @@
+n actives 10, inactives 10 (donepezil control: RMSD 3.29, stable=False)
+RMSD (lower = more stable): actives median 1.52, inactives median 1.33; AUC 0.47 (95% 0.20-0.74), Mann-Whitney p=0.850
+COM shift (lower = more stable): actives median 0.65, inactives median 0.82; AUC 0.63 (95% 0.38-0.87), Mann-Whitney p=0.345
+Trp86 stacking fraction (higher): actives median 0.99, inactives median 0.35; AUC 0.81 (95% 0.58-0.99), Mann-Whitney p=0.018
+stable call: actives 10/10, inactives 8/10; Fisher p=0.474

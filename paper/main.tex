@@ -52,7 +52,7 @@ Indian Institute of Information Technology Design and Manufacturing Kurnool, Jag
 E-mail: chandramohan.d@iiitk.ac.in\par}
 
 \section*{Abstract}
-{\small Computational papers on acetylcholinesterase (AChE) inhibitors rarely go beyond predicted potency. We enumerated 383,752 analogues of 2,225 potent published inhibitors by one or two matched-pair edits, kept 2,700 that passed design-stage filters and passed them through gates for activity, brain penetration, drug-likeness, toxicity, docking, protonation and stereochemistry, a four-source novelty search and computed retrosynthesis. 106 molecules on 63 scaffolds cleared every gate with at least 5 \% margin (63 with 10 \% or more), each absent from PubChem, ChEMBL and SureChEMBL and each with a computed route of one to six steps from purchasable materials. A shortlist of 20 was ranked under 5,000 random weightings of eight further checks. The models behind the gates were tested on held-out scaffolds and on compounds published after a cutoff year, where the activity model beat simple baselines overall but not for chemistry unlike its training set; molecular dynamics in two 2 ns replicas left no shortlisted molecule outside the gorge, although the RMSD criterion varied between replicas (donepezil 2.1 and 3.1 \AA{}); and the weak components (docking score, efflux term, hERG) are reported. The substitutions used preserve potency to within 0.5 log units in 64.5 \% of measured AChE compound pairs (51.6 \% for other exchanges), every molecule is tied to a measured potent parent, and inside its applicability domain the activity model ranks later-published compounds with ROC-AUC 0.81 (0.68 for nearest-neighbour similarity). All results are predictions; nothing has been synthesized.\par}
+{\small Computational papers on acetylcholinesterase (AChE) inhibitors rarely go beyond predicted potency. We enumerated 383,752 analogues of 2,225 potent published inhibitors by one or two matched-pair edits, kept 2,700 that passed design-stage filters and passed them through gates for activity, brain penetration, drug-likeness, toxicity, docking, protonation and stereochemistry, a four-source novelty search and computed retrosynthesis. 106 molecules on 63 scaffolds cleared every gate with at least 5 \% margin (63 with 10 \% or more), each absent from PubChem, ChEMBL and SureChEMBL and each with a computed route of one to six steps from purchasable materials. A shortlist of 20 was ranked under 5,000 random weightings of eight further checks. The models behind the gates were tested on held-out scaffolds and on compounds published after a cutoff year, where the activity model beat simple baselines overall but not for chemistry unlike its training set; molecular dynamics in two 2 ns replicas left no shortlisted molecule outside the gorge, although the RMSD criterion varied between replicas (donepezil 2.1 and 3.1 \AA{}), and the same screen did not separate ten potent from ten inactive published compounds (area under the curve 0.47); and the weak components (docking score, efflux term, hERG) are reported. The substitutions used preserve potency to within 0.5 log units in 64.5 \% of measured AChE compound pairs (51.6 \% for other exchanges), every molecule is tied to a measured potent parent, and inside its applicability domain the activity model ranks later-published compounds with ROC-AUC 0.81 (0.68 for nearest-neighbour similarity). All results are predictions; nothing has been synthesized.\par}
 \vspace{4pt}
 \noindent{\small\textbf{Keywords:} acetylcholinesterase $\cdot$ blood--brain barrier $\cdot$ drug design $\cdot$ inhibitors $\cdot$ retrosynthesis\par}
 
@@ -473,6 +473,42 @@ Shortlist 20 & -- & 1.17 & -- & yes \\
 \end{table}
 
 %%END-MD-REPLICA
+%%BEGIN-MD-VAL
+Validation of the screen against known activity. To test whether the pose-stability screen carries any information about activity, we applied the identical protocol (docking, preparation, 2 ns explicit-solvent run, one trajectory each) to ten potent and ten inactive published AChE compounds (Table~\ref{tab:mdval}). The screen did not separate them. The criterion RMSD at most 3.0 \AA{} with centre-of-mass shift at most 6 \AA{} was met by 10 of 10 potent and 8 of 10 inactive compounds (Fisher test, p = 0.47); the second-half RMSD gave an area under the curve of 0.47 (95\% interval 0.20 to 0.74, Mann--Whitney p = 0.85) and the centre-of-mass shift 0.63 (0.38 to 0.87, p = 0.34), with the potent compounds having the slightly higher median RMSD (1.52 against 1.33 \AA{}). Donepezil in its crystal pose again exceeded the RMSD criterion in this run (3.29 \AA{}), so the protocol did not meet its own validity condition here either. Persistent stacking on Trp86 was the one measure that differed (potent compounds, median fraction 0.99; inactive compounds, 0.35; area under the curve 0.81, 95\% interval 0.58 to 0.99, p = 0.018); it was one of three measures examined, the test is not corrected for that, and it rests on ten compounds per class, so it is a lead for further work and not a demonstrated discriminator. We therefore state that the stability screen, as run, is a check against gross loss of the pose and not a predictor of potency, and no ranking in this paper depends on it.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Does the pose-stability screen separate potent from inactive published AChE compounds? Ten potent (pChEMBL at least 8.5) and ten inactive (below 5) compounds from ChEMBL were docked and simulated with the protocol of the shortlist (one 2 ns trajectory each, seed 7). RMSD and COM shift: second half of production (\AA{}); Trp86: fraction of frames with a ligand ring within 5.5 \AA{} of the Trp86 indole.}
+\label{tab:mdval}
+\begin{tabular}{llcccc}
+\toprule
+Compound & Class & pChEMBL & RMSD & COM & Trp86 \\
+\midrule
+1 & potent & 9.1 & 2.48 & 1.47 & 0.99 \\
+2 & potent & 8.9 & 1.03 & 0.46 & 0.99 \\
+3 & potent & 9.1 & 1.30 & 0.79 & 0.99 \\
+4 & potent & 8.5 & 2.34 & 0.72 & 0.99 \\
+5 & potent & 8.6 & 1.17 & 0.62 & 1.00 \\
+6 & potent & 8.9 & 1.45 & 0.52 & 0.96 \\
+7 & potent & 9.0 & 2.08 & 1.23 & 1.00 \\
+8 & potent & 9.1 & 1.90 & 0.62 & 1.00 \\
+9 & potent & 8.6 & 1.58 & 0.68 & 0.99 \\
+10 & potent & 9.5 & 1.18 & 0.52 & 1.00 \\
+11 & inactive & 4.7 & 3.16 & 1.43 & 0.00 \\
+12 & inactive & 4.9 & 2.36 & 1.32 & 0.00 \\
+13 & inactive & 4.8 & 1.15 & 0.66 & 0.69 \\
+14 & inactive & 4.5 & 1.40 & 0.57 & 1.00 \\
+15 & inactive & 4.5 & 3.79 & 1.96 & 1.00 \\
+16 & inactive & 4.9 & 1.04 & 0.70 & 0.00 \\
+17 & inactive & 4.5 & 1.17 & 0.61 & 0.99 \\
+18 & inactive & 4.4 & 2.26 & 1.25 & 0.98 \\
+19 & inactive & 4.5 & 1.26 & 0.94 & 0.00 \\
+20 & inactive & 4.6 & 0.69 & 0.47 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%%END-MD-VAL
 \subsection{Limitations}
 \label{sec:3.5}
 

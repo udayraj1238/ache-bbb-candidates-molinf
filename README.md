@@ -69,7 +69,8 @@ Corresponding author: C. M. Dasari, Indian Institute of Information Technology D
 | `src/ad_v3_indomain.py`, `ad_v3_domain_sensitivity.py`, `ad_v3_calibration.py` | time-split validation inside the applicability domain, its sensitivity to the domain threshold, calibration and conformal coverage |
 | `src/ad_v3_rediscovery.py` | blind re-discovery test of the edit library (run per cutoff and set; see the header) |
 | `src/ad_v3_md_replica.py`, `kaggle/md_shortlist/` | second molecular-dynamics replica of the shortlist and the Kaggle notebook generator |
-| `kaggle/md_validation/` | actives-versus-inactives set for validating the pose-stability screen (run pending) |
+| `kaggle/md_validation/` | actives-versus-inactives set for validating the pose-stability screen (result: `results/AD_V3_MD_VALIDATION.txt`; the screen did not separate the two classes) |
+| `src/ad_v3_md_validation.py`, `src/ad_v3_md_validation_paper.py` | analysis of that validation run and the paper section |
 | `src/ad_v3_paper.py`, `src/ad_v2_generation_paper.py` | write the corresponding sections of `paper/main.tex` from the result files |
 
 Results are in `results/AD_V3_*` and `results/MD_REPLICA_COMBINED.csv`.

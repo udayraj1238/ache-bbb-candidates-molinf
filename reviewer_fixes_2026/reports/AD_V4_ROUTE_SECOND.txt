@@ -1,0 +1,4 @@
+second opinion (USPTO + ring-breaker policies, Retro*, 200 iterations / 300 s): 106 of 106 delivered molecules processed
+   solved: 83 (78 %) ; unsolved: 23
+   among the solved: same number of reactions as the first opinion 70, fewer 3, more 10 (median difference 0.0; first-opinion median 2, second 2)
+   both planners solve it and route length within one reaction: 82 (77 % of all processed)

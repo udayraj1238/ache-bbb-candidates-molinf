@@ -1,0 +1,16 @@
+delivered activity model, time-split final tests
+cutoff 2020: test n = 803 (active 69 %), in domain 48 %
+   all       n   803 | base rate 0.69 | Brier 0.171 | ECE 0.030 | p>=0.70: n 439 precision 0.85 | p>=0.85: n 220 precision 0.95
+      reliability (mean predicted -> observed active share): 0.26->0.26 (n 23); 0.36->0.49 (n 55); 0.45->0.47 (n 78); 0.55->0.51 (n 75); 0.65->0.64 (n 119); 0.75->0.73 (n 140); 0.85->0.82 (n 141); 0.96->0.97 (n 158)
+   in domain n   386 | base rate 0.83 | Brier 0.125 | ECE 0.064 | p>=0.70: n 298 precision 0.88 | p>=0.85: n 187 precision 0.97
+      reliability (mean predicted -> observed active share): 0.66->0.69 (n 36); 0.76->0.79 (n 62); 0.85->0.78 (n 85); 0.96->0.98 (n 151)
+cutoff 2021: test n = 552 (active 70 %), in domain 45 %
+   all       n   552 | base rate 0.70 | Brier 0.158 | ECE 0.026 | p>=0.70: n 302 precision 0.88 | p>=0.85: n 167 precision 0.95
+      reliability (mean predicted -> observed active share): 0.36->0.37 (n 27); 0.45->0.39 (n 64); 0.55->0.55 (n 67); 0.66->0.62 (n 71); 0.75->0.78 (n 92); 0.85->0.86 (n 102); 0.96->0.98 (n 108)
+   in domain n   249 | base rate 0.89 | Brier 0.102 | ECE 0.081 | p>=0.70: n 186 precision 0.94 | p>=0.85: n 136 precision 0.98
+      reliability (mean predicted -> observed active share): 0.55->0.81 (n 21); 0.66->0.70 (n 23); 0.75->0.87 (n 31); 0.86->0.87 (n 55); 0.96->1.00 (n 100)
+cutoff 2022: test n = 357 (active 69 %), in domain 48 %
+   all       n   357 | base rate 0.69 | Brier 0.146 | ECE 0.070 | p>=0.70: n 188 precision 0.92 | p>=0.85: n 112 precision 0.96
+      reliability (mean predicted -> observed active share): 0.37->0.10 (n 20); 0.46->0.28 (n 32); 0.55->0.45 (n 47); 0.65->0.66 (n 58); 0.75->0.87 (n 46); 0.86->0.86 (n 59); 0.96->0.99 (n 83)
+   in domain n   171 | base rate 0.88 | Brier 0.089 | ECE 0.056 | p>=0.70: n 138 precision 0.93 | p>=0.85: n 105 precision 0.96
+      reliability (mean predicted -> observed active share): 0.75->0.86 (n 21); 0.86->0.86 (n 35); 0.96->0.99 (n 82)

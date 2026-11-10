@@ -1,0 +1,7 @@
+ChEMBL logBB records: 94 compounds; not in B3DB / Martins / the study's training sets: 84 (MW 120-700)
+BBB+ (logBB >= -1): 77 | BBB-: 7
+   in-loop oracle   ROC-AUC 0.950 (0.870-1.000)
+   audit oracle     ROC-AUC 0.892 (0.724-1.000)
+   Martins model    ROC-AUC 0.894 (0.669-1.000)
+   -TPSA            ROC-AUC 0.992 (0.970-1.000)
+   logBB regression: Spearman rho 0.699 (n 84)

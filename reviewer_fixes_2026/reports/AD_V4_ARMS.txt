@@ -1,0 +1,9 @@
+arms (same generator, 4,000 round-2 seeds, no scaffold cap):
+arm  transformations  analogues  design_stage_survivors  audited_survivors  margin5  margin10  parents  scaffolds  audited_per_1000_design  margin5_per_1000_design  margin5_per_100k_analogues
+  A              222     136756                    1754                334      248       125      105        127                    190.4                    141.4                       181.3
+ B1               68      91123                    1998                467      329       182      109         87                    233.7                    164.7                       361.1
+ C0              222     171254                    2851                370      259       144      116         87                    129.8                     90.8                       151.2
+ C1              222     124422                    1196                176      114        49       94         63                    147.2                     95.3                        91.6
+ C2              222     137715                    1159                158      103        54       64         36                    136.3                     88.9                        74.8
+A vs random arms (pooled): audited-gate yield 190.4 vs 135.2 per 1,000 design-stage survivors, Fisher p = 4.3e-08
+B1 vs random arms (pooled): audited-gate yield 233.7 vs 135.2 per 1,000 design-stage survivors, Fisher p = 7.7e-23

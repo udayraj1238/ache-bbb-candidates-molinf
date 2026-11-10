@@ -31,7 +31,7 @@ def main():
     ap.add_argument("--skip-controls", action="store_true"); ap.add_argument("--config", default="C:/retro/config.yml")
     a = ap.parse_args()
     f = AiZynthFinder(configfile=a.config)
-    f.stock.select("zinc"); f.expansion_policy.select("uspto"); f.filter_policy.select("uspto")
+    f.stock.select("zinc"); f.expansion_policy.select(os.environ.get("RETRO_EXP", "uspto").split(",")); f.filter_policy.select("uspto")
     if not a.skip_controls:
         p, n = run(f, POS), run(f, NEG)
         print("control donepezil solved=%s steps=%s | control unsynthesisable solved=%s" % (p["route_found"], p["n_steps"], n["route_found"]), flush=True)

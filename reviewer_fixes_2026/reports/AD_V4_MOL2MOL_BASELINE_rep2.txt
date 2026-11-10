@@ -1,0 +1,16 @@
+REINVENT 4 Mol2Mol baseline (kaggle_reinvent), same parents, filters and audited gates as the edit arms
+   sampled 46478 unique new 45220
+   unique valid: 45220 | CNS MPO >= 4 and SA <= 3.5: 8398
+   both BBB oracles >= 0.75: 2567
+   AChE probability >= 0.5: 2447
+   written 2447
+   gate 1 both BBB oracles >= 0.750                                          2447 ->   2447
+   gate 2 independent BBB (Martins) >= 0.513                                 2447 ->   2447
+   gate 3 AChE primary >= 0.700 and both pair members >= 0.500               2447 ->   1632
+   gate 4 AChE model in domain (similarity >= 0.417)                         1632 ->   1577
+   gate 5 predicted logBB >= -0.45 and logBB domain                          1577 ->    915
+   gate 6 CNS MPO, SA, MW                                                     915 ->    906
+   gate 7 no unstable functional group                                        906 ->    901
+   gate 8 no toxicity endpoint worse than own parent                          901 ->    685
+   gate 9 similarity to nearest potent active < 0.900                         685 ->    491
+   survivors of gates 1-9: 491 | validated margin >= 5 %: 349 | parents 172 | scaffolds 335

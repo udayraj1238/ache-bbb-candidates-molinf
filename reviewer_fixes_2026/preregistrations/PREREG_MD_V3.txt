@@ -1,0 +1,22 @@
+PRE-REGISTRATION: pose-stability dynamics, protocol v3 (item 13)     written 2026-10-25 17:04 IST, before any v3 trajectory was analysed
+Why: in the first study the 2 ns screen (i) failed its own validity control (donepezil from the crystal pose exceeded the 3.0 A RMSD criterion in two of three runs), (ii) did not reproduce between
+replicas (Spearman rho 0.11) and (iii) did not separate ten potent from ten inactive compounds (AUC 0.47).  Changes in v3, all fixed here:
+  runs         donepezil (crystal pose) x 4 seeds (11-14); 15 potent (pChEMBL >= 8.0) and 15 inactive (<= 5.0) published compounds, property-matched (src/ad_v4_md_set.py), docked into 4EY7
+               with the study's protocol, one 2.5 ns trajectory each (seed 31 / 32); same force field and procedure as the first study; the solute within 12 A of the ligand is saved for every frame (10 ps).
+  metrics (computed offline from the saved frames, second half of production = last 1.25 ns, ligand fitted on the pocket C-alpha atoms within 8 A of the ligand at t = 0)
+     M1  core RMSD: heavy atoms of the ligand's ring systems (flexible chains excluded)
+     M2  contact persistence: number of the 12 key residues (Trp86, Trp286, Tyr124, Tyr337, Tyr341, Phe295, Phe297, Phe338, Asp74, Glu202, Ser203, His447) with a ligand heavy atom within 4.5 A of a
+         residue heavy atom in >= 50 % of the second-half frames
+     M3  Trp86 stacking fraction (ligand aromatic ring centroid within 5.5 A of the Trp86 ring centroid)
+     (the first study's all-atom RMSD and centre-of-mass shift are also reported, as secondary)
+VALIDITY CONTROL (must hold for the protocol to be used)
+     V1  donepezil crystal pose, all four seeds: M1 <= 2.0 A, and M2 >= 5.
+     V2  reproducibility: the standard deviation of M1 over the four donepezil seeds <= 0.5 A.
+PRIMARY ENDPOINT   potent vs inactive, ROC-AUC (potent ranked as more stable: lower M1, higher M2, higher M3), 95 % bootstrap interval over compounds, Mann-Whitney p.
+     The screen is called discriminating only if, for at least one of M1-M3, the AUC lower bound exceeds 0.5 and p < 0.05/3 (Bonferroni over three metrics), AND V1 and V2 hold.
+If V1 or V2 fails, or no metric meets the endpoint, the dynamics are reported as non-discriminating and are not used in any claim.
+
+ADDENDUM 2026-10-25 17:32 IST (before any v3 trajectory was analysed; the series set had not been simulated):
+  SECONDARY ENDPOINT  a second inactive class, "series inactives": for each of the 15 potent compounds the most similar (ECFP4) measured-inactive compound not used elsewhere (src/ad_v4_md_set_series.py), simulated
+  with the same protocol (kernel ache-md3-kc).  The same three metrics and the same AUC analysis are applied to potent vs series inactives.  It is reported as a secondary result and cannot rescue the primary endpoint
+  (the primary endpoint is the potent vs property-matched inactive comparison above).

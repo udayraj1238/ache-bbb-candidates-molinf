@@ -82,6 +82,7 @@ DISEASES = {
     "alzheimers":    ("AChE_Alzheimers",    "acetylcholinesterase (AChE)"),
     "schizophrenia": ("DRD2_Schizophrenia", "dopamine D2 receptor (DRD2)"),
     "glioma":        ("EGFR_Glioma",        "EGFR"),
+    "bche":          ("BChE_Selectivity",   "butyrylcholinesterase (BChE)"),
 }
 
 
@@ -152,8 +153,15 @@ def pains_catalog():
     return FilterCatalog.FilterCatalog(p)
 
 
-def load_transform_library():
-    lib = pd.read_csv(LIB)
+def load_transform_library(path=LIB, mode="bbb"):
+    lib = pd.read_csv(path)
+    if mode == "all":
+        sel = lib.drop_duplicates(subset="transform").copy()
+        for c, v in (("chem_class", "alternative library"), ("mean_dP", 0.0), ("q_value", np.nan), ("n_pairs", 0)):
+            if c not in sel.columns:
+                sel[c] = v
+        sel["evidence"] = "alternative"
+        return sel
     imp = lib[lib.mean_dP > 0].copy()
     confirmatory = imp[imp.trusted == 1]
     supporting = imp[(imp.n_pairs >= 10) & (imp.mean_dP >= 0.02) & (imp.wilcoxon_p < 0.05)]
@@ -206,6 +214,13 @@ def main():
                          "molecules without moving any threshold)")
     ap.add_argument("--min-oracle", type=float, default=MIN_ORACLE)
     ap.add_argument("--max-gap", type=float, default=MAX_GAP)
+    ap.add_argument("--round2-start", type=int, default=0,
+                    help="first index of the (seed-0) permutation of round-1 analogs used as second-edit seeds; seeds are permutation[start:round2-seeds]")
+    ap.add_argument("--max-per-scaffold", type=int, default=MAX_PER_SCAFFOLD,
+                    help="cap per Murcko scaffold (default 8 as in the first study; 100000 = no cap)")
+    ap.add_argument("--library", default=LIB, help="transformation library csv (default: the BBB-mined library)")
+    ap.add_argument("--library-mode", default="bbb", choices=["bbb", "all"],
+                    help="bbb: positive-mean-dP tiers as in the first study; all: use every row of the library file as given (columns transform, frag_from, frag_to)")
     args = ap.parse_args()
 
     target_name, target_label = DISEASES[args.disease]
@@ -213,7 +228,7 @@ def main():
     target_data_path = f"data/processed/{target_name}_curated.csv"
     target_model_path = f"{MODELS}/disease_{target_name}.joblib"
 
-    sel = load_transform_library()
+    sel = load_transform_library(args.library, args.library_mode)
     print(f"[{args.disease}] transformations in use: {len(sel)}")
     print(sel.evidence.value_counts().to_string())
 
@@ -272,8 +287,10 @@ def main():
         # art. Raising it costs design time and nothing else -- no threshold
         # moves, so nothing downstream is weakened by using a bigger pool.
         cap = args.round2_seeds
-        if len(cheap_ok) > cap:
-            cheap_ok = list(pd.Series(cheap_ok).sample(cap, random_state=0))
+        if len(cheap_ok) > cap or args.round2_start > 0:
+            # the first `cap` of the seed-0 permutation are exactly what pandas' sample(cap, random_state=0) returned in the first study
+            perm = list(pd.Series(cheap_ok).sample(frac=1, random_state=0))
+            cheap_ok = perm[args.round2_start:cap]
         print(f"[{args.disease}] round 2 seed set (size-filtered, capped at {cap}): "
               f"{len(cheap_ok)} of {len(df1)}")
 
@@ -393,7 +410,7 @@ def main():
     df = df.sort_values("confidence", ascending=False)
     picked, per, per_parent = [], {}, {}
     for _, r in df.iterrows():
-        if per.get(r.scaffold, 0) >= MAX_PER_SCAFFOLD:
+        if per.get(r.scaffold, 0) >= args.max_per_scaffold:
             continue
         if args.max_per_parent and per_parent.get(r.parent, 0) >= args.max_per_parent:
             continue

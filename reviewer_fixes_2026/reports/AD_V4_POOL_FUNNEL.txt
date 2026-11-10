@@ -1,0 +1,11 @@
+BBB-mined library, full pool: design-stage survivors 5832 (5 chunk files; parents 439, scaffolds 1323)
+   audited gates 1-9: 896 (5 chunk files) | validated margin >= 5 %: 653 | >= 10 %: 349 | parents 144 | scaffolds 231
+AChE-informed library (68 edits), full pool: design-stage survivors 5362 (5 chunk files; parents 367, scaffolds 517)
+   audited gates 1-9: 1103 (5 chunk files) | validated margin >= 5 %: 767 | >= 10 %: 410 | parents 128 | scaffolds 122
+first study (2,700 stored designs, cap of 8 per scaffold): audited gates 374 | margin >= 5 %: 292 | >= 10 %: 159 | delivered 106
+   extras (new, margin >= 5 %)                                  432
+   after stereochemistry resolution                             432
+   tautomer / protonation / stereo defined (offline pass)       340
+   four-source novelty table                                    340
+   novelty-clear (docked)                                       340
+   pass Vina <= -8.20 and pose coverage >= 0.43                 324

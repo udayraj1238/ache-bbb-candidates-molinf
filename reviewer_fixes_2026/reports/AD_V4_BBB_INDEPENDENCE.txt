@@ -1,0 +1,4 @@
+B3DB training compounds 3981; Martins compounds 1942; Martins compounds also in B3DB (same InChIKey connectivity block): 1839 (94.7 %)
+delivered set (n=106): Spearman in-loop vs audit 0.19, in-loop vs Martins 0.61, audit vs Martins 0.34
+B3DB held-out partition (n=1165; note the Martins model has seen part of it): Spearman in-loop/audit 0.75, in-loop/Martins 0.89, audit/Martins 0.76
+all three models make the same class call on 64.1 % of the held-out compounds

@@ -1,0 +1,38 @@
+selection on cutoffs 2012, 2015, 2018 (mean ROC-AUC, all later compounds): delivered 0.808; cnt_desc 0.803
+frozen improved model: delivered (ties of < 0.005 go to the simpler model)
+
+cutoff 2012  (test n = 1720, in domain 34 %)
+   nn_similarity    all 0.699 (0.674-0.724) | in domain 0.612 (0.556-0.671) | out of domain 0.598 | least-similar third 0.651
+   descriptors_lr   all 0.742 (0.717-0.766) | in domain 0.814 (0.752-0.867) | out of domain 0.670 | least-similar third 0.679
+   cnt_desc         all 0.808 (0.785-0.827) | in domain 0.851 (0.800-0.894) | out of domain 0.745 | least-similar third 0.734
+   delivered        all 0.806 (0.785-0.827) | in domain 0.862 (0.813-0.907) | out of domain 0.735 | least-similar third 0.727
+cutoff 2015  (test n = 1423, in domain 33 %)
+   nn_similarity    all 0.686 (0.656-0.714) | in domain 0.571 (0.506-0.646) | out of domain 0.606 | least-similar third 0.640
+   descriptors_lr   all 0.720 (0.695-0.748) | in domain 0.784 (0.721-0.844) | out of domain 0.662 | least-similar third 0.673
+   cnt_desc         all 0.801 (0.775-0.822) | in domain 0.845 (0.788-0.900) | out of domain 0.746 | least-similar third 0.747
+   delivered        all 0.808 (0.786-0.831) | in domain 0.845 (0.781-0.898) | out of domain 0.756 | least-similar third 0.754
+cutoff 2018  (test n = 1061, in domain 37 %)
+   nn_similarity    all 0.666 (0.633-0.701) | in domain 0.722 (0.660-0.782) | out of domain 0.620 | least-similar third 0.652
+   descriptors_lr   all 0.699 (0.666-0.732) | in domain 0.839 (0.795-0.875) | out of domain 0.619 | least-similar third 0.610
+   cnt_desc         all 0.802 (0.770-0.827) | in domain 0.895 (0.865-0.925) | out of domain 0.756 | least-similar third 0.809
+   delivered        all 0.809 (0.779-0.835) | in domain 0.915 (0.887-0.942) | out of domain 0.759 | least-similar third 0.795
+cutoff 2020  (test n = 707, in domain 39 %)
+   nn_similarity    all 0.676 (0.633-0.723) | in domain 0.740 (0.670-0.813) | out of domain 0.674 | least-similar third 0.631
+   descriptors_lr   all 0.635 (0.581-0.681) | in domain 0.711 (0.649-0.769) | out of domain 0.584 | least-similar third 0.540
+   cnt_desc         all 0.725 (0.677-0.770) | in domain 0.756 (0.687-0.819) | out of domain 0.702 | least-similar third 0.698
+   delivered        all 0.732 (0.686-0.778) | in domain 0.775 (0.705-0.833) | out of domain 0.701 | least-similar third 0.701
+cutoff 2021  (test n = 517, in domain 37 %)
+   nn_similarity    all 0.801 (0.750-0.850) | in domain 0.770 (0.663-0.865) | out of domain 0.743 | least-similar third 0.696
+   descriptors_lr   all 0.688 (0.626-0.745) | in domain 0.803 (0.664-0.898) | out of domain 0.628 | least-similar third 0.590
+   cnt_desc         all 0.768 (0.718-0.813) | in domain 0.888 (0.795-0.961) | out of domain 0.691 | least-similar third 0.682
+   delivered        all 0.790 (0.740-0.842) | in domain 0.888 (0.806-0.962) | out of domain 0.718 | least-similar third 0.695
+cutoff 2022  (test n = 319, in domain 48 %)
+   nn_similarity    all 0.816 (0.745-0.882) | in domain 0.600 (0.367-0.796) | out of domain 0.791 | least-similar third 0.753
+   descriptors_lr   all 0.690 (0.618-0.752) | in domain 0.807 (0.703-0.899) | out of domain 0.569 | least-similar third 0.661
+   cnt_desc         all 0.769 (0.699-0.833) | in domain 0.852 (0.694-0.977) | out of domain 0.646 | least-similar third 0.722
+   delivered        all 0.795 (0.726-0.865) | in domain 0.843 (0.671-0.969) | out of domain 0.686 | least-similar third 0.729
+
+PRE-REGISTERED ENDPOINTS (final-test cutoffs 2020, 2021, 2022; model = delivered)
+  2020: in-domain AUC 0.775 (0.705-0.833) vs best other 0.740 (nn_similarity) -> E1 (lower bound above both baselines and the delivered design) NOT MET; E2 (> 0.65) MET; out-of-domain 0.701 (E3, informational)
+  2021: in-domain AUC 0.888 (0.806-0.962) vs best other 0.803 (descriptors_lr) -> E1 (lower bound above both baselines and the delivered design) MET; E2 (> 0.65) MET; out-of-domain 0.718 (E3, informational)
+  2022: in-domain AUC 0.843 (0.671-0.969) vs best other 0.807 (descriptors_lr) -> E1 (lower bound above both baselines and the delivered design) NOT MET; E2 (> 0.65) MET; out-of-domain 0.686 (E3, informational)

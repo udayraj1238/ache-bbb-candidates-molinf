@@ -142,6 +142,8 @@ def dock_one(smi, tgt, workdir, exhaustiveness=8, keep_pose=None):
            "--size_x", str(sx), "--size_y", str(sy), "--size_z", str(sz),
            "--exhaustiveness", str(exhaustiveness), "--out", out_path,
            "--seed", "42"]
+    if os.environ.get("VINA_SCORING"):   # optional alternative scoring function (vina | vinardo); the study's scores use the default
+        cmd += ["--scoring", os.environ["VINA_SCORING"]]
     try:
         r = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
     except subprocess.TimeoutExpired:

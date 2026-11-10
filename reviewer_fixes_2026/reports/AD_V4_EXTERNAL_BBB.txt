@@ -1,0 +1,5 @@
+external drugs not in B3DB or Martins: 488 (of 1585 labelled before removal); CNS-active 25, non-CNS 463
+  in-loop BBB model    ROC-AUC 0.831 (0.749-0.897)
+  audit BBB model      ROC-AUC 0.876 (0.798-0.940)
+  Martins BBB model    ROC-AUC 0.815 (0.715-0.886)
+  -TPSA (baseline)     ROC-AUC 0.689 (0.589-0.769)

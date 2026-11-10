@@ -1,0 +1,153 @@
+﻿[2026-11-01 01:27:10] lane B started; 27 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 01:27:10] B01_i2_collect: start (try 1)
+[2026-11-01 01:28:51] B01_i2_collect: done
+[2026-11-01 01:28:52] B02_i2_stereo: start (try 1)
+[2026-11-01 01:32:30] lane B started; 27 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 01:32:30] B02_i2_stereo: start (try 1)
+[2026-11-01 01:34:53] B02_i2_stereo: done
+[2026-11-01 01:34:54] B03_i2_offline: waiting for memory (free 1.7 GB, need 2)
+[2026-11-01 01:36:56] B03_i2_offline: waiting for memory (free 0.7 GB, need 2)
+[2026-11-01 01:38:36] lane B started; 27 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 01:38:37] B03_i2_offline: start (try 1)
+[2026-11-01 01:39:21] B03_i2_offline: killed, free memory under 0.8 GB (progress kept; restarts when memory is back)
+[2026-11-01 01:40:20] lane B started; 27 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 01:40:21] B03_i2_offline: start (try 1)
+[2026-11-01 01:42:32] lane B started; 27 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 01:42:33] B03_i2_offline: start (try 1)
+[2026-11-01 01:45:56] B03_i2_offline: CPU at 96 %, suspended
+[2026-11-01 01:52:50] B03_i2_offline: CPU at 66 %, resumed
+[2026-11-01 02:06:11] B03_i2_offline: CPU at 100 %, suspended
+[2026-11-01 02:09:03] B03_i2_offline: CPU at 14 %, resumed
+[2026-11-01 03:12:19] B03_i2_offline: done
+[2026-11-01 03:12:19] B04_i2_novelty: waiting for memory (free 0.8 GB, need 1.5)
+[2026-11-01 03:14:20] B04_i2_novelty: start (try 1)
+[2026-11-01 07:05:24] B04_i2_novelty: done
+[2026-11-01 07:05:25] B05_i2_dock: start (try 1)
+[2026-11-01 07:06:07] B05_i2_dock: done
+[2026-11-01 07:06:08] B06_i2_toretro: start (try 1)
+[2026-11-01 07:07:12] B06_i2_toretro: done
+[2026-11-01 07:07:12] B07_i2_sim: start (try 1)
+[2026-11-01 07:07:34] B07_i2_sim: not complete after exit  (try 1)
+[2026-11-01 07:09:34] B07_i2_sim: start (try 2)
+[2026-11-01 07:09:55] B07_i2_sim: not complete after exit  (try 2)
+[2026-11-01 07:11:56] B07_i2_sim: start (try 3)
+[2026-11-01 07:12:17] B07_i2_sim: not complete after exit  (try 3)
+[2026-11-01 07:14:17] B07_i2_sim: start (try 4)
+[2026-11-01 07:14:39] B07_i2_sim: not complete after exit  (try 4)
+[2026-11-01 07:16:39] B07_i2_sim: start (try 5)
+[2026-11-01 07:17:01] B07_i2_sim: not complete after exit  (try 5)
+[2026-11-01 07:19:01] B07_i2_sim: start (try 6)
+[2026-11-01 07:19:22] B07_i2_sim: not complete after exit  (try 6)
+[2026-11-01 07:21:22] B07_i2_sim: not finished after 6 tries; retried again in 30 minutes; lane continues
+[2026-11-01 07:21:23] B08_i2_todo: start (try 1)
+[2026-11-01 07:21:44] B08_i2_todo: done
+[2026-11-01 07:21:45] B09_i2_retro: waiting for memory (free 2.7 GB, need 3)
+[2026-11-01 07:23:45] B09_i2_retro: start (try 1)
+[2026-11-01 07:31:58] B09_i2_retro: done
+[2026-11-01 07:31:59] B10_final1: start (try 1)
+[2026-11-01 07:35:11] B10_final1: not complete after exit  (try 1)
+[2026-11-01 07:37:12] B10_final1: start (try 2)
+[2026-11-01 07:38:59] B10_final1: not complete after exit  (try 2)
+[2026-11-01 07:40:59] B10_final1: not finished after 2 tries; retried again in 30 minutes; lane continues
+[2026-11-01 07:40:59] B11_i2b_parents: start (try 1)
+[2026-11-01 07:41:21] B11_i2b_parents: done
+[2026-11-01 07:41:21] B12_i2b_bbb: start (try 1)
+[2026-11-01 08:06:22] B12_i2b_bbb: done
+[2026-11-01 08:06:22] B13_i2b_b1: start (try 1)
+[2026-11-01 08:27:49] B13_i2b_b1: done
+[2026-11-01 08:27:49] B14_i2b_gates: start (try 1)
+[2026-11-01 09:38:12] lane B started; 27 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 09:38:13] B04_i2_novelty: start (try 1)
+[2026-11-01 09:39:49] lane B started; 27 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 09:39:50] B04_i2_novelty: start (try 1)
+[2026-11-01 09:42:23] B04_i2_novelty: done
+[2026-11-01 09:42:23] B05_i2_dock: waiting for memory (free 1.5 GB, need 1.5)
+[2026-11-01 09:44:24] B05_i2_dock: start (try 1)
+[2026-11-01 22:13:26] B05_i2_dock: done
+[2026-11-01 22:13:26] B06_i2_toretro: start (try 1)
+[2026-11-01 22:16:39] B06_i2_toretro: done
+[2026-11-01 22:16:40] B07_i2_sim: start (try 1)
+[2026-11-01 22:32:47] B07_i2_sim: done
+[2026-11-01 22:32:48] B08_i2_todo: start (try 1)
+[2026-11-01 22:33:09] B08_i2_todo: done
+[2026-11-01 22:33:10] B09_i2_retro: waiting for memory (free 2.4 GB, need 3)
+[2026-11-01 22:35:11] B09_i2_retro: waiting for memory (free 2.4 GB, need 3)
+[2026-11-01 22:37:12] B09_i2_retro: waiting for memory (free 1.9 GB, need 3)
+[2026-11-01 22:39:13] B09_i2_retro: waiting for memory (free 2.7 GB, need 3)
+[2026-11-01 22:41:13] B09_i2_retro: waiting for memory (free 2.6 GB, need 3)
+[2026-11-01 22:43:14] B09_i2_retro: waiting for memory (free 2.7 GB, need 3)
+[2026-11-01 22:45:15] B09_i2_retro: waiting for memory (free 2.6 GB, need 3)
+[2026-11-01 22:47:15] B09_i2_retro: waiting for memory (free 2.3 GB, need 3)
+[2026-11-01 22:49:16] B09_i2_retro: waiting for memory (free 1.4 GB, need 3)
+[2026-11-01 22:51:17] B09_i2_retro: waiting for memory (free 1.4 GB, need 3)
+[2026-11-01 22:53:17] B09_i2_retro: waiting for memory (free 1.5 GB, need 3)
+[2026-11-01 22:55:18] B09_i2_retro: waiting for memory (free 1.9 GB, need 3)
+[2026-11-01 22:57:18] B09_i2_retro: waiting for memory (free 1.8 GB, need 3)
+[2026-11-01 22:59:19] B09_i2_retro: waiting for memory (free 2 GB, need 3)
+[2026-11-01 23:01:20] B09_i2_retro: waiting for memory (free 1.5 GB, need 3)
+[2026-11-01 23:03:20] B09_i2_retro: start (try 1)
+[2026-11-02 03:17:08] B09_i2_retro: done
+[2026-11-02 03:17:08] B10_final1: start (try 1)
+[2026-11-02 03:28:55] B10_final1: done
+[2026-11-02 03:28:55] B14_i2b_gates: start (try 1)
+[2026-11-02 05:22:18] B14_i2b_gates: done
+[2026-11-02 05:22:18] B15_i2b_collect: start (try 1)
+[2026-11-02 05:33:21] B15_i2b_collect: done
+[2026-11-02 05:33:21] B16_i2b_stereo: start (try 1)
+[2026-11-02 05:49:06] B16_i2b_stereo: done
+[2026-11-02 05:49:06] B17_i2b_offline: start (try 1)
+[2026-11-02 08:05:33] B17_i2b_offline: done
+[2026-11-02 08:05:33] B18_i2b_novelty: start (try 1)
+[2026-11-02 08:27:01] B18_i2b_novelty: not complete after exit 1 (try 1)
+[2026-11-02 08:29:02] B18_i2b_novelty: start (try 2)
+[2026-11-02 08:31:11] B18_i2b_novelty: not complete after exit 1 (try 2)
+[2026-11-02 08:33:11] B18_i2b_novelty: start (try 3)
+[2026-11-02 09:28:19] B18_i2b_novelty: not complete after exit 1 (try 3)
+[2026-11-02 09:28:29] lane B started; 27 jobs; ends 11/02/2026 13:45:00
+[2026-11-02 09:28:30] B18_i2b_novelty: start (try 1)
+[2026-11-02 09:29:40] B18_i2b_novelty: not complete after exit 1 (try 1)
+[2026-11-02 09:31:40] B18_i2b_novelty: start (try 2)
+[2026-11-02 11:20:27] B18_i2b_novelty: not complete after exit 1 (try 2)
+[2026-11-02 11:22:28] B18_i2b_novelty: start (try 3)
+[2026-11-02 13:45:15] B18_i2b_novelty: stopped at the end time
+[2026-11-02 13:45:16] at end: src\ad_v4_final_set.py
+[2026-11-02 13:47:40] lane B finished
+[2026-11-02 14:13:05] lane B started; 26 jobs; ends 11/04/2026 08:00:00
+[2026-11-02 14:13:07] B18_i2b_novelty: start (try 1)
+[2026-11-02 14:15:16] B18_i2b_novelty: CPU at 96 %, suspended
+[2026-11-02 14:21:20] B18_i2b_novelty: CPU at 5 %, resumed
+[2026-11-02 14:22:24] B18_i2b_novelty: CPU at 100 %, suspended
+[2026-11-02 14:23:54] B18_i2b_novelty: CPU at 51 %, resumed
+[2026-11-02 14:44:49] B18_i2b_novelty: done
+[2026-11-02 14:44:50] B19_i2b_dock: start (try 1)
+[2026-11-02 14:45:08] lane B started; 26 jobs; ends 11/04/2026 08:00:00
+[2026-11-02 14:45:10] B19_i2b_dock: start (try 1)
+[2026-11-02 14:46:57] B19_i2b_dock: paused by queue\PAUSE (progress kept)
+[2026-11-02 14:47:04] lane B started; 26 jobs; ends 11/04/2026 08:00:00
+[2026-11-02 14:47:05] B19_i2b_dock: start (try 1)
+[2026-11-02 23:09:07] lane B started; 26 jobs; ends 11/04/2026 08:00:00
+[2026-11-02 23:09:08] B19_i2b_dock: start (try 1)
+[2026-11-02 23:14:37] lane B started; 26 jobs; ends 11/04/2026 08:00:00
+[2026-11-02 23:14:38] B19_i2b_dock: start (try 1)
+[2026-11-03 01:18:05] lane B started; 26 jobs; ends 11/04/2026 23:00:00
+[2026-11-03 01:18:06] B19_i2b_dock: start (try 1)
+[2026-11-03 01:19:50] lane B started; 26 jobs; ends 11/04/2026 23:00:00
+[2026-11-03 01:19:50] B19_i2b_dock: start (try 1)
+[2026-11-03 03:33:00] B19_i2b_dock: done
+[2026-11-03 03:33:00] B20_i2b_toretro: start (try 1)
+[2026-11-03 03:33:22] B20_i2b_toretro: done
+[2026-11-03 03:33:22] B21_i2b_sim: start (try 1)
+[2026-11-03 04:20:43] B21_i2b_sim: done
+[2026-11-03 04:20:44] B22_i2b_todo: start (try 1)
+[2026-11-03 04:21:05] B22_i2b_todo: done
+[2026-11-03 04:21:06] B23_i2b_retro: waiting for memory (free 2.5 GB, need 3)
+[2026-11-03 04:23:06] B23_i2b_retro: start (try 1)
+[2026-11-03 23:52:25] B23_i2b_retro: done
+[2026-11-03 23:52:26] B24_final2: start (try 1)
+[2026-11-03 23:53:10] B24_final2: done
+[2026-11-03 23:53:10] B26_retro_deeper_s0: start (try 1)
+[2026-11-04 15:09:43] B26_retro_deeper_s0: done
+[2026-11-04 15:09:43] B27_final3: start (try 1)
+[2026-11-04 15:10:27] B27_final3: done
+[2026-11-04 23:00:28] at end: src\ad_v4_final_set.py
+[2026-11-04 23:00:47] lane B finished

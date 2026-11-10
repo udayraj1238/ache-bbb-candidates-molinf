@@ -1,0 +1,4 @@
+GAN baseline (results/ckpt_V9_ache_dual_s1.pt), 30,000 samples, same audited gates as the edit arms
+   valid strict: 28848 of 30000 unique: 6171
+   unique valid: 6171 | CNS MPO >= 4 and SA <= 3.5: 0
+   gates not reached (see logs/gan_gates_1.out)

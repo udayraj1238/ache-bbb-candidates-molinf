@@ -1,0 +1,57 @@
+selection on cutoffs 2012, 2015, 2018 (mean ROC-AUC, all later compounds): delivered 0.759; cnt_desc 0.758; chemberta_lr 0.674; chemberta_rf 0.707; gnn 0.713
+frozen improved model: delivered (ties of < 0.005 go to the simpler model)
+
+cutoff 2012  (test n = 2380, in domain 41 %)
+   nn_similarity    all 0.746 (0.725-0.764) | in domain 0.667 (0.614-0.720) | out of domain 0.616 | least-similar third 0.599
+   descriptors_lr   all 0.692 (0.669-0.716) | in domain 0.639 (0.579-0.700) | out of domain 0.640 | least-similar third 0.645
+   chemberta_lr     all 0.658 (0.633-0.680) | in domain 0.723 (0.675-0.764) | out of domain 0.543 | least-similar third 0.495
+   chemberta_rf     all 0.720 (0.700-0.740) | in domain 0.749 (0.700-0.793) | out of domain 0.596 | least-similar third 0.568
+   cnt_desc         all 0.747 (0.725-0.765) | in domain 0.780 (0.741-0.824) | out of domain 0.618 | least-similar third 0.580
+   comb             all 0.743 (0.720-0.764) | in domain 0.768 (0.722-0.805) | out of domain 0.614 | least-similar third 0.576
+   delivered        all 0.731 (0.710-0.751) | in domain 0.764 (0.723-0.802) | out of domain 0.595 | least-similar third 0.535
+   gnn              all 0.703 (0.679-0.724) | in domain 0.723 (0.679-0.763) | out of domain 0.612 | least-similar third 0.615
+cutoff 2015  (test n = 1802, in domain 46 %)
+   nn_similarity    all 0.737 (0.711-0.761) | in domain 0.676 (0.622-0.725) | out of domain 0.568 | least-similar third 0.606
+   descriptors_lr   all 0.670 (0.641-0.697) | in domain 0.687 (0.633-0.740) | out of domain 0.574 | least-similar third 0.551
+   chemberta_lr     all 0.662 (0.636-0.691) | in domain 0.734 (0.690-0.774) | out of domain 0.528 | least-similar third 0.468
+   chemberta_rf     all 0.710 (0.686-0.735) | in domain 0.737 (0.680-0.784) | out of domain 0.557 | least-similar third 0.523
+   cnt_desc         all 0.759 (0.739-0.781) | in domain 0.780 (0.736-0.822) | out of domain 0.623 | least-similar third 0.593
+   delivered        all 0.770 (0.750-0.790) | in domain 0.805 (0.763-0.839) | out of domain 0.626 | least-similar third 0.556
+   gnn              all 0.711 (0.684-0.734) | in domain 0.704 (0.649-0.752) | out of domain 0.605 | least-similar third 0.576
+cutoff 2018  (test n = 1211, in domain 48 %)
+   nn_similarity    all 0.696 (0.663-0.727) | in domain 0.722 (0.669-0.772) | out of domain 0.545 | least-similar third 0.602
+   descriptors_lr   all 0.682 (0.651-0.713) | in domain 0.727 (0.679-0.775) | out of domain 0.596 | least-similar third 0.581
+   chemberta_lr     all 0.703 (0.678-0.735) | in domain 0.803 (0.760-0.844) | out of domain 0.560 | least-similar third 0.568
+   chemberta_rf     all 0.691 (0.664-0.720) | in domain 0.753 (0.709-0.799) | out of domain 0.552 | least-similar third 0.557
+   cnt_desc         all 0.768 (0.741-0.792) | in domain 0.839 (0.797-0.874) | out of domain 0.648 | least-similar third 0.650
+   delivered        all 0.777 (0.749-0.803) | in domain 0.852 (0.813-0.889) | out of domain 0.648 | least-similar third 0.619
+   gnn              all 0.726 (0.699-0.753) | in domain 0.765 (0.713-0.815) | out of domain 0.628 | least-similar third 0.631
+cutoff 2020  (test n = 803, in domain 48 %)
+   nn_similarity    all 0.724 (0.685-0.759) | in domain 0.710 (0.647-0.770) | out of domain 0.619 | least-similar third 0.609
+   descriptors_lr   all 0.692 (0.648-0.737) | in domain 0.629 (0.554-0.703) | out of domain 0.682 | least-similar third 0.692
+   chemberta_lr     all 0.668 (0.627-0.701) | in domain 0.732 (0.670-0.787) | out of domain 0.539 | least-similar third 0.508
+   chemberta_rf     all 0.716 (0.680-0.753) | in domain 0.708 (0.646-0.770) | out of domain 0.623 | least-similar third 0.611
+   cnt_desc         all 0.784 (0.752-0.816) | in domain 0.758 (0.696-0.809) | out of domain 0.745 | least-similar third 0.773
+   delivered        all 0.774 (0.738-0.808) | in domain 0.768 (0.713-0.821) | out of domain 0.712 | least-similar third 0.739
+   gnn              all 0.759 (0.724-0.792) | in domain 0.682 (0.615-0.756) | out of domain 0.742 | least-similar third 0.790
+cutoff 2021  (test n = 552, in domain 45 %)
+   nn_similarity    all 0.770 (0.734-0.807) | in domain 0.696 (0.601-0.798) | out of domain 0.638 | least-similar third 0.569
+   descriptors_lr   all 0.748 (0.704-0.789) | in domain 0.656 (0.545-0.767) | out of domain 0.737 | least-similar third 0.728
+   chemberta_lr     all 0.725 (0.680-0.763) | in domain 0.806 (0.728-0.873) | out of domain 0.612 | least-similar third 0.628
+   chemberta_rf     all 0.784 (0.744-0.824) | in domain 0.824 (0.748-0.886) | out of domain 0.692 | least-similar third 0.692
+   cnt_desc         all 0.820 (0.783-0.859) | in domain 0.789 (0.713-0.858) | out of domain 0.783 | least-similar third 0.823
+   delivered        all 0.808 (0.769-0.844) | in domain 0.788 (0.728-0.854) | out of domain 0.758 | least-similar third 0.815
+   gnn              all 0.802 (0.761-0.838) | in domain 0.803 (0.738-0.873) | out of domain 0.730 | least-similar third 0.767
+cutoff 2022  (test n = 357, in domain 48 %)
+   nn_similarity    all 0.777 (0.728-0.826) | in domain 0.699 (0.566-0.805) | out of domain 0.637 | least-similar third 0.603
+   descriptors_lr   all 0.796 (0.743-0.846) | in domain 0.687 (0.556-0.796) | out of domain 0.784 | least-similar third 0.787
+   chemberta_lr     all 0.734 (0.680-0.786) | in domain 0.826 (0.753-0.889) | out of domain 0.579 | least-similar third 0.658
+   chemberta_rf     all 0.811 (0.761-0.851) | in domain 0.852 (0.781-0.917) | out of domain 0.708 | least-similar third 0.748
+   cnt_desc         all 0.871 (0.830-0.906) | in domain 0.843 (0.765-0.918) | out of domain 0.830 | least-similar third 0.828
+   delivered        all 0.860 (0.822-0.896) | in domain 0.830 (0.737-0.903) | out of domain 0.802 | least-similar third 0.795
+   gnn              all 0.848 (0.808-0.884) | in domain 0.848 (0.770-0.913) | out of domain 0.781 | least-similar third 0.795
+
+PRE-REGISTERED ENDPOINTS (final-test cutoffs 2020, 2021, 2022; model = delivered)
+  2020: in-domain AUC 0.768 (0.713-0.821) vs best other 0.710 (nn_similarity) -> E1 (lower bound above both baselines and the delivered design) MET; E2 (> 0.65) MET; out-of-domain 0.712 (E3, informational)
+  2021: in-domain AUC 0.788 (0.728-0.854) vs best other 0.696 (nn_similarity) -> E1 (lower bound above both baselines and the delivered design) MET; E2 (> 0.65) MET; out-of-domain 0.758 (E3, informational)
+  2022: in-domain AUC 0.830 (0.737-0.903) vs best other 0.699 (nn_similarity) -> E1 (lower bound above both baselines and the delivered design) MET; E2 (> 0.65) MET; out-of-domain 0.802 (E3, informational)

@@ -1,0 +1,17 @@
+MD v3: 48 trajectories analysed
+donepezil (crystal pose), 4 seeds: M1 core RMSD 2.34, 1.54, 1.48, 1.73 A; M2 contacts 9, 11, 11, 11; M3 Trp86 stacking 0.61, 1.00, 1.00, 1.00; all-atom RMSD 2.16, 1.42, 1.51, 1.77
+validity V1 (all seeds M1 <= 2.0 A and M2 >= 5): False | V2 (SD of M1 over seeds <= 0.5 A): True (SD 0.39)
+PRIMARY (potent vs property-matched inactives): 14 potent, 15 inactive analysed
+   M1 core RMSD                 potent median 1.56, inactive median 1.35; AUC 0.51 (0.29-0.73), p = 0.913
+   M2 contact persistence       potent median 10.50, inactive median 10.00; AUC 0.59 (0.38-0.78), p = 0.417
+   M3 Trp86 stacking            potent median 0.98, inactive median 0.55; AUC 0.59 (0.39-0.79), p = 0.401
+   all-atom RMSD (secondary)    potent median 1.57, inactive median 1.72; AUC 0.45 (0.24-0.67), p = 0.678
+   COM shift (secondary)        potent median 0.62, inactive median 0.87; AUC 0.54 (0.31-0.78), p = 0.711
+PRE-REGISTERED VERDICT: NOT discriminating or control invalid (V1 False, V2 True, metrics meeting the endpoint: none); the dynamics are not used in any claim
+SECONDARY (potent vs series inactives; cannot rescue the primary endpoint): 14 potent, 15 inactive analysed
+   M1 core RMSD                 potent median 1.56, inactive median 1.60; AUC 0.46 (0.24-0.69), p = 0.711
+   M2 contact persistence       potent median 10.50, inactive median 11.00; AUC 0.56 (0.32-0.77), p = 0.590
+   M3 Trp86 stacking            potent median 0.98, inactive median 0.73; AUC 0.57 (0.35-0.80), p = 0.508
+   all-atom RMSD (secondary)    potent median 1.57, inactive median 1.89; AUC 0.56 (0.34-0.79), p = 0.585
+   COM shift (secondary)        potent median 0.62, inactive median 0.89; AUC 0.64 (0.40-0.84), p = 0.214
+secondary metrics meeting the endpoint: none

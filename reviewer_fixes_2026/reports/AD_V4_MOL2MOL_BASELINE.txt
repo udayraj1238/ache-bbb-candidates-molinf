@@ -1,0 +1,41 @@
+REINVENT 4 Mol2Mol baseline (kaggle_reinvent), same parents, filters and audited gates as the edit arms
+   sampled 56313 unique new 45149
+   unique valid: 45149 | CNS MPO >= 4 and SA <= 3.5: 8381
+   both BBB oracles >= 0.75: 2565
+   AChE probability >= 0.5: 2464
+   written 2464
+   sampled 9936 unique new 9679
+   unique valid: 9679 | CNS MPO >= 4 and SA <= 3.5: 1434
+   both BBB oracles >= 0.75: 367
+   AChE probability >= 0.5: 345
+   written 345
+   sampled 9936 unique new 9679
+   unique valid: 9679 | CNS MPO >= 4 and SA <= 3.5: 1434
+   both BBB oracles >= 0.75: 367
+   AChE probability >= 0.5: 345
+   written 345
+   sampled 9936 unique new 9679
+   unique valid: 9679 | CNS MPO >= 4 and SA <= 3.5: 1434
+   both BBB oracles >= 0.75: 367
+   AChE probability >= 0.5: 345
+   written 345
+   sampled 9936 unique new 9679
+   unique valid: 9679 | CNS MPO >= 4 and SA <= 3.5: 1434
+   both BBB oracles >= 0.75: 367
+   AChE probability >= 0.5: 345
+   written 345
+   sampled 56313 unique new 45149
+   unique valid: 45149 | CNS MPO >= 4 and SA <= 3.5: 8381
+   both BBB oracles >= 0.75: 2565
+   AChE probability >= 0.5: 2464
+   written 2464
+   gate 1 both BBB oracles >= 0.750                                          2464 ->   2464
+   gate 2 independent BBB (Martins) >= 0.513                                 2464 ->   2464
+   gate 3 AChE primary >= 0.700 and both pair members >= 0.500               2464 ->   1675
+   gate 4 AChE model in domain (similarity >= 0.417)                         1675 ->   1609
+   gate 5 predicted logBB >= -0.45 and logBB domain                          1609 ->    944
+   gate 6 CNS MPO, SA, MW                                                     944 ->    939
+   gate 7 no unstable functional group                                        939 ->    928
+   gate 8 no toxicity endpoint worse than own parent                          928 ->    724
+   gate 9 similarity to nearest potent active < 0.900                         724 ->    536
+   survivors of gates 1-9: 536 | validated margin >= 5 %: 370 | parents 194 | scaffolds 344

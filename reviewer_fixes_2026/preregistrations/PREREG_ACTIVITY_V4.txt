@@ -1,0 +1,18 @@
+PRE-REGISTRATION: improved AChE activity model and pre-specified applicability domain (item 7)
+Written 2026-10-25 before any model of this protocol was fitted. File hash recorded in results/PREREG_ACTIVITY_V4.sha256.
+
+DATA   ChEMBL CHEMBL220 IC50/Ki records with pChEMBL and document year (data/raw/AChE_ChEMBL_years.csv), one record per compound (InChIKey block 1 after largest-fragment
+       standardisation), mean pChEMBL, EARLIEST report year. Active: mean pChEMBL >= 6.0; inactive: <= 5.0; between excluded. Test compounds present in train are removed.
+SPLITS Cutoffs 2012, 2015, 2018 (already examined in this study: MODEL SELECTION ONLY) and 2020, 2021, 2022 (NOT examined before: FINAL TEST). Train: first reported <= cutoff.
+MODELS (a) nearest-neighbour Tanimoto to training actives; (b) logistic regression on 8 descriptors; (c) the delivered design: RF + ExtraTrees + HistGB average, view-A features;
+       (d..) candidate improvements, each fitted identically at every cutoff: count-ECFP4 + RDKit 2D descriptors with the same three learners; gradient boosting with monotone-free
+       defaults; pretrained-embedding and graph-network models fitted on the GPU (reported separately).
+SELECTION  The candidate with the highest mean ROC-AUC over ALL later compounds at the cutoffs 2012, 2015 and 2018 is frozen as "improved model". Ties (difference < 0.005) go to the
+       simpler model. No hyper-parameter is tuned on the final-test cutoffs.
+APPLICABILITY DOMAIN  A compound is in domain if its maximum ECFP4 Tanimoto similarity to the training actives of the SAME cutoff is >= 0.417 (the value fixed in the first study).
+       It is NOT re-estimated for the new cutoffs.
+PRIMARY ENDPOINTS (final-test cutoffs 2020, 2021, 2022; improved model vs the delivered design vs nearest-neighbour similarity vs the descriptor model)
+       E1  in-domain ROC-AUC: the model's 95 % bootstrap interval lower bound must exceed the point estimate of both baselines.
+       E2  in-domain ROC-AUC > 0.65 at every final-test cutoff.
+       E3  out-of-domain ROC-AUC reported without a pass criterion (it was not significantly better than similarity in the first study).
+Everything is reported whatever the outcome.

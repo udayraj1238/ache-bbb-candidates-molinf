@@ -4,6 +4,17 @@ Code, data, results and manuscript for the study *Computational Design of 106 No
 
 > **All results are computational predictions. No molecule has been synthesized or assayed.** The delivered structures are candidates for a first experimental test, not demonstrated inhibitors.
 
+## Update, October-November 2026: work on the reviewer-flaggable weaknesses
+
+After the study was finished, 29 weaknesses a reviewer could flag were listed, and every one that computation can address was worked on (pre-registered where a bar was involved, negative results kept). **The manuscript text has not been changed.** The full record is in [`reviewer_fixes_2026/`](reviewer_fixes_2026/README.md):
+
+* [`ITEMS_STATUS.md`](reviewer_fixes_2026/ITEMS_STATUS.md) - the 29 weaknesses, one row each (12 fixed, 5 partly, 4 not fixed, 8 open), with the evidence file;
+* [`NEGATIVE_RESULTS.md`](reviewer_fixes_2026/NEGATIVE_RESULTS.md) - what did not work (docking never reached its bar, hERG cannot be ranked, MD control fails, BBB models not independent, ...);
+* [`RESULTS_SUMMARY.md`](reviewer_fixes_2026/RESULTS_SUMMARY.md), [`CHRONOLOGY.md`](reviewer_fixes_2026/CHRONOLOGY.md), [`REPRODUCE.md`](reviewer_fixes_2026/REPRODUCE.md);
+* text reports in [`reviewer_fixes_2026/reports/`](reviewer_fixes_2026/reports), hashed pre-registrations in [`preregistrations/`](reviewer_fixes_2026/preregistrations), the unattended queue in [`queue/`](reviewer_fixes_2026/queue), the Kaggle jobs in [`kaggle/`](reviewer_fixes_2026/kaggle), new scripts in `src/` (`ad_v4_*.py`).
+
+Headline: the candidate set was extended from 106 to **403 molecules** (125 scaffolds, each with a computed route), the activity model passed a pre-registered fresh-cutoff test, and the edit libraries beat random edits - but a published generator (REINVENT 4 Mol2Mol) performs about as well as the edit libraries on the same gates. The extended-set structures and the other tables that contain molecules are not in this repository yet (see the folder README).
+
 ## What the study does
 
 2,700 analogues of potent published AChE inhibitors, made by one or two matched-pair edits, were passed through a gated cascade (activity, blood-brain-barrier penetration by three independent models and a logBB regression, drug-likeness, toxicity relative to the parent, docking and pose coverage, protonation, tautomer and stereochemistry checks, a four-source novelty search against PubChem, ChEMBL and SureChEMBL, and computed retrosynthesis with AiZynthFinder). **106 molecules on 63 scaffolds** cleared every gate with at least 5 % margin (63 with 10 % or more); a **shortlist of 20** was ranked under 5,000 random weightings of eight further checks. Every model behind a gate was tested on held-out scaffolds against simple baselines, and on compounds published after a cutoff year; the components that did not hold up (docking score, the P-gp term, hERG, and the activity model for chemistry unlike its training set) are reported in the paper.

@@ -1,0 +1,4 @@
+﻿[2026-10-27 00:01:05] rescore_vinardo try 1
+[2026-10-27 08:22:12] rescore_vinardo finished
+[2026-10-27 08:22:12] rescore_vina_e32 try 1
+[2026-10-28 10:32:04] queue finished

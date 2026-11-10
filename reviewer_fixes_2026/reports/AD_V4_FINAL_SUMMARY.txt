@@ -1,0 +1,7 @@
+first-study set: 106 | processed extras: 866 (novelty-clear, docking gates passed) of which with a computed route: 536
+  first_study  n 106 | scaffolds  63 | parents  34 | carbamate series  0 | R1-flagged (known compound >= 0.80) 41 | legacy efflux gate would remove 0 | scaffold already in ChEMBL AChE: 40
+  full_pool    n 866 | scaffolds 162 | parents 138 | carbamate series 162 | R1-flagged (known compound >= 0.80) 305 | legacy efflux gate would remove 136 | scaffold already in ChEMBL AChE: 591
+EXTENDED SET (route found, not carbamate series, not R1-flagged): 403 molecules | 125 scaffolds | 92 parents | 207 with scaffold absent from ChEMBL AChE
+  by origin: full_pool 338, first_study 65 | margin >= 10 %: 222 | route <= 2 reactions: 269
+molecules of the extended set with predicted logBB >= donepezil (0.75), CNS MPO >= donepezil (4.1) and AChE probability >= 0.85: 8
+diverse subset (greedy max-min, ECFP4): 60 molecules, 45 scaffolds, 51 parents, mean pairwise Tanimoto 0.26 (all deliverable: 0.27)

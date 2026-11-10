@@ -1,0 +1,10 @@
+GNINA rescoring: 680 / 680 benchmark ligands scored
+   Vina (earlier docking, same ligands)           ROC-AUC 0.639 (0.584-0.689)
+   GNINA affinity                                 ROC-AUC 0.639 (0.583-0.690)
+   CNN score                                      ROC-AUC 0.608 (0.552-0.660)
+   CNN affinity                                   ROC-AUC 0.569 (0.515-0.620)
+   consensus: Vina + CNN affinity (rank mean)     ROC-AUC 0.620 (0.564-0.675)
+   consensus: Vina + CNN score + CNN affinity     ROC-AUC 0.661 (0.608-0.714)
+bar fixed in the first study: ROC-AUC >= 0.70; property-only logistic regression 0.513
+delivered set: 106 scored; median CNN score 0.91, median CNN affinity 7.28, share with CNN score >= 0.5: 100 %
+controls: m0786 CNN 0.92 / 7.3; m0787 CNN 0.89 / 6.6; m0788 CNN 0.92 / 5.7; m0789 CNN 0.85 / 5.3; m0790 CNN 0.71 / 6.7

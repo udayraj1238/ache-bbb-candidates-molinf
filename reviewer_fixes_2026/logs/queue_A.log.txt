@@ -1,0 +1,73 @@
+﻿[2026-11-01 01:27:10] lane A started; 4 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 01:27:10] A1_vina_e32_retry: start (try 1)
+[2026-11-01 01:32:30] lane A started; 4 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 01:32:30] A1_vina_e32_retry: start (try 1)
+[2026-11-01 01:38:36] lane A started; 4 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 01:38:36] A1_vina_e32_retry: start (try 1)
+[2026-11-01 01:39:21] A1_vina_e32_retry: killed, free memory under 0.8 GB (progress kept; restarts when memory is back)
+[2026-11-01 01:40:20] lane A started; 4 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 01:40:21] A1_vina_e32_retry: start (try 1)
+[2026-11-01 01:42:32] lane A started; 4 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 01:42:33] A1_vina_e32_retry: start (try 1)
+[2026-11-01 02:06:11] A1_vina_e32_retry: CPU at 100 %, suspended
+[2026-11-01 02:09:03] A1_vina_e32_retry: CPU at 20 %, resumed
+[2026-11-01 07:05:32] A1_vina_e32_retry: done
+[2026-11-01 07:05:32] A2_report: start (try 1)
+[2026-11-01 07:06:37] A2_report: not complete after exit  (try 1)
+[2026-11-01 07:08:37] A2_report: start (try 2)
+[2026-11-01 07:09:20] A2_report: not complete after exit  (try 2)
+[2026-11-01 07:11:20] A2_report: not finished after 2 tries; retried again in 30 minutes; lane continues
+[2026-11-01 07:11:20] A3_vinardo_e32: start (try 1)
+[2026-11-01 09:38:12] lane A started; 4 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 09:38:13] A2_report: start (try 1)
+[2026-11-01 09:38:57] A2_report: not complete after exit  (try 1)
+[2026-11-01 09:39:49] lane A started; 4 jobs; ends 11/02/2026 13:45:00
+[2026-11-01 09:39:50] A2_report: start (try 1)
+[2026-11-01 09:40:54] A2_report: not complete after exit 1 (try 1)
+[2026-11-01 09:42:55] A2_report: start (try 2)
+[2026-11-01 09:43:38] A2_report: done
+[2026-11-01 09:43:38] A3_vinardo_e32: start (try 1)
+[2026-11-01 23:28:31] A3_vinardo_e32: killed, free memory under 0.35 GB for 1 minute (progress kept; restarts when memory is back)
+[2026-11-01 23:31:34] A3_vinardo_e32: start (try 1)
+[2026-11-02 09:28:29] lane A started; 4 jobs; ends 11/02/2026 13:45:00
+[2026-11-02 09:28:30] A3_vinardo_e32: start (try 1)
+[2026-11-02 13:45:15] A3_vinardo_e32: stopped at the end time
+[2026-11-02 13:45:15] at end: src\ad_v4_rescore_report.py
+[2026-11-02 13:48:18] lane A finished
+[2026-11-02 14:13:04] lane A started; 5 jobs; ends 11/04/2026 08:00:00
+[2026-11-02 14:13:07] A5_retro_deeper_s1: waiting for memory (free 2.5 GB, need 3)
+[2026-11-02 14:15:07] A5_retro_deeper_s1: waiting for memory (free 1.4 GB, need 3)
+[2026-11-02 14:17:08] A5_retro_deeper_s1: waiting for memory (free 1.5 GB, need 3)
+[2026-11-02 14:19:08] A5_retro_deeper_s1: waiting for memory (free 1.2 GB, need 3)
+[2026-11-02 14:21:09] A5_retro_deeper_s1: waiting for memory (free 1.1 GB, need 3)
+[2026-11-02 14:23:09] A5_retro_deeper_s1: start (try 1)
+[2026-11-02 14:45:08] lane A started; 5 jobs; ends 11/04/2026 08:00:00
+[2026-11-02 14:45:10] A5_retro_deeper_s1: start (try 1)
+[2026-11-02 14:47:04] lane A started; 5 jobs; ends 11/04/2026 08:00:00
+[2026-11-02 14:47:05] A5_retro_deeper_s1: start (try 1)
+[2026-11-02 23:09:07] lane A started; 5 jobs; ends 11/04/2026 08:00:00
+[2026-11-02 23:09:08] A5_retro_deeper_s1: start (try 1)
+[2026-11-02 23:14:37] lane A started; 5 jobs; ends 11/04/2026 08:00:00
+[2026-11-02 23:14:38] A5_retro_deeper_s1: start (try 1)
+[2026-11-03 01:18:05] lane A started; 5 jobs; ends 11/04/2026 23:00:00
+[2026-11-03 01:18:06] A5_retro_deeper_s1: start (try 1)
+[2026-11-03 01:19:50] lane A started; 9 jobs; ends 11/04/2026 23:00:00
+[2026-11-03 01:19:50] M1_mol2mol_convert: start (try 1)
+[2026-11-03 01:20:12] M1_mol2mol_convert: done
+[2026-11-03 01:20:12] M2_mol2mol_prep: start (try 1)
+[2026-11-03 01:25:34] M2_mol2mol_prep: done
+[2026-11-03 01:25:35] M3_mol2mol_gates: start (try 1)
+[2026-11-03 01:30:36] M3_mol2mol_gates: done
+[2026-11-03 01:30:36] M4_mol2mol_report: start (try 1)
+[2026-11-03 01:30:58] M4_mol2mol_report: done
+[2026-11-03 01:30:58] A5_retro_deeper_s1: waiting for memory (free 1.8 GB, need 3)
+[2026-11-03 01:32:59] A5_retro_deeper_s1: start (try 1)
+[2026-11-03 08:39:14] A5_retro_deeper_s1: done
+[2026-11-03 08:39:15] A6_retro_deeper_s2: start (try 1)
+[2026-11-03 23:15:15] A6_retro_deeper_s2: done
+[2026-11-03 23:15:15] A7_report: start (try 1)
+[2026-11-03 23:16:19] A7_report: done
+[2026-11-03 23:16:20] A8_vinardo_e32: start (try 1)
+[2026-11-04 23:00:11] A8_vinardo_e32: stopped at the end time
+[2026-11-04 23:00:11] at end: src\ad_v4_rescore_report.py
+[2026-11-04 23:01:01] lane A finished

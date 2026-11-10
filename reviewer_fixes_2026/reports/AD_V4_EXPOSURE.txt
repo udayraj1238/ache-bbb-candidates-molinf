@@ -1,0 +1,14 @@
+(a) AUC (BBB+ vs BBB-) in the stratum passive >= 0.65 (n=5241); adoption bar: AUC >= 0.60 and lower bound >= 0.55
+   inhibitor_model  AUC 0.563 (0.544-0.581)  no
+   nNO              AUC 0.651 (0.631-0.671)  ADOPT
+   rule_of_four     AUC 0.565 (0.554-0.576)  no
+   hbd              AUC 0.597 (0.578-0.613)  no
+   tpsa             AUC 0.669 (0.650-0.686)  ADOPT
+   mw               AUC 0.599 (0.582-0.618)  no
+   combo            AUC 0.668 (0.650-0.687)  (combo is a trained model; shown for information)
+verdict: an efflux term meets the bar: nNO, tpsa
+(b) logBB, scaffold-grouped 5-fold CV, mean of 3 shuffles (n=1025):
+   delivered (view A)                       RF+ET+HGB  rho 0.716  RMSE 0.543
+   count-ECFP4 + RDKit descriptors          RF+ET+HGB  rho 0.724  RMSE 0.541
+   view A + count-ECFP4 + descriptors       RF+ET+HGB  rho 0.719  RMSE 0.546
+   RDKit descriptors                        SVR (rbf)  rho 0.692  RMSE 0.567

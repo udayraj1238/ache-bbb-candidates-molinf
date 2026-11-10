@@ -1,0 +1,18 @@
+(a) benchmark: 138 actives, property-matched decoys (n per receptor in brackets)
+   4EY7 (earlier docking)     ROC-AUC 0.639 (0.584-0.689) [680]
+   4EY4                       ROC-AUC 0.635 (0.579-0.687) [599]
+   4EY5                       ROC-AUC 0.665 (0.614-0.715) [649]
+   4EY6                       ROC-AUC 0.611 (0.556-0.661) [680]
+   4M0E                       ROC-AUC 0.653 (0.601-0.703) [649]
+   ensemble: best score       ROC-AUC 0.633 (0.578-0.683) [680]
+   ensemble: mean score       ROC-AUC 0.642 (0.587-0.699) [680]
+   property-only logistic regression on the same molecules: 0.513 (first study); bar: AUC >= 0.70
+(b) delivered set (n = 106)
+   4EY7       median Vina -10.80, median coverage 0.96, gate passed by 106 / 106
+   4EY4       median Vina -9.89, median coverage 0.89, gate passed by 98 / 106
+   4EY5       median Vina -9.21, median coverage 0.79, gate passed by 87 / 106
+   4EY6       median Vina -9.81, median coverage 0.86, gate passed by 99 / 106
+   4M0E       median Vina -9.59, median coverage 0.82, gate passed by 102 / 106
+   gate passed in all 5 receptors: 83 | in at least half: 101 | in none: 0
+   mean pairwise Spearman correlation of Vina scores between receptors: 0.74
+(c) controls (Vina by receptor): m0786: 4EY7 -12.4, 4EY4 -10.7, 4EY5 -8.6, 4EY6 -11.1, 4M0E -10.0; m0787: 4EY7 -7.3, 4EY4 -6.4, 4EY5 -6.2, 4EY6 -7.1, 4M0E -5.9; m0788: 4EY7 -7.7, 4EY4 -7.2, 4EY5 -6.9, 4EY6 -7.4, 4M0E -7.2; m0789: 4EY7 -8.8, 4EY4 -8.8, 4EY5 -8.6, 4EY6 -8.2, 4M0E -8.9; m0790: 4EY7 -9.1, 4EY4 -9.0, 4EY5 -9.5, 4EY6 -9.6, 4M0E -7.6

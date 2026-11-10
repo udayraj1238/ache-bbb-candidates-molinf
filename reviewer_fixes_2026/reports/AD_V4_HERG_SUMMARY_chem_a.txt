@@ -1,0 +1,8 @@
+hERG structures 10470 | scaffold-grouped 5-fold CV: Spearman rho 0.659, RMSE 0.67 pChEMBL, AUC(pChEMBL >= 5) 0.815
+calibration panel (10 blockers vs 10 non-blockers, panel structures held out of training): AUC 1.000
+  predicted pChEMBL: cisapride 5.52, terfenadine 6.07, astemizole 6.82, dofetilide 5.83, sertindole 6.54, pimozide 5.95, haloperidol 5.88, thioridazine 5.84, quinidine 5.47, ibutilide 5.74, metformin 5.30, acetaminophen 4.96, aspirin 4.93, atenolol 4.95, lisinopril 5.10, amoxicillin 5.09, caffeine 5.23, furosemide 4.93, ranitidine 5.40, dextrose 5.24
+  donepezil (held out) 5.85 | cisapride (held out) 5.52
+pass criteria: CV rho >= 0.50: True | panel AUC >= 0.90: True | cisapride > donepezil: False
+VERDICT: NOT MET (reported, not used to label the set)
+final model: donepezil predicted pChEMBL 5.73
+delivered set (106): predicted pChEMBL median 5.55 (min 5.24, max 5.95); classes A/B/C = 0 / 97 / 9; in domain (sim >= 0.35): 85; below the parent's prediction: 63

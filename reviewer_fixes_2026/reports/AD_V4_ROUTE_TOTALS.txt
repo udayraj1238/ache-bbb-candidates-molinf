@@ -1,0 +1,14 @@
+Delivered set, n = 106
+longest linear sequence (steps): 1: 35, 2: 39, 3: 10, 4: 7, 5: 12, 6: 3
+total reactions in the route:  1: 35, 2: 28, 3: 21, 4: 7, 5: 10, 6: 5
+routes whose total reaction count equals the step count: 93; one more: 13; two or more: 0
+median total reactions 2 (max 6); median purchasable building blocks 3 (max 5)
+cross-tabulation (rows: steps, columns: total reactions):
+route_n_reactions  1.0  2.0  3.0  4.0  5.0  6.0
+n_steps                                        
+1                   35    0    0    0    0    0
+2                    0   28   11    0    0    0
+3                    0    0   10    0    0    0
+4                    0    0    0    7    0    0
+5                    0    0    0    0   10    2
+6                    0    0    0    0    0    3

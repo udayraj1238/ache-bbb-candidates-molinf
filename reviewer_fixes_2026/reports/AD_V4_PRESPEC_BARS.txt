@@ -1,0 +1,24 @@
+PRE-SPECIFIED BARS AND OUTCOMES (item 18), compiled 2026-10-29 from the result files of this overnight work.  A bar fixed before a run is never moved; extra attempts are listed as extra attempts.
+
+BAR (fixed in)                                                        OUTCOME                                                                   STATUS
+Activity model: in-domain ROC-AUC lower bound above the similarity    cutoffs 2020 / 2021 / 2022: in-domain AUC 0.77 / 0.79 / 0.83,             MET (E1, E2)
+  and descriptor baselines on cutoffs 2020-2022 (PREREG_ACTIVITY_V4)    lower bounds above both baselines (AD_V4_ACTIVITY_EVAL.txt)
+  - caveat: precision at the gate p >= 0.70 is 0.88-0.94 in domain       base rate of actives in domain is 0.83-0.89 (AD_V4_CALIBRATION.txt)       note for the text
+BChE activity model, same bars                                        E1 met at 1 of 3 cutoffs, E2 at 3 of 3 (AD_V4_ACTIVITY_EVAL_BCHE.txt)     PARTLY MET
+Efflux term of the first study (inhibitor model) ROC-AUC bar          0.56; only polarity measures (N+O count 0.65, TPSA 0.67) pass             NOT MET -> gate dropped
+logBB model: practical gain over the first model                      rho 0.724 vs 0.716, RMSE 0.541 vs 0.543                                    NOT MET
+hERG: CV rho >= 0.50, panel AUC >= 0.90, cisapride > donepezil        0.67-0.69; 1.00; cisapride 5.37 < donepezil 5.69 (three feature sets)       NOT MET (one of three criteria)
+Docking enrichment ROC-AUC >= 0.70 (first study), property-only 0.51  Vina 0.639; ensemble mean 0.642; GNINA affinity 0.639, CNN score 0.608;    NOT MET
+                                                                      consensus 0.661; Vinardo 0.686 (0.635-0.736), exhaustiveness-32 run 0.610
+                                                                      on 279 of 680 ligands only.  Six scorers tried after the first result.
+MD v3 validity V1 (donepezil, M1 <= 2.0 A and M2 >= 5, 4 seeds)      seed 11: 2.34 A                                                            NOT MET
+MD v3 validity V2 (SD of M1 <= 0.5 A)                                 0.39 A                                                                     MET
+MD v3 primary endpoint (potent vs matched inactive, AUC lower bound   M1 0.51, M2 0.59, M3 0.59 (lower bounds 0.29-0.39, p 0.40-0.91)           NOT MET -> dynamics not used
+  > 0.5 and p < 0.05/3); series-inactive secondary                    secondary: AUC 0.46-0.57, none met
+Edit library vs random edits (same generator, same gates)             190 vs 135 audited survivors per 1,000 (p 4e-8); AChE-preserving 234        MET
+BBB models independent of each other                                  94.7 % of Martins compounds also in B3DB                                   NOT MET (stated)
+BBB models on 488 external ATC-labelled drugs                         AUC 0.83 / 0.88 / 0.82 (-TPSA 0.69)                                        informative
+Route second opinion                                                  second planner solves 83 / 106; 82 / 106 agree within one reaction         reported
+Threshold sensitivity                                                 10 % stricter leaves 20 of 374 designs; 20 % stricter leaves 0            reported (fragile when stricter)
+Candidates better than donepezil on predicted logBB, CNS MPO and      4 of 152 in the extended set (11 of 15 in the pool are eseroline          reported
+  AChE probability together                                           carbamates, excluded by the pre-registered rule)

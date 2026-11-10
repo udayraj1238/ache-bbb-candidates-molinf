@@ -1,0 +1,10 @@
+PRE-SPECIFIED, UNIFORM PRIOR-ART RULE (item 17)   written 2026-10-25 16:34 IST, before the similarity search over the delivered set was complete
+(four of the 106 result rows had been seen when this rule was written: PubChem maximum ECFP4 similarity 0.71, 0.73, 0.73, 0.78; the threshold below was not chosen from them)
+
+The first study excluded the eseroline-carbamate series after a documented patent family was found for its parents: a series-specific, post-hoc decision.
+The rule below replaces it and is applied to every delivered molecule identically:
+  R1  a molecule is FLAGGED if the search of results/AD_V4_SIMILARITY_SEARCH.csv found any known compound (ChEMBL at >= 80 % server similarity, or PubChem 2D at >= 90 %) with a
+      local ECFP4 Tanimoto similarity >= 0.80 to it;
+  R2  a flagged molecule is not delivered;
+  R3  the carbamate series are additionally reported separately (they are exactly the series whose parents have a documented patent family), whether or not R1 flags them.
+Everything is reported: the number flagged, the number remaining, and the overlap with the first study's exclusion.

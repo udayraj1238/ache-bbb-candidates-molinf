@@ -1,0 +1,59 @@
+[2026-10-25 23:09:30] finisher started
+[2026-10-26 01:14:48] retro-extras downloaded
+[2026-10-26 01:14:55] push second: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/udayraj1238/ache-retro-second
+[2026-10-26 01:15:38] final set assembled
+[2026-10-26 01:25:51] second planner analysed
+[2026-10-26 05:00:28] MD analysed
+07:00 laptop heavy jobs stopped
+[2026-10-26 13:32:16] finisher started
+[2026-10-26 13:32:20] push second: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-10-26 13:32:40] final set assembled
+[2026-10-26 13:33:00] finisher started
+[2026-10-26 13:35:50] finisher started
+[2026-10-26 13:36:10] push deep: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-10-26 13:46:28] push deep: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-10-26 13:56:46] push deep: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-10-26 14:07:04] push deep: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-10-26 14:17:31] push deep: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/udayraj1238/ache-retro-deep
+[2026-10-26 14:28:24] ensemble docking analysed
+[2026-10-26 16:20:05] second planner analysed
+[2026-10-26 18:12:10] deep retro downloaded
+[2026-10-26 19:28:28] finisher started
+[2026-10-26 19:53:08] dataset2: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Starting upload for file extras2.csv
+kaggle.exe : 
+At <PROJECT_ROOT>\FINISH_AUTO.ps1:48 char:19
++ ...          $o = (& $K datasets create -p $d --dir-mode zip 2>&1 | Out-S ...
++                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  0%|          | 0.00/345k [00:00<?, ?B/s]
+  5%|Γûì         | 16.0k/345k [00:01<00:32, 10.4kB/s]
+ 56%|ΓûêΓûêΓûêΓûêΓûêΓûî    | 192k/345k [00:01<00:01, 156kB/s]  
+100%|ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê| 345k/345k [00:03<00:00, 108kB/s]
+Upload successful: extras2.csv (345KB)
+Starting upload for file retro_run.py
+
+  0%|          | 0.00/3.15k [00:00<?, ?B/s]
+100%|ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê| 3.15k/3.15k [00:01<00:00, 1.64kB/s]
+100%|ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê| 3.15k/3.15k [00:02<00:00, 1.16kB/s]
+Upload successful: retro_run.py (3KB)
+Your private Dataset is being created. Please check progress at https://www.kaggle.com/datasets/udayraj1238/ache-retro-inputs2
+[2026-10-26 20:03:22] dataset2: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Dataset creation error: The requested title "ache-retro-inputs2" is already in use by a dataset. Please choose another title.
+[2026-10-26 20:04:57] push extras2: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/udayraj1238/ache-retro-extras2
+[2026-10-26 22:07:27] retro-extras2 downloaded
+[2026-10-27 00:05:04] finisher started
+[2026-10-27 00:05:20] final set assembled
+[2026-10-27 03:30:09] gnina analysed
+[2026-10-28 10:33:35] committed to the local repo (not pushed)
+[2026-10-28 10:33:35] finisher ended
